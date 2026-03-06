@@ -4,9 +4,11 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
-import { getMessages,setRequestLocale } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 
+import { JsonLd } from "@/components/json-ld";
 import { Providers } from "@/components/providers";
+import { SEO, SITE_URL } from "@/lib/general/seo";
 import { routing } from "@/lib/i18n/routing";
 import { BaseLayoutProps } from "@/types/page-props";
 
@@ -17,9 +19,47 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "ΑΝΘΗ-ΦΥΤΑ KALOUDIS | Κηποτεχνικές Εργασίες Ηλιούπολη",
-  description:
-    "Ανθοπωλείο και κηποτεχνικές υπηρεσίες στην Ηλιούπολη. Άνθη, φυτά, στολισμοί γάμων και βαφτίσεων, συντηρήσεις κήπων, αυτόματα ποτίσματα, κλαδέματα και σχεδιασμός κήπου.",
+  title: {
+    default: SEO.defaultTitle,
+    template: `%s${SEO.titleSuffix}`,
+  },
+  description: SEO.defaultDescription,
+  keywords: [...SEO.keywords],
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+    languages: {
+      el: "/el",
+      en: "/en",
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: SEO.siteName,
+    title: SEO.defaultTitle,
+    description: SEO.defaultDescription,
+    url: SITE_URL,
+    locale: "el_GR",
+    alternateLocale: "en_US",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1920,
+        height: 1080,
+        alt: SEO.siteName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SEO.defaultTitle,
+    description: SEO.defaultDescription,
+    images: ["/images/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export const generateStaticParams = () => {
@@ -36,6 +76,9 @@ const LocaleLayout = async ({ children, params }: BaseLayoutProps) => {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <JsonLd />
+      </head>
       <body className={`${roboto.variable} font-sans antialiased`}>
         <Providers messages={messages} locale={locale}>
           {children}
