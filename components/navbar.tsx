@@ -8,6 +8,7 @@ import { LanguageSwitcher } from "@/components/examples/language-switcher";
 import { ThemeSwitcher } from "@/components/examples/ThemeSwitcher";
 import { KaloudisLogo } from "@/components/KaloudisLogo";
 import { Button } from "@/components/ui/button";
+import { BUSINESS } from "@/lib/general/constants";
 import { cn } from "@/lib/general/utils";
 
 const NAV_LINKS = [
@@ -93,7 +94,7 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+302109954775"
+              href={BUSINESS.phoneHref}
               className={cn(
                 "flex items-center gap-2 text-sm font-medium transition-colors",
                 scrolled
@@ -102,7 +103,7 @@ export function Navbar() {
               )}
             >
               <Phone className="size-4" />
-              210 9954775
+              {BUSINESS.phone}
             </a>
             <LanguageSwitcher
               className={scrolled ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
@@ -180,13 +181,13 @@ export function Navbar() {
           <div className="p-6 pt-4 border-t space-y-4">
             {/* Phone */}
             <a
-              href="tel:+302109954775"
+              href={BUSINESS.phoneHref}
               className="flex items-center gap-3 py-2 text-foreground hover:text-primary transition-colors"
             >
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Phone className="size-4 text-primary" />
               </div>
-              <span className="text-sm font-medium">210 9954775</span>
+              <span className="text-sm font-medium">{BUSINESS.phone}</span>
             </a>
 
             {/* Controls row */}

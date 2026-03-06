@@ -6,6 +6,9 @@ import { useCallback, useEffect, useState } from "react";
 
 import { cn } from "@/lib/general/utils";
 
+const LIGHTBOX_BUTTON_CLASS =
+  "absolute z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20";
+
 const GALLERY_IMAGES = [
   { src: "/images/1.jpg", alt: "Εξωτερικός χώρος καταστήματος με λουλούδια" },
   { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών" },
@@ -17,6 +20,7 @@ const GALLERY_IMAGES = [
 
 export function GalleryGrid() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const activeImage = openIndex !== null ? GALLERY_IMAGES[openIndex] : null;
 
   const goNext = useCallback(() => {
     setOpenIndex((prev) =>
@@ -37,11 +41,13 @@ export function GalleryGrid() {
   useEffect(() => {
     if (openIndex === null) return;
 
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowRight") goNext();
-      if (e.key === "ArrowLeft") goPrev();
+    const keyActions: Record<string, () => void> = {
+      Escape: close,
+      ArrowRight: goNext,
+      ArrowLeft: goPrev,
     };
+
+    const handleKey = (e: KeyboardEvent) => keyActions[e.key]?.();
 
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKey);
@@ -83,57 +89,53 @@ export function GalleryGrid() {
       </div>
 
       {/* Lightbox */}
-      {openIndex !== null && (
+      {activeImage && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 backdrop-blur-sm"
           onClick={close}
         >
-          {/* Close button */}
           <button
             onClick={close}
-            className="absolute top-4 right-4 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            className={cn(LIGHTBOX_BUTTON_CLASS, "top-4 right-4")}
             aria-label="Close"
           >
             <X className="size-6" />
           </button>
 
-          {/* Previous button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               goPrev();
             }}
-            className="absolute left-4 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            className={cn(LIGHTBOX_BUTTON_CLASS, "left-4")}
             aria-label="Previous"
           >
             <ChevronLeft className="size-6" />
           </button>
 
-          {/* Image */}
           <div
             className="relative max-h-[85vh] max-w-[90vw] md:max-w-[80vw]"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={GALLERY_IMAGES[openIndex].src}
-              alt={GALLERY_IMAGES[openIndex].alt}
+              src={activeImage.src}
+              alt={activeImage.alt}
               width={1200}
               height={900}
               className="max-h-[85vh] w-auto rounded-lg object-contain"
               priority
             />
             <p className="mt-3 text-center text-sm text-white/70">
-              {GALLERY_IMAGES[openIndex].alt}
+              {activeImage.alt}
             </p>
           </div>
 
-          {/* Next button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               goNext();
             }}
-            className="absolute right-4 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            className={cn(LIGHTBOX_BUTTON_CLASS, "right-4")}
             aria-label="Next"
           >
             <ChevronRight className="size-6" />
@@ -141,7 +143,7 @@ export function GalleryGrid() {
 
           {/* Image counter */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/50">
-            {openIndex + 1} / {GALLERY_IMAGES.length}
+            {openIndex! + 1} / {GALLERY_IMAGES.length}
           </div>
         </div>
       )}

@@ -4,10 +4,10 @@ import { Clock, Mail, MapPin, Phone, Send, Smartphone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+import { BUSINESS } from "@/lib/general/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/general/utils";
 
 export function ContactSection() {
   const t = useTranslations("ContactForm");
@@ -21,7 +21,7 @@ export function ContactSection() {
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
 
-    window.location.href = `mailto:kipotexnikesergasies13@gmail.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(
       `Μήνυμα από ${name}`
     )}&body=${encodeURIComponent(`Από: ${name}\nEmail: ${email}\n\n${message}`)}`;
 
@@ -32,24 +32,24 @@ export function ContactSection() {
     {
       icon: MapPin,
       label: tContact("address"),
-      href: "https://maps.google.com/?q=Κυπρίων+Ηρώων+4+Ηλιούπολη",
+      href: BUSINESS.mapsQuery,
       external: true,
     },
     {
       icon: Phone,
       label: tContact("phone"),
-      href: "tel:+302109954775",
+      href: BUSINESS.phoneHref,
     },
     {
       icon: Smartphone,
       label: `${tContact("mobile")} (WhatsApp)`,
-      href: "https://wa.me/306941469582",
+      href: BUSINESS.whatsappHref,
       external: true,
     },
     {
       icon: Mail,
-      label: "kipotexnikesergasies13@gmail.com",
-      href: "mailto:kipotexnikesergasies13@gmail.com",
+      label: BUSINESS.email,
+      href: `mailto:${BUSINESS.email}`,
     },
   ];
 
@@ -107,7 +107,7 @@ export function ContactSection() {
             {/* Embedded map */}
             <div className="rounded-xl overflow-hidden h-48 border shadow-sm">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.5!2d23.75!3d37.93!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDU1JzQ4LjAiTiAyM8KwNDUnMDAuMCJF!5e0!3m2!1sel!2sgr!4v1"
+                src={BUSINESS.mapsEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

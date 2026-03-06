@@ -7,6 +7,18 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+const LEAF_PATH = "M100,10 Q140,50 160,100 Q140,160 100,190 Q60,160 40,100 Q60,50 100,10Z";
+
+function LeafDecoration({ className }: { className: string }) {
+  return (
+    <div className={className}>
+      <svg viewBox="0 0 200 200" className="w-full h-full text-white">
+        <path d={LEAF_PATH} fill="currentColor" />
+      </svg>
+    </div>
+  );
+}
+
 export function NewsletterSection() {
   const t = useTranslations("Newsletter");
   const [email, setEmail] = useState("");
@@ -22,23 +34,8 @@ export function NewsletterSection() {
 
   return (
     <section className="relative overflow-hidden bg-forest text-forest-foreground">
-      {/* Decorative leaf shapes — hidden on small screens */}
-      <div className="absolute top-0 left-0 w-40 md:w-64 h-40 md:h-64 opacity-[0.07] md:opacity-10">
-        <svg viewBox="0 0 200 200" className="w-full h-full text-white">
-          <path
-            d="M100,10 Q140,50 160,100 Q140,160 100,190 Q60,160 40,100 Q60,50 100,10Z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
-      <div className="hidden md:block absolute bottom-0 right-0 w-48 h-48 opacity-10 rotate-45">
-        <svg viewBox="0 0 200 200" className="w-full h-full text-white">
-          <path
-            d="M100,10 Q140,50 160,100 Q140,160 100,190 Q60,160 40,100 Q60,50 100,10Z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
+      <LeafDecoration className="absolute top-0 left-0 w-40 md:w-64 h-40 md:h-64 opacity-[0.07] md:opacity-10" />
+      <LeafDecoration className="hidden md:block absolute bottom-0 right-0 w-48 h-48 opacity-10 rotate-45" />
 
       <div className="relative container mx-auto px-4 lg:px-8 py-12 md:py-20">
         <div className="max-w-3xl mx-auto text-center space-y-5 md:space-y-6">

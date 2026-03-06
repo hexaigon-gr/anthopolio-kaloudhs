@@ -26,21 +26,9 @@ export async function AboutSection() {
             {/* Feature highlights */}
             <div className="space-y-6">
               {[
-                {
-                  icon: Heart,
-                  titleKey: "quality" as const,
-                  descKey: "qualityDesc" as const,
-                },
-                {
-                  icon: Leaf,
-                  titleKey: "variety" as const,
-                  descKey: "varietyDesc" as const,
-                },
-                {
-                  icon: Award,
-                  titleKey: "awards" as const,
-                  descKey: "awardsDesc" as const,
-                },
+                { icon: Heart, titleKey: "quality", descKey: "qualityDesc" },
+                { icon: Leaf, titleKey: "variety", descKey: "varietyDesc" },
+                { icon: Award, titleKey: "awards", descKey: "awardsDesc" },
               ].map(({ icon: Icon, titleKey, descKey }) => (
                 <div key={titleKey} className="flex gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">

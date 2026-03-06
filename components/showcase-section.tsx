@@ -1,14 +1,11 @@
 import {
-  Bug,
   Container,
   Droplet,
   Droplets,
   Flower2,
-  Gem,
   Mountain,
   PenTool,
   Scissors,
-  Trash2,
   TreePine,
   Trees,
   Wrench,
@@ -98,9 +95,7 @@ export async function ShowcaseSection() {
                       className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
                     >
                       <Icon className="size-5 text-primary shrink-0" />
-                      <div>
-                        <p className="text-sm font-medium">{tServices(key)}</p>
-                      </div>
+                      <p className="text-sm font-medium">{tServices(key)}</p>
                     </div>
                   ))}
                 </div>
