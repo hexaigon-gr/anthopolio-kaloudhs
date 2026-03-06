@@ -1,14 +1,128 @@
 {
   "HomePage": {
-    "title": "Welcome",
-    "description": "Get started by editing this page.",
-    "components": {
-      "title": "Available Components",
-      "button": "Button",
-      "input": "Input",
-      "card": "Card",
-      "label": "Label"
-    }
+    "title": "ANTHI-FYTA KALOUDIS",
+    "subtitle": "Landscaping Services",
+    "heroHeadline": "Flowers, Plants & Landscaping Services in Ilioupoli",
+    "heroSubheadline": "From wedding decoration to garden design — trust the experts",
+    "ctaProducts": "Our Products",
+    "ctaServices": "Our Services",
+    "ctaCall": "Call Us",
+    "ctaContact": "Contact"
+  },
+  "Nav": {
+    "home": "Home",
+    "products": "Products",
+    "services": "Services",
+    "reviews": "Reviews",
+    "contact": "Contact"
+  },
+  "About": {
+    "title": "About Us",
+    "description1": "Kaloudis is a well-known florist in the Ilioupoli area, offering a wide variety of flowers and plants suitable for every occasion. We emphasize high aesthetic quality and excellent customer service.",
+    "description2": "We provide floral decoration services for weddings, baptisms and receptions, creating original compositions. We also offer a rich collection of indoor and outdoor plants, as well as complete landscaping services.",
+    "quality": "Quality & Service",
+    "qualityDesc": "Service with a smile, honesty and dedication to every customer",
+    "variety": "Wide Variety",
+    "varietyDesc": "From fresh cut flowers to rare plants and carnivorous species",
+    "awards": "Award-Winning Business",
+    "awardsDesc": "Eagles Award 2023, 2024 & 2025 — consistent quality recognition"
+  },
+  "Gallery": {
+    "title": "Our Shop",
+    "subtitle": "Photos from our flower shop and our work"
+  },
+  "Showcase": {
+    "title": "What We Offer",
+    "productsTitle": "Products",
+    "productsDescription": "Wide variety of flowers, plants and garden supplies",
+    "servicesTitle": "Services",
+    "servicesDescription": "Complete landscaping services for every need"
+  },
+  "Products": {
+    "title": "Our Products",
+    "flowers": "Flowers & Plants",
+    "flowersDesc": "Fresh flowers, indoor and outdoor plants, rare species and carnivorous plants",
+    "soil": "Soil",
+    "soilDesc": "Specialized soils and substrates for every type of plant",
+    "fertilizers": "Fertilizers",
+    "fertilizersDesc": "Quality fertilizers for healthy growth and rich blooming",
+    "pots": "Pots",
+    "potsDesc": "Pots in every size and style, from classic to modern"
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "Complete solutions for your garden and outdoor spaces",
+    "baptisms": "Baptisms & Weddings",
+    "baptismsDesc": "Church and reception decoration with fresh flowers in any style",
+    "maintenance": "Maintenance",
+    "maintenanceDesc": "Regular care of gardens, balconies and outdoor areas",
+    "irrigation": "Automatic Irrigation",
+    "irrigationDesc": "Installation and maintenance of automatic watering systems",
+    "pruning": "Pruning",
+    "pruningDesc": "Professional tree and shrub pruning for health and aesthetics",
+    "tallTrees": "Tall Tree Cutting",
+    "tallTreesDesc": "Safe cutting and removal of tall trees with specialized equipment",
+    "rockGardens": "Rock Gardens",
+    "rockGardensDesc": "Design and construction of stunning rock gardens",
+    "gardenDesign": "Garden Study & Design",
+    "gardenDesignDesc": "Complete garden study and design tailored to your needs",
+    "landClearing": "Land Clearing",
+    "landClearingDesc": "Clearing and preparation of plots and undeveloped areas",
+    "pestControl": "Pest Control & Spraying",
+    "pestControlDesc": "Plant protection in collaboration with a specialized agronomist",
+    "viewAll": "View all services",
+    "eventsCategory": "Events",
+    "gardenCategory": "Garden & Outdoor Spaces",
+    "specialCategory": "Specialized Work"
+  },
+  "Reviews": {
+    "title": "What Our Customers Say",
+    "subtitle": "Reviews from Google",
+    "basedOn": "Based on Google reviews"
+  },
+  "Contact": {
+    "title": "Contact",
+    "address": "Kyprion Iroon 4, Ilioupoli",
+    "phone": "210 9954775",
+    "mobile": "694 146 9582",
+    "followUs": "Follow Us",
+    "findUs": "Where to Find Us",
+    "workingHours": "Working Hours",
+    "aboutText": "Flower shop & Landscaping Services in Ilioupoli. Service with a smile, quality products and reliable services."
+  },
+  "ContactForm": {
+    "title": "Get in Touch",
+    "subtitle": "We're here to help. Send us a message and we'll get back to you shortly.",
+    "name": "Full Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "phone": "Phone (optional)",
+    "phonePlaceholder": "69x xxx xxxx",
+    "subject": "Subject",
+    "subjectPlaceholder": "e.g. Wedding decoration, Garden maintenance",
+    "message": "Message",
+    "messagePlaceholder": "Tell us how we can help you...",
+    "send": "Send Message",
+    "successTitle": "Thank you!",
+    "successMessage": "Your message was sent. We'll get back to you soon.",
+    "hours": "Working Hours",
+    "hoursMon": "Mon - Sat: 08:00 - 20:00",
+    "hoursSun": "Sunday: 09:00 - 14:00"
+  },
+  "Newsletter": {
+    "badge": "Stay Updated",
+    "title": "Subscribe to Newsletter",
+    "subtitle": "Be the first to learn about offers, new products and seasonal gardening tips",
+    "placeholder": "Your email",
+    "subscribe": "Subscribe",
+    "success": "Thank you for subscribing!",
+    "privacy": "We respect your privacy. You can unsubscribe at any time."
+  },
+  "Footer": {
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "rights": "All rights reserved"
   },
   "Admin": {
     "nav": {

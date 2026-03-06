@@ -1,0 +1,150 @@
+"use client";
+
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
+
+import { cn } from "@/lib/general/utils";
+
+const GALLERY_IMAGES = [
+  { src: "/images/1.jpg", alt: "Εξωτερικός χώρος καταστήματος με λουλούδια" },
+  { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών" },
+  { src: "/images/2.jpg", alt: "Ορτανσίες και εποχιακά φυτά" },
+  { src: "/images/3.jpg", alt: "Συνθέσεις για Γιορτή Μητέρας" },
+  { src: "/images/5.jpg", alt: "Γαρδένιες σε δώρο συσκευασία" },
+  { src: "/images/7.jpg", alt: "Κηποτεχνική εργασία - κήπος με γκαζόν" },
+];
+
+export function GalleryGrid() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const goNext = useCallback(() => {
+    setOpenIndex((prev) =>
+      prev !== null ? (prev + 1) % GALLERY_IMAGES.length : null
+    );
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setOpenIndex((prev) =>
+      prev !== null
+        ? (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length
+        : null
+    );
+  }, []);
+
+  const close = useCallback(() => setOpenIndex(null), []);
+
+  useEffect(() => {
+    if (openIndex === null) return;
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [openIndex, close, goNext, goPrev]);
+
+  return (
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-6xl mx-auto">
+        {GALLERY_IMAGES.map((image, i) => (
+          <button
+            key={image.src}
+            onClick={() => setOpenIndex(i)}
+            className={cn(
+              "relative overflow-hidden rounded-xl group cursor-pointer",
+              i === 0 && "row-span-2"
+            )}
+          >
+            <div
+              className={cn(
+                "relative",
+                i === 0 ? "h-full min-h-[400px]" : "aspect-[4/3]"
+              )}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {/* Lightbox */}
+      {openIndex !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={close}
+        >
+          {/* Close button */}
+          <button
+            onClick={close}
+            className="absolute top-4 right-4 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            aria-label="Close"
+          >
+            <X className="size-6" />
+          </button>
+
+          {/* Previous button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              goPrev();
+            }}
+            className="absolute left-4 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="size-6" />
+          </button>
+
+          {/* Image */}
+          <div
+            className="relative max-h-[85vh] max-w-[90vw] md:max-w-[80vw]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={GALLERY_IMAGES[openIndex].src}
+              alt={GALLERY_IMAGES[openIndex].alt}
+              width={1200}
+              height={900}
+              className="max-h-[85vh] w-auto rounded-lg object-contain"
+              priority
+            />
+            <p className="mt-3 text-center text-sm text-white/70">
+              {GALLERY_IMAGES[openIndex].alt}
+            </p>
+          </div>
+
+          {/* Next button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              goNext();
+            }}
+            className="absolute right-4 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            aria-label="Next"
+          >
+            <ChevronRight className="size-6" />
+          </button>
+
+          {/* Image counter */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/50">
+            {openIndex + 1} / {GALLERY_IMAGES.length}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

@@ -1,15 +1,17 @@
 "use client";
 
+import { Globe } from "lucide-react";
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/lib/i18n/navigation";
+
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/general/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { Globe } from "lucide-react";
+import { usePathname, useRouter } from "@/lib/i18n/navigation";
 
 const languages = [
   {
@@ -24,7 +26,7 @@ const languages = [
   },
 ] as const;
 
-export const LanguageSwitcher = () => {
+export const LanguageSwitcher = ({ className }: { className?: string }) => {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -38,7 +40,7 @@ export const LanguageSwitcher = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className="size-8">
+        <Button variant="outline" size="icon" className={cn("size-8", className)}>
           <Globe className="size-4" />
         </Button>
       </DropdownMenuTrigger>

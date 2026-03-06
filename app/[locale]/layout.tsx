@@ -1,22 +1,25 @@
-import type { Metadata } from "next";
-import { hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
-import { setRequestLocale, getMessages } from "next-intl/server";
-import { Roboto } from "next/font/google";
-import { routing } from "@/lib/i18n/routing";
-import { Providers } from "@/components/providers";
-import { BaseLayoutProps } from "@/types/page-props";
 import "./globals.css";
+
+import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
+import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
+import { getMessages,setRequestLocale } from "next-intl/server";
+
+import { Providers } from "@/components/providers";
+import { routing } from "@/lib/i18n/routing";
+import { BaseLayoutProps } from "@/types/page-props";
 
 const roboto = Roboto({
   variable: "--font-roboto",
-  subsets: ["latin"],
+  subsets: ["latin", "greek"],
   weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "App",
-  description: "",
+  title: "ΑΝΘΗ-ΦΥΤΑ KALOUDIS | Κηποτεχνικές Εργασίες Ηλιούπολη",
+  description:
+    "Ανθοπωλείο και κηποτεχνικές υπηρεσίες στην Ηλιούπολη. Άνθη, φυτά, στολισμοί γάμων και βαφτίσεων, συντηρήσεις κήπων, αυτόματα ποτίσματα, κλαδέματα και σχεδιασμός κήπου.",
 };
 
 export const generateStaticParams = () => {
