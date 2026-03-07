@@ -10,13 +10,14 @@ import { KaloudisLogo } from "@/components/KaloudisLogo";
 import { Button } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/general/constants";
 import { cn } from "@/lib/general/utils";
+import { Link } from "@/lib/i18n/navigation";
 
 const NAV_LINKS = [
-  { key: "home", href: "#" },
-  { key: "products", href: "#products" },
-  { key: "services", href: "#services" },
-  { key: "reviews", href: "#reviews" },
-  { key: "contact", href: "#contact" },
+  { key: "home", href: "/" },
+  { key: "products", href: "/#products" },
+  { key: "services", href: "/#services" },
+  { key: "reviews", href: "/#reviews" },
+  { key: "contact", href: "/#contact" },
 ] as const;
 
 export function Navbar() {
@@ -51,7 +52,7 @@ export function Navbar() {
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
           {/* Logo + Name */}
-          <a href="#" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <KaloudisLogo size="sm" />
             <div className="flex flex-col leading-tight">
               <span
@@ -71,12 +72,12 @@ export function Navbar() {
                 Kaloudis
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6">
             {NAV_LINKS.map(({ key, href }) => (
-              <a
+              <Link
                 key={key}
                 href={href}
                 className={cn(
@@ -87,7 +88,7 @@ export function Navbar() {
                 )}
               >
                 {t(key)}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -112,7 +113,7 @@ export function Navbar() {
               className={scrolled ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
             />
             <Button asChild size="sm">
-              <a href="#contact">{tHome("ctaContact")}</a>
+              <Link href="/#contact">{tHome("ctaContact")}</Link>
             </Button>
           </div>
 
@@ -166,14 +167,14 @@ export function Navbar() {
           {/* Nav links */}
           <nav className="flex-1 flex flex-col gap-1 p-4 pt-6">
             {NAV_LINKS.map(({ key, href }) => (
-              <a
+              <Link
                 key={key}
                 href={href}
                 className="py-3 px-4 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {t(key)}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -197,9 +198,9 @@ export function Navbar() {
                 <ThemeSwitcher />
               </div>
               <Button asChild size="sm">
-                <a href="#contact" onClick={() => setMobileOpen(false)}>
+                <Link href="/#contact" onClick={() => setMobileOpen(false)}>
                   {tHome("ctaContact")}
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
