@@ -2,19 +2,30 @@ import type { MetadataRoute } from "next";
 
 import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
 import { SITE_URL } from "@/lib/general/seo";
+import { SERVICES } from "@/lib/general/services";
 
 const sitemap = (): MetadataRoute.Sitemap => {
-  const pages = ["", "/services"];
+  const staticPages = [
+    { path: "", priority: 1 },
+    { path: "/services", priority: 0.8 },
+  ];
 
-  return pages.flatMap((page) =>
+  const servicePages = SERVICES.map((s) => ({
+    path: `/services/${s.slug}`,
+    priority: s.priority === "high" ? 0.9 : 0.7,
+  }));
+
+  const allPages = [...staticPages, ...servicePages];
+
+  return allPages.flatMap(({ path, priority }) =>
     SUPPORTED_LOCALES.map((locale) => ({
-      url: `${SITE_URL}/${locale}${page}`,
+      url: `${SITE_URL}/${locale}${path}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
-      priority: page === "" ? 1 : 0.8,
+      priority,
       alternates: {
         languages: Object.fromEntries(
-          SUPPORTED_LOCALES.map((l) => [l, `${SITE_URL}/${l}${page}`])
+          SUPPORTED_LOCALES.map((l) => [l, `${SITE_URL}/${l}${path}`])
         ),
       },
     }))
