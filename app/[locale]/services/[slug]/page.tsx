@@ -3,7 +3,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import {
   CheckCircle,
-  MapPin,
   MessageCircle,
   Phone,
   Shield,
@@ -289,31 +288,6 @@ export default async function ServicePage({ params }: PageProps) {
                     </p>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Areas Served */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-4xl text-center">
-              <h2 className="mb-4 text-3xl font-bold text-foreground">
-                {t("areasTitle")}
-              </h2>
-              <p className="mb-10 text-muted-foreground leading-relaxed">
-                {t("areasSubtitle")}
-              </p>
-            </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {areas.map((area) => (
-                <div
-                  key={area}
-                  className="flex items-center gap-2 rounded-lg border bg-card px-4 py-3 text-sm transition-colors duration-300 hover:border-primary/30 hover:bg-primary/5"
-                >
-                  <MapPin className="size-4 shrink-0 text-primary" />
-                  <span className="text-foreground">{area}</span>
-                </div>
               ))}
             </div>
           </div>
