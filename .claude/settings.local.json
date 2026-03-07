@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "Bash(curl -sL -o \"c:/Users/nikos/Desktop/repos/anthopolio-kaloudhs/public/images/efood-logo-new.png\" \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Efood_logo.svg/500px-Efood_logo.svg.png\" -w \"%{http_code}\")",
+      "Bash(curl -sL -o \"c:/Users/nikos/Desktop/repos/anthopolio-kaloudhs/public/images/efood-logo-new.png\" \"https://seeklogo.com/images/E/efood-logo-1D3D0EA93E-seeklogo.com.png\" -w \"%{http_code}\")",
+      "WebFetch(domain:seeklogo.com)",
+      "Bash(curl -sL -o \"c:/Users/nikos/Desktop/repos/anthopolio-kaloudhs/public/images/efood-logo-new.png\" \"https://images.seeklogo.com/logo-png/45/1/efood-logo-png_seeklogo-451170.png\" -w \"%{http_code}\")",
+      "Bash(cp \"c:/Users/nikos/Desktop/repos/anthopolio-kaloudhs/public/images/efood-logo-new.png\" \"c:/Users/nikos/Desktop/repos/anthopolio-kaloudhs/public/images/efood-logo.png\")",
+      "Bash(rm \"c:/Users/nikos/Desktop/repos/anthopolio-kaloudhs/public/images/efood-logo-new.png\")",
+      "Bash(node screenshot.mjs http://localhost:3000 hero-efood)",
+      "Bash(node screenshot.mjs http://localhost:3000 efood-fixed)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\nikos\\Desktop\\repos\\anthopolio-kaloudhs\\public\\images"
+    ]
+  }
+}

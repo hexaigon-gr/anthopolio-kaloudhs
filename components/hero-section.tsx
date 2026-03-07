@@ -60,13 +60,13 @@ export async function HeroSection() {
               href={BUSINESS.efood}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center h-11 px-5 rounded-md bg-white border-2 border-[#E02020] hover:bg-red-50 transition-colors duration-300"
+              className="inline-flex items-center h-11 px-5 rounded-md bg-transparent border-2 border-[#E02020] hover:bg-[#E02020]/10 transition-colors duration-300"
             >
               <Image
                 src="/images/efood-logo.png"
                 alt="efood - Παραγγείλτε Online"
-                width={100}
-                height={32}
+                width={540}
+                height={171}
                 className="h-6 w-auto"
               />
             </a>
