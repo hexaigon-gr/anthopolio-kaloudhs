@@ -25,14 +25,18 @@ export const generateMetadata = async ({
 }: BasePageProps): Promise<Metadata> => {
   const { locale } = await params;
   return {
-    title:
-      locale === "el"
-        ? "Προϊόντα | ΑΝΘΗ-ΦΥΤΑ KALOUDIS"
-        : "Products | ANTHI-FYTA KALOUDIS",
+    title: locale === "el" ? "Προϊόντα" : "Products",
     description:
       locale === "el"
         ? "Άνθη, φυτά, χώματα, λιπάσματα και γλάστρες στην Ηλιούπολη. Ανθοπωλείο KALOUDIS — μεγάλη ποικιλία για κάθε ανάγκη."
         : "Flowers, plants, soil, fertilizers, and pots in Ilioupoli. KALOUDIS flower shop — wide variety for every need.",
+    alternates: {
+      canonical: "/products",
+      languages: {
+        el: "/el/products",
+        en: "/en/products",
+      },
+    },
   };
 };
 

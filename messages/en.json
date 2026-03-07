@@ -112,7 +112,8 @@
     "successTitle": "Thank you!",
     "successMessage": "Your message was sent. We'll get back to you soon.",
     "hours": "Working Hours",
-    "hoursMon": "Mon - Sat: 08:00 - 20:00",
+    "hoursMon": "Mon - Fri: 08:00 - 20:00",
+    "hoursSat": "Saturday: 08:00 - 15:00",
     "hoursSun": "Sunday: 09:00 - 14:00"
   },
   "Newsletter": {

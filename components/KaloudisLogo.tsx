@@ -18,7 +18,7 @@ export function KaloudisLogo({ className, size = "md" }: KaloudisLogoProps) {
 
   return (
     <Image
-      src="/images/logo.jpg"
+      src="/images/logo.png"
       alt="ΑΝΘΗ-ΦΥΤΑ KALOUDIS Logo"
       width={px}
       height={px}
