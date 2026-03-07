@@ -64,7 +64,7 @@ export async function generateMetadata({
   const url = `${SITE_URL}/${locale}/services/${slug}`;
 
   return {
-    title: `${title}${SEO.titleSuffix}`,
+    title,
     description,
     keywords,
     alternates: {

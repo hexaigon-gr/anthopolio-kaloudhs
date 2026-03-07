@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 import { Button } from "@/components/ui/button";
+import { BUSINESS } from "@/lib/general/constants";
 
 export async function HeroSection() {
   const t = await getTranslations("HomePage");
@@ -55,6 +56,20 @@ export async function HeroSection() {
                 {t("ctaServices")}
               </a>
             </Button>
+            <a
+              href={BUSINESS.efood}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center h-11 px-5 rounded-md bg-white border-2 border-[#E02020] hover:bg-red-50 transition-colors duration-300"
+            >
+              <Image
+                src="/images/efood-logo.png"
+                alt="efood - Παραγγείλτε Online"
+                width={100}
+                height={32}
+                className="h-6 w-auto"
+              />
+            </a>
           </div>
         </div>
       </div>

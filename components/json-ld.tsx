@@ -3,7 +3,7 @@ import { SEO, SITE_URL } from "@/lib/general/seo";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "Florist",
+  "@type": ["Florist", "LandscapingBusiness"],
   name: SEO.siteName,
   description: SEO.defaultDescription,
   url: SITE_URL,
@@ -20,11 +20,17 @@ const localBusinessSchema = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 37.93,
-    longitude: 23.75,
+    latitude: 37.9297,
+    longitude: 23.7514,
   },
   sameAs: [BUSINESS.facebook, BUSINESS.tiktok],
   priceRange: "€€",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "120",
+    bestRating: "5",
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
