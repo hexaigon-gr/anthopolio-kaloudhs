@@ -7,7 +7,8 @@
     "ctaProducts": "Our Products",
     "ctaServices": "Our Services",
     "ctaCall": "Call Us",
-    "ctaContact": "Contact"
+    "ctaContact": "Contact",
+    "ctaOrder": "Order Online"
   },
   "Nav": {
     "home": "Home",
@@ -74,6 +75,7 @@
     "pestControl": "Pest Control & Spraying",
     "pestControlDesc": "Plant protection in collaboration with a specialized agronomist",
     "viewAll": "View all services",
+    "readMore": "Read more",
     "eventsCategory": "Events",
     "gardenCategory": "Garden & Outdoor Spaces",
     "specialCategory": "Specialized Work"
@@ -365,6 +367,14 @@
     "learnMore": "Learn more",
     "subtitle": "Wide variety of flowers, plants and garden supplies for every need",
     "viewAll": "View all products",
+    "catalogTitle": "Order Online via efood",
+    "catalogSubtitle": "Products available for delivery in Ilioupoli",
+    "catalogOrderButton": "Order on efood",
+    "catalogPriceNote": "Prices include VAT",
+    "catalogPlants": "Plants & Flowers",
+    "catalogForeverRoses": "Forever Roses",
+    "catalogRoseBears": "Rose Bears",
+    "catalogPlush": "Plush Toys",
 
     "flowers": {
       "title": "Flowers & Plants",

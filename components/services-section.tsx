@@ -54,7 +54,7 @@ export async function ServicesSection() {
                     {t(`${key}Desc`)}
                   </p>
                   <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-primary">
-                    {t("viewAll")}
+                    {t("readMore")}
                     <ArrowRight className="size-4" />
                   </span>
                 </div>
