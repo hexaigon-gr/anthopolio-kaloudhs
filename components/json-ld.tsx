@@ -55,28 +55,46 @@ const localBusinessSchema = {
     "@type": "City" as const,
     name: area,
   })),
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Υπηρεσίες",
-    itemListElement: [
-      "Στολισμοί Γάμων",
-      "Στολισμοί Βαπτίσεων",
-      "Μελέτη & Σχεδιασμός Κήπου",
-      "Συντήρηση Κήπων",
-      "Αυτόματα Ποτίσματα",
-      "Κλαδέματα",
-      "Κοπή Ψηλών Δέντρων",
-      "Βραχόκηποι",
-      "Καθαρισμοί Οικοπέδων",
-      "Ραντίσματα & Απολυμάνσεις",
-    ].map((service) => ({
-      "@type": "Offer" as const,
-      itemOffered: {
-        "@type": "Service" as const,
-        name: service,
-      },
-    })),
-  },
+  hasOfferCatalog: [
+    {
+      "@type": "OfferCatalog",
+      name: "Υπηρεσίες",
+      itemListElement: [
+        "Στολισμοί Γάμων",
+        "Στολισμοί Βαπτίσεων",
+        "Μελέτη & Σχεδιασμός Κήπου",
+        "Συντήρηση Κήπων",
+        "Αυτόματα Ποτίσματα",
+        "Κλαδέματα",
+        "Κοπή Ψηλών Δέντρων",
+        "Βραχόκηποι",
+        "Καθαρισμοί Οικοπέδων",
+        "Ραντίσματα & Απολυμάνσεις",
+      ].map((service) => ({
+        "@type": "Offer" as const,
+        itemOffered: {
+          "@type": "Service" as const,
+          name: service,
+        },
+      })),
+    },
+    {
+      "@type": "OfferCatalog",
+      name: "Προϊόντα",
+      itemListElement: [
+        "Άνθη & Φυτά",
+        "Χώματα & Υποστρώματα",
+        "Λιπάσματα",
+        "Γλάστρες",
+      ].map((product) => ({
+        "@type": "Offer" as const,
+        itemOffered: {
+          "@type": "Product" as const,
+          name: product,
+        },
+      })),
+    },
+  ],
 };
 
 export const JsonLd = () => (
@@ -152,6 +170,61 @@ export const FAQJsonLd = ({ faqs }: FAQJsonLdProps) => {
         text: faq.answer,
       },
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
+interface ProductJsonLdProps {
+  name: string;
+  description: string;
+  url: string;
+  image: string;
+  category: string;
+}
+
+export const ProductJsonLd = ({
+  name,
+  description,
+  url,
+  image,
+  category,
+}: ProductJsonLdProps) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description,
+    url,
+    image,
+    category,
+    brand: {
+      "@type": "Brand",
+      name: SEO.siteName,
+    },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Florist",
+        name: SEO.siteName,
+        url: SITE_URL,
+        telephone: "+302109954775",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Κυπρίων Ηρώων 4",
+          addressLocality: "Ηλιούπολη",
+          addressRegion: "Αττική",
+          postalCode: "16346",
+          addressCountry: "GR",
+        },
+      },
+    },
   };
 
   return (

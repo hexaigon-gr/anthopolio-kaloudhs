@@ -1,4 +1,5 @@
 import {
+  ArrowRight,
   Container,
   Droplet,
   Droplets,
@@ -13,6 +14,7 @@ import {
 import { getTranslations } from "next-intl/server";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "@/lib/i18n/navigation";
 
 export async function ShowcaseSection() {
   const t = await getTranslations("Showcase");
@@ -20,10 +22,10 @@ export async function ShowcaseSection() {
   const tServices = await getTranslations("Services");
 
   const products = [
-    { icon: Flower2, key: "flowers" },
-    { icon: Mountain, key: "soil" },
-    { icon: Droplets, key: "fertilizers" },
-    { icon: Container, key: "pots" },
+    { icon: Flower2, key: "flowers", slug: "flowers" },
+    { icon: Mountain, key: "soil", slug: "soil" },
+    { icon: Droplets, key: "fertilizers", slug: "fertilizers" },
+    { icon: Container, key: "pots", slug: "pots" },
   ] as const;
 
   const servicesPreview = [
@@ -58,9 +60,10 @@ export async function ShowcaseSection() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-3">
-                  {products.map(({ icon: Icon, key }) => (
-                    <div
+                  {products.map(({ icon: Icon, key, slug }) => (
+                    <Link
                       key={key}
+                      href={`/products/${slug}`}
                       className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
                     >
                       <Icon className="size-5 text-primary shrink-0" />
@@ -70,9 +73,15 @@ export async function ShowcaseSection() {
                           {tProducts(`${key}Desc`)}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-1 mt-4 text-sm text-primary font-medium hover:underline"
+                >
+                  {tProducts("viewAll")} <ArrowRight className="size-4" />
+                </Link>
               </CardContent>
             </Card>
           </div>

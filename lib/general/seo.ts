@@ -251,3 +251,104 @@ export const SERVICE_SEO: Record<
     ],
   },
 };
+
+export const PRODUCT_SEO: Record<
+  string,
+  {
+    titleEl: string;
+    titleEn: string;
+    descriptionEl: string;
+    descriptionEn: string;
+    keywordsEl: string[];
+    keywordsEn: string[];
+  }
+> = {
+  flowers: {
+    titleEl: "Άνθη & Φυτά Ηλιούπολη",
+    titleEn: "Flowers & Plants Ilioupoli Athens",
+    descriptionEl:
+      "Φρέσκα λουλούδια, φυτά εσωτερικού και εξωτερικού χώρου, σπάνια είδη και σαρκοφάγα φυτά στην Ηλιούπολη. Ανθοπωλείο KALOUDIS.",
+    descriptionEn:
+      "Fresh flowers, indoor and outdoor plants, rare species and carnivorous plants in Ilioupoli. KALOUDIS flower shop.",
+    keywordsEl: [
+      "άνθη Ηλιούπολη",
+      "φυτά εσωτερικού χώρου",
+      "φυτά εξωτερικού χώρου",
+      "ανθοπωλείο Ηλιούπολη",
+      "σπάνια φυτά",
+      "σαρκοφάγα φυτά",
+      "λουλούδια Νότια Προάστια",
+    ],
+    keywordsEn: [
+      "flowers Ilioupoli",
+      "indoor plants Athens",
+      "outdoor plants south Athens",
+      "flower shop Ilioupoli",
+      "rare plants Greece",
+      "carnivorous plants Athens",
+    ],
+  },
+  soil: {
+    titleEl: "Χώματα & Υποστρώματα Ηλιούπολη",
+    titleEn: "Soil & Substrates Ilioupoli Athens",
+    descriptionEl:
+      "Εξειδικευμένα χώματα και υποστρώματα για κάθε τύπο φυτού στην Ηλιούπολη. Χώμα κήπου, γλάστρας και φυτωρίου από το KALOUDIS.",
+    descriptionEn:
+      "Specialized soils and substrates for every plant type in Ilioupoli. Garden, pot, and nursery soil by KALOUDIS.",
+    keywordsEl: [
+      "χώματα Ηλιούπολη",
+      "υποστρώματα φυτών",
+      "χώμα κήπου",
+      "χώμα γλάστρας",
+      "τύρφη Νότια Προάστια",
+    ],
+    keywordsEn: [
+      "soil Ilioupoli",
+      "plant substrates Athens",
+      "garden soil south Athens",
+      "potting mix Greece",
+    ],
+  },
+  fertilizers: {
+    titleEl: "Λιπάσματα Ηλιούπολη",
+    titleEn: "Fertilizers Ilioupoli Athens",
+    descriptionEl:
+      "Ποιοτικά λιπάσματα για υγιή ανάπτυξη και πλούσια ανθοφορία στην Ηλιούπολη. Οργανικά και χημικά λιπάσματα από το KALOUDIS.",
+    descriptionEn:
+      "Quality fertilizers for healthy growth and rich blooming in Ilioupoli. Organic and chemical fertilizers by KALOUDIS.",
+    keywordsEl: [
+      "λιπάσματα Ηλιούπολη",
+      "οργανικά λιπάσματα",
+      "λίπασμα φυτών",
+      "λίπασμα κήπου Νότια Προάστια",
+      "θρεπτικά φυτών",
+    ],
+    keywordsEn: [
+      "fertilizers Ilioupoli",
+      "organic fertilizer Athens",
+      "plant food south Athens",
+      "garden fertilizer Greece",
+    ],
+  },
+  pots: {
+    titleEl: "Γλάστρες Ηλιούπολη",
+    titleEn: "Pots & Planters Ilioupoli Athens",
+    descriptionEl:
+      "Γλάστρες σε κάθε μέγεθος και στυλ στην Ηλιούπολη. Κεραμικές, πλαστικές και διακοσμητικές γλάστρες από το KALOUDIS.",
+    descriptionEn:
+      "Pots and planters in every size and style in Ilioupoli. Ceramic, plastic, and decorative planters by KALOUDIS.",
+    keywordsEl: [
+      "γλάστρες Ηλιούπολη",
+      "κεραμικές γλάστρες",
+      "διακοσμητικές γλάστρες",
+      "γλάστρες μπαλκονιού Νότια Προάστια",
+      "ζαρντινιέρες",
+    ],
+    keywordsEn: [
+      "pots Ilioupoli",
+      "ceramic planters Athens",
+      "decorative pots south Athens",
+      "planters Greece",
+    ],
+  },
+};

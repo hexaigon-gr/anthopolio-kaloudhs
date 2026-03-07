@@ -47,7 +47,8 @@
     "fertilizers": "Fertilizers",
     "fertilizersDesc": "Quality fertilizers for healthy growth and rich blooming",
     "pots": "Pots",
-    "potsDesc": "Pots in every size and style, from classic to modern"
+    "potsDesc": "Pots in every size and style, from classic to modern",
+    "viewAll": "View all products"
   },
   "Services": {
     "title": "Our Services",
@@ -349,6 +350,94 @@
       "faq1Answer": "Yes, we exclusively use approved plant protection products that are safe for humans, pets, and beneficial insects. Our agronomist always selects the least toxic solution available.",
       "faq2Question": "How often is spraying needed?",
       "faq2Answer": "The frequency depends on the problem. Preventive spraying is done seasonally (2-3 times per year), while therapeutic treatment may require repeated applications over several weeks."
+    }
+  },
+  "ProductPages": {
+    "breadcrumbHome": "Home",
+    "breadcrumbProducts": "Products",
+    "faqTitle": "Frequently Asked Questions",
+    "relatedTitle": "Related Products",
+    "ctaTitle": "Interested in this product?",
+    "ctaSubtitle": "Visit our shop or contact us for more information",
+    "ctaCall": "Call Us",
+    "ctaWhatsapp": "WhatsApp",
+    "ctaContact": "Contact Form",
+    "learnMore": "Learn more",
+    "subtitle": "Wide variety of flowers, plants and garden supplies for every need",
+    "viewAll": "View all products",
+
+    "flowers": {
+      "title": "Flowers & Plants",
+      "heroDescription": "Fresh flowers, indoor and outdoor plants, rare species and carnivorous plants. Discover our unique collection in Ilioupoli.",
+      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we offer one of the richest collections of flowers and plants in south Athens. Our range includes fresh cut flowers — roses, gardenias, orchids, tulips, sunflowers, lilies, and seasonal blooms — perfect for bouquets, gifts, and space decoration. We serve customers from Ilioupoli, Argyroupoli, Dafni, Vyronas, Alimos, Nea Smyrni, Glyfada, and all of south Athens.",
+      "content2": "Our indoor plants include monstera, ficus, sansevieria, ferns, pothos, and many more, in all sizes — from small office desk plants to large decorative living room specimens. For your garden or balcony, we carry outdoor plants, trees, shrubs, climbers, aromatic herbs, and perennial flowers.",
+      "content3": "For rare plant enthusiasts, our collection includes carnivorous plants (Dionaea, Drosera, Nepenthes), rare succulent varieties, cacti, tillandsias (air plants), and exotic tropical species. Our team guides you on caring for each plant to ensure healthy, vibrant growth.",
+      "content4": "We create bouquets and arrangements for every occasion — birthdays, name days, anniversaries, memorials, and corporate gifts. Each arrangement is handcrafted with fresh materials and delivered same-day in Ilioupoli and surrounding areas.",
+      "feature1Title": "Fresh Flowers",
+      "feature1Desc": "Roses, orchids, lilies, tulips, and seasonal blooms — perfect for bouquets and gifts",
+      "feature2Title": "Indoor Plants",
+      "feature2Desc": "Monstera, ficus, sansevieria, ferns, and more in every size for your home or office",
+      "feature3Title": "Outdoor Plants",
+      "feature3Desc": "Trees, shrubs, climbers, aromatic herbs, and perennials for garden and balcony",
+      "feature4Title": "Rare & Exotic Species",
+      "feature4Desc": "Carnivorous plants, succulents, cacti, air plants, and tropical species for collectors",
+      "faq1Question": "Do you deliver bouquets in Ilioupoli?",
+      "faq1Answer": "Yes, we deliver bouquets and arrangements same-day in Ilioupoli and nearby areas. You can order by phone or visit our shop to choose in person.",
+      "faq2Question": "Do you have carnivorous plants available?",
+      "faq2Answer": "Yes! We carry carnivorous plants like Dionaea (Venus flytrap), Drosera (sundew), and Nepenthes (pitcher plant). Availability varies, so contact us or visit the shop to check.",
+      "faq3Question": "Can you advise me on plant care?",
+      "faq3Answer": "Of course! Our team provides detailed care instructions for every plant — watering, lighting, fertilizing, and repotting. We're always available for questions."
+    },
+
+    "soil": {
+      "title": "Soil & Substrates",
+      "heroDescription": "Specialized soils and substrates for every type of plant. Find the right growing medium at our shop in Ilioupoli.",
+      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we carry quality soils and substrates for every planting need. Choosing the right soil is critical for healthy plant growth — that's why we offer specialized mixes for pots, gardens, lawns, vegetables, and cacti.",
+      "content2": "Our range includes general-purpose potting mix, container soil, peat, perlite, vermiculite, compost, herb mix, orchid bark, cactus mix, and specialized substrates tailored to each plant's pH and drainage requirements.",
+      "feature1Title": "Potting Soil",
+      "feature1Desc": "Light, airy substrate ideal for indoor plants and balcony containers",
+      "feature2Title": "Garden Soil",
+      "feature2Desc": "Nutrient-rich soil for garden planting and flower beds",
+      "feature3Title": "Specialty Substrates",
+      "feature3Desc": "Orchid bark, cactus mix, herb soil, and vegetable substrates with specialized formulations",
+      "faq1Question": "What soil does my pot plant need?",
+      "faq1Answer": "It depends on the plant. Most indoor plants thrive in light potting mix with good drainage. Visit our shop and we'll help you choose the right one for your specific plant.",
+      "faq2Question": "Do you sell soil in bulk?",
+      "faq2Answer": "Yes, we carry soil in both small bags for pots and large quantities (bags or bulk) for gardens and landscaping projects."
+    },
+
+    "fertilizers": {
+      "title": "Fertilizers",
+      "heroDescription": "Quality fertilizers for healthy growth and rich blooming. Organic and chemical fertilizers at our shop in Ilioupoli.",
+      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, you'll find quality fertilizers for every plant type and need. From organic fertilizers (compost, guano, bone meal) to slow-release chemical fertilizers, water-soluble fertilizers, and specialized formulas for flowering, fruiting, or foliage growth.",
+      "content2": "Our team guides you in choosing the right fertilizer, dosage, and application timing. We carry fertilizers from leading brands in every package size to suit your needs.",
+      "feature1Title": "Organic Fertilizers",
+      "feature1Desc": "Compost, guano, and biological products for natural plant nutrition",
+      "feature2Title": "Chemical Fertilizers",
+      "feature2Desc": "Slow-release, water-soluble, and granular fertilizers for fast results",
+      "feature3Title": "Specialized Formulas",
+      "feature3Desc": "Fertilizers for flowering, lawns, cacti, orchids, and citrus trees",
+      "faq1Question": "What fertilizer does my garden need?",
+      "faq1Answer": "It depends on the plants and the season. Generally, we recommend a balanced fertilizer (e.g., 20-20-20) for general nutrition, and specialized formulas for flowering or fruiting plants. Visit us for personalized advice.",
+      "faq2Question": "When should I fertilize my plants?",
+      "faq2Answer": "The main fertilizing season is spring and summer, when plants are actively growing. In winter, we reduce fertilizing. Our team can provide a detailed schedule for your specific plants."
+    },
+
+    "pots": {
+      "title": "Pots & Planters",
+      "heroDescription": "Pots in every size and style, from classic ceramic to modern decorative planters. Find the perfect pot at our shop in Ilioupoli.",
+      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we carry a wide variety of pots for every need and aesthetic. Our collection includes ceramic pots, lightweight plastic planters, terracotta cachepots, metal planters, wooden containers, and decorative cachepots.",
+      "content2": "From small window and desk pots to large floor planters for indoor and outdoor spaces. In colors, shapes, and sizes for every taste — classic, modern, rustic, or minimalist.",
+      "feature1Title": "Ceramic Pots",
+      "feature1Desc": "Handcrafted and industrial ceramic pots in classic and contemporary designs",
+      "feature2Title": "Plastic Planters",
+      "feature2Desc": "Lightweight, durable planters in every size, ideal for balconies and rooftops",
+      "feature3Title": "Decorative Cachepots",
+      "feature3Desc": "Elegant cachepots, planters, and metallic containers in modern and classic styles",
+      "faq1Question": "What pot does my plant need?",
+      "faq1Answer": "The right pot depends on the plant's size, drainage needs, and placement location. At our shop, we help you choose the ideal size and material for healthy growth.",
+      "faq2Question": "Do you deliver large pots?",
+      "faq2Answer": "Yes, we handle delivery of large pots to your location in Ilioupoli and surrounding areas. Contact us for more details and delivery options."
     }
   }
 }
