@@ -7,7 +7,8 @@
     "ctaProducts": "Τα Προϊόντα μας",
     "ctaServices": "Οι Υπηρεσίες μας",
     "ctaCall": "Καλέστε μας",
-    "ctaContact": "Επικοινωνία"
+    "ctaContact": "Επικοινωνία",
+    "ctaOrder": "Παραγγείλτε Online"
   },
   "Nav": {
     "home": "Αρχική",
@@ -74,6 +75,7 @@
     "pestControl": "Ραντίσματα & Απολυμάνσεις",
     "pestControlDesc": "Φυτοπροστασία σε συνεργασία με εξειδικευμένο γεωπόνο",
     "viewAll": "Δείτε όλες τις υπηρεσίες",
+    "readMore": "Διαβάστε περισσότερα",
     "eventsCategory": "Εκδηλώσεις",
     "gardenCategory": "Κήπος & Εξωτερικοί Χώροι",
     "specialCategory": "Ειδικές Εργασίες"
@@ -110,7 +112,8 @@
     "successTitle": "Ευχαριστούμε!",
     "successMessage": "Το μήνυμά σας στάλθηκε. Θα επικοινωνήσουμε σύντομα μαζί σας.",
     "hours": "Ωράριο Λειτουργίας",
-    "hoursMon": "Δευ - Σάβ: 08:00 - 20:00",
+    "hoursMon": "Δευ - Παρ: 08:00 - 20:00",
+    "hoursSat": "Σάββατο: 08:00 - 15:00",
     "hoursSun": "Κυριακή: 09:00 - 14:00"
   },
   "Newsletter": {
@@ -365,6 +368,14 @@
     "learnMore": "Μάθετε περισσότερα",
     "subtitle": "Μεγάλη ποικιλία σε άνθη, φυτά και είδη κήπου για κάθε ανάγκη",
     "viewAll": "Δείτε όλα τα προϊόντα",
+    "catalogTitle": "Παραγγείλτε Online μέσω efood",
+    "catalogSubtitle": "Διαθέσιμα προϊόντα για delivery στην Ηλιούπολη",
+    "catalogOrderButton": "Παραγγείλτε στο efood",
+    "catalogPriceNote": "Οι τιμές συμπεριλαμβάνουν ΦΠΑ",
+    "catalogPlants": "Φυτά & Λουλούδια",
+    "catalogForeverRoses": "Forever Roses",
+    "catalogRoseBears": "Rose Bears",
+    "catalogPlush": "Λούτρινα",
 
     "flowers": {
       "title": "Άνθη & Φυτά",

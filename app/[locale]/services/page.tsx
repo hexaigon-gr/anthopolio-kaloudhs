@@ -32,6 +32,13 @@ export const generateMetadata = async ({
       locale === "el"
         ? "Κηποτεχνικές υπηρεσίες στην Ηλιούπολη: στολισμοί γάμων, συντηρήσεις κήπων, αυτόματα ποτίσματα, κλαδέματα, βραχόκηποι, σχεδιασμός κήπου."
         : "Landscaping services in Ilioupoli: wedding decorations, garden maintenance, automatic irrigation, pruning, rock gardens, garden design.",
+    alternates: {
+      canonical: "/services",
+      languages: {
+        el: "/el/services",
+        en: "/en/services",
+      },
+    },
   };
 };
 

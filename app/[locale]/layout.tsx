@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   keywords: [...SEO.keywords],
   metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "/",
     languages: {
       el: "/el",
       en: "/en",
+      "x-default": "/el",
     },
   },
   openGraph: {
