@@ -87,7 +87,7 @@
   },
   "Contact": {
     "title": "Contact",
-    "address": "Kyprion Iroon 4, Ilioupoli",
+    "address": "Leoforos Kyprion Iroon 4, Ilioupoli 16341, Athens",
     "phone": "210 9954775",
     "mobile": "694 146 9582",
     "followUs": "Follow Us",
@@ -112,9 +112,9 @@
     "successTitle": "Thank you!",
     "successMessage": "Your message was sent. We'll get back to you soon.",
     "hours": "Working Hours",
-    "hoursMon": "Mon - Fri: 08:00 - 20:00",
-    "hoursSat": "Saturday: 08:00 - 15:00",
-    "hoursSun": "Sunday: 09:00 - 14:00"
+    "hoursMon": "Mon, Tue, Wed, Fri, Sat: 09:00 - 21:00",
+    "hoursThu": "Thursday: 09:00 - 19:00",
+    "hoursSun": "Sunday: 09:00 - 16:00"
   },
   "Newsletter": {
     "badge": "Stay Updated",

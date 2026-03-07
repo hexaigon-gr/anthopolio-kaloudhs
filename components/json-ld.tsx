@@ -12,10 +12,10 @@ const localBusinessSchema = {
   image: `${SITE_URL}/images/og-image.png`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Κυπρίων Ηρώων 4",
+    streetAddress: "Λεωφόρος Κυπρίων Ηρώων 4",
     addressLocality: "Ηλιούπολη",
     addressRegion: "Αττική",
-    postalCode: "16346",
+    postalCode: "16341",
     addressCountry: "GR",
   },
   geo: {
@@ -34,21 +34,21 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "20:00",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "21:00",
     },
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "08:00",
-      closes: "15:00",
+      dayOfWeek: "Thursday",
+      opens: "09:00",
+      closes: "19:00",
     },
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: "Sunday",
       opens: "09:00",
-      closes: "14:00",
+      closes: "16:00",
     },
   ],
   areaServed: [

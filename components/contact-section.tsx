@@ -99,7 +99,7 @@ export function ContactSection() {
                 <div className="pt-1">
                   <p className="text-sm font-medium text-foreground">{t("hours")}</p>
                   <p className="text-sm text-muted-foreground">{t("hoursMon")}</p>
-                  <p className="text-sm text-muted-foreground">{t("hoursSat")}</p>
+                  <p className="text-sm text-muted-foreground">{t("hoursThu")}</p>
                   <p className="text-sm text-muted-foreground">{t("hoursSun")}</p>
                 </div>
               </div>
