@@ -77,8 +77,8 @@ export async function ReviewsSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {REVIEWS.map((review) => (
-            <Card key={review.name} className="hover:shadow-md transition-shadow">
-              <CardContent className="p-6 space-y-3">
+            <Card key={review.name} className="h-full hover:shadow-md transition-shadow">
+              <CardContent className="p-6 flex flex-col h-full gap-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
@@ -91,7 +91,7 @@ export async function ReviewsSection() {
                   </div>
                   <Stars count={review.rating} />
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                   &ldquo;{review.text}&rdquo;
                 </p>
               </CardContent>

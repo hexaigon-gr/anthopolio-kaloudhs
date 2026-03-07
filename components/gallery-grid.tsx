@@ -59,13 +59,13 @@ export function GalleryGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 max-w-6xl mx-auto">
         {GALLERY_IMAGES.map((image, i) => (
           <button
             key={image.src}
             onClick={() => setOpenIndex(i)}
             className={cn(
-              "relative overflow-hidden rounded-xl group cursor-pointer",
+              "relative overflow-hidden rounded-xl group cursor-pointer border border-border/30 hover:border-primary/20 shadow-sm hover:shadow-md transition-all duration-300",
               i === 0 && "row-span-2"
             )}
           >
@@ -82,7 +82,7 @@ export function GalleryGrid() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300" />
             </div>
           </button>
         ))}

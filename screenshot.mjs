@@ -32,6 +32,11 @@ const browser = await puppeteer.launch({ headless: true });
 const page = await browser.newPage();
 await page.setViewport({ width: 1280, height: 800 });
 await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
+const scrollY = parseInt(process.argv[4] || "0", 10);
+if (scrollY > 0) {
+  await page.evaluate((y) => window.scrollTo(0, y), scrollY);
+  await new Promise(r => setTimeout(r, 500));
+}
 await page.screenshot({ path: filepath, fullPage: false });
 await browser.close();
 

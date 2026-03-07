@@ -26,17 +26,17 @@ export async function AboutSection() {
             {/* Feature highlights */}
             <div className="space-y-6">
               {[
-                { icon: Heart, titleKey: "quality", descKey: "qualityDesc" },
-                { icon: Leaf, titleKey: "variety", descKey: "varietyDesc" },
-                { icon: Award, titleKey: "awards", descKey: "awardsDesc" },
-              ].map(({ icon: Icon, titleKey, descKey }) => (
-                <div key={titleKey} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                { icon: Heart, titleKey: "quality", descKey: "qualityDesc", color: "bg-rose-50 dark:bg-rose-950/30" },
+                { icon: Leaf, titleKey: "variety", descKey: "varietyDesc", color: "bg-emerald-50 dark:bg-emerald-950/30" },
+                { icon: Award, titleKey: "awards", descKey: "awardsDesc", color: "bg-amber-50 dark:bg-amber-950/30" },
+              ].map(({ icon: Icon, titleKey, descKey, color }) => (
+                <div key={titleKey} className="flex gap-4 p-4 rounded-xl border border-border/50 hover:border-primary/20 bg-card hover:shadow-sm transition-all duration-300">
+                  <div className={`w-12 h-12 rounded-xl ${color} flex items-center justify-center shrink-0`}>
                     <Icon className="size-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">{t(titleKey)}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {t(descKey)}
                     </p>
                   </div>

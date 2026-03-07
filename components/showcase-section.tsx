@@ -50,9 +50,9 @@ export async function ShowcaseSection() {
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Products Card */}
           <div id="products">
-            <Card className="h-full border-primary/20 hover:border-primary/40 transition-colors group">
+            <Card className="h-full border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-linear-to-br from-primary/15 to-leaf/10 flex items-center justify-center mb-3 group-hover:from-primary/25 group-hover:to-leaf/20 transition-all duration-300">
                   <Flower2 className="size-6 text-primary" />
                 </div>
                 <CardTitle className="text-2xl">{t("productsTitle")}</CardTitle>
@@ -64,9 +64,11 @@ export async function ShowcaseSection() {
                     <Link
                       key={key}
                       href={`/products/${slug}`}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+                      className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 hover:bg-primary/10 border border-transparent hover:border-primary/15 transition-all duration-300"
                     >
-                      <Icon className="size-5 text-primary shrink-0" />
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 text-primary" />
+                      </div>
                       <div>
                         <p className="text-sm font-medium">{tProducts(key)}</p>
                         <p className="text-xs text-muted-foreground line-clamp-2">
@@ -78,7 +80,7 @@ export async function ShowcaseSection() {
                 </div>
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-1 mt-4 text-sm text-primary font-medium hover:underline"
+                  className="inline-flex items-center gap-1 mt-5 text-sm text-primary font-medium hover:gap-2 transition-all duration-300"
                 >
                   {tProducts("viewAll")} <ArrowRight className="size-4" />
                 </Link>
@@ -88,9 +90,9 @@ export async function ShowcaseSection() {
 
           {/* Services Card */}
           <div>
-            <Card className="h-full border-primary/20 hover:border-primary/40 transition-colors group">
+            <Card className="h-full border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-linear-to-br from-primary/15 to-leaf/10 flex items-center justify-center mb-3 group-hover:from-primary/25 group-hover:to-leaf/20 transition-all duration-300">
                   <Wrench className="size-6 text-primary" />
                 </div>
                 <CardTitle className="text-2xl">{t("servicesTitle")}</CardTitle>
@@ -101,18 +103,20 @@ export async function ShowcaseSection() {
                   {servicesPreview.map(({ icon: Icon, key }) => (
                     <div
                       key={key}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+                      className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 hover:bg-primary/10 border border-transparent hover:border-primary/15 transition-all duration-300"
                     >
-                      <Icon className="size-5 text-primary shrink-0" />
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 text-primary" />
+                      </div>
                       <p className="text-sm font-medium">{tServices(key)}</p>
                     </div>
                   ))}
                 </div>
                 <a
                   href="#services"
-                  className="inline-block mt-4 text-sm text-primary font-medium hover:underline"
+                  className="inline-flex items-center gap-1 mt-5 text-sm text-primary font-medium hover:gap-2 transition-all duration-300"
                 >
-                  {tServices("viewAll")} →
+                  {tServices("viewAll")} <ArrowRight className="size-4" />
                 </a>
               </CardContent>
             </Card>
