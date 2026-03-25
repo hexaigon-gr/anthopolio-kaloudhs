@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -202,18 +203,26 @@ export default async function ServicePage({ params }: PageProps) {
         </nav>
 
         {/* Hero Section */}
-        <section className="bg-linear-to-br from-cream via-background to-secondary/30 py-16 md:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <Image
+            src={service.image}
+            alt={serviceTitle}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="container mx-auto px-4 lg:px-8 relative z-10">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 flex justify-center">
-                <div className="flex size-20 items-center justify-center rounded-full bg-primary/10">
-                  <ServiceIcon className="size-10 text-primary" />
+                <div className="flex size-20 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm">
+                  <ServiceIcon className="size-10 text-white" />
                 </div>
               </div>
-              <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
+              <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
                 {serviceTitle}
               </h1>
-              <p className="mb-10 text-lg text-muted-foreground leading-relaxed">
+              <p className="mb-10 text-lg text-white/80 leading-relaxed">
                 {t(`${key}.heroDescription`)}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
@@ -238,7 +247,7 @@ export default async function ServicePage({ params }: PageProps) {
                     {t("ctaWhatsapp")}
                   </a>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
                   <Link href="/#contact">{t("ctaContact")}</Link>
                 </Button>
               </div>

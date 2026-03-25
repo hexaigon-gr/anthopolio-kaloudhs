@@ -246,27 +246,6 @@ export const SERVICE_SEO: Record<
       "tree removal services Greece",
     ],
   },
-  "rock-gardens": {
-    titleEl: "Βραχόκηποι",
-    titleEn: "Rock Gardens Athens",
-    descriptionEl:
-      "Κατασκευή βραχόκηπων και διακοσμητικών κήπων με πέτρα στην Αττική. Μοναδικός σχεδιασμός από το KALOUDIS.",
-    descriptionEn:
-      "Rock garden design and construction in Attica. Unique stone landscaping by KALOUDIS.",
-    keywordsEl: [
-      "βραχόκηποι",
-      "κατασκευή βραχόκηπου",
-      "κήπος με πέτρα",
-      "διακοσμητικός κήπος",
-      "βραχόκηπος σχεδιασμός",
-    ],
-    keywordsEn: [
-      "rock garden Athens",
-      "stone garden Athens",
-      "rock landscaping Athens",
-      "decorative garden Greece",
-    ],
-  },
   "land-clearing": {
     titleEl: "Καθαρισμός Οικοπέδων",
     titleEn: "Land Clearing Athens",

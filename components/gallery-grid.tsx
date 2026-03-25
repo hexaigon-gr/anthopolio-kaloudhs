@@ -10,12 +10,18 @@ const LIGHTBOX_BUTTON_CLASS =
   "absolute z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20";
 
 const GALLERY_IMAGES = [
-  { src: "/images/1.jpg", alt: "Εξωτερικός χώρος καταστήματος με λουλούδια" },
-  { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών" },
-  { src: "/images/2.jpg", alt: "Ορτανσίες και εποχιακά φυτά" },
-  { src: "/images/3.jpg", alt: "Συνθέσεις για Γιορτή Μητέρας" },
-  { src: "/images/5.jpg", alt: "Γαρδένιες σε δώρο συσκευασία" },
-  { src: "/images/7.jpg", alt: "Κηποτεχνική εργασία - κήπος με γκαζόν" },
+  { src: "/images/shop-1.jpg", alt: "Αλεξανδρινά φυτά - Χριστουγεννιάτικη συλλογή" },
+  { src: "/images/shop-3.jpg", alt: "Πολύχρωμα εποχιακά λουλούδια και φυτά" },
+  { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών σε ροζ και κόκκινα" },
+  { src: "/images/shop-4.jpg", alt: "Ταμπέλα καταστήματος ΑΝΘΗ-ΦΥΤΑ KALOUDIS" },
+  { src: "/images/shop-5.jpg", alt: "Νυχτερινή βιτρίνα καταστήματος" },
+  { src: "/images/3.jpg", alt: "Μπλε λουλούδια σε δώρο συσκευασία" },
+  { src: "/images/services/baptism-font.jpg", alt: "Στολισμός κολυμπήθρας βάπτισης" },
+  { src: "/images/shop-6.jpg", alt: "Ανθοσυνθέσεις και δώρα Αγίου Βαλεντίνου" },
+  { src: "/images/shop-7.jpg", alt: "Εσωτερικό κατάστημα με φυτά και διακοσμητικά" },
+  { src: "/images/1.jpg", alt: "Εξωτερικός χώρος με πολύχρωμα λουλούδια" },
+  { src: "/images/shop-2.jpg", alt: "Εξωτερικός χώρος με φυτά και αλεξανδρινά" },
+  { src: "/images/shop-8.jpg", alt: "Χριστουγεννιάτικη διακόσμηση με Αλεξανδρινά" },
 ];
 
 export function GalleryGrid() {

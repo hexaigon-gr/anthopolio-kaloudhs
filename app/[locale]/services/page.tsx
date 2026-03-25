@@ -5,7 +5,7 @@ import {
   Church,
   Droplet,
   Frame,
-  Gem,
+
   Heart,
   PartyPopper,
   PenTool,
@@ -63,7 +63,6 @@ const SERVICE_CATEGORIES = [
       { icon: Droplet, key: "irrigation" as const, slug: "irrigation" },
       { icon: Scissors, key: "pruning" as const, slug: "pruning" },
       { icon: TreePine, key: "tallTrees" as const, slug: "tall-trees" },
-      { icon: Gem, key: "rockGardens" as const, slug: "rock-gardens" },
       { icon: PenTool, key: "gardenDesign" as const, slug: "garden-design" },
     ],
   },

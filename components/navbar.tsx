@@ -91,7 +91,7 @@ export function Navbar() {
                 className={cn(
                   "text-sm font-medium transition-colors",
                   scrolled
-                    ? "text-muted-foreground hover:text-primary"
+                    ? "text-foreground/80 hover:text-primary"
                     : "text-white/80 hover:text-white"
                 )}
                 onClick={(e) => scrollToTop(e, href)}
