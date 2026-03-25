@@ -32,8 +32,8 @@ export async function ServicesSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {SERVICES.map(({ key, slug, image }, i) => (
-            <Link href={`/services/${slug}`} key={key} className={i === SERVICES.length - 1 ? "lg:col-start-2" : ""}>
+          {SERVICES.map(({ key, slug, image }) => (
+            <Link href={`/services/${slug}`} key={key}>
               <div className="group relative overflow-hidden rounded-2xl bg-card border border-primary/10 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                 <div className="relative h-52 overflow-hidden">
                   <Image
