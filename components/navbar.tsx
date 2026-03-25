@@ -10,7 +10,7 @@ import { KaloudisLogo } from "@/components/KaloudisLogo";
 import { Button } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/general/constants";
 import { cn } from "@/lib/general/utils";
-import { Link } from "@/lib/i18n/navigation";
+import { Link, usePathname } from "@/lib/i18n/navigation";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
@@ -23,8 +23,16 @@ const NAV_LINKS = [
 export function Navbar() {
   const t = useTranslations("Nav");
   const tHome = useTranslations("HomePage");
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const scrollToTop = (e: React.MouseEvent, href: string) => {
+    if (pathname === "/" && (href === "/" || href === "/#")) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -52,7 +60,7 @@ export function Navbar() {
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
           {/* Logo + Name */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group" onClick={(e) => scrollToTop(e, "/")}>
             <KaloudisLogo size="sm" />
             <div className="flex flex-col leading-tight">
               <span
@@ -86,6 +94,7 @@ export function Navbar() {
                     ? "text-muted-foreground hover:text-primary"
                     : "text-white/80 hover:text-white"
                 )}
+                onClick={(e) => scrollToTop(e, href)}
               >
                 {t(key)}
               </Link>
@@ -171,7 +180,7 @@ export function Navbar() {
                 key={key}
                 href={href}
                 className="py-3 px-4 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => { scrollToTop(e, href); setMobileOpen(false); }}
               >
                 {t(key)}
               </Link>

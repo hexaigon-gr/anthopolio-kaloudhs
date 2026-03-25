@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Container, Droplets, Flower2, Mountain } from "lucide-react";
+import { Bug, Container, Droplets, Flower2, Mountain } from "lucide-react";
 
 export interface ProductDefinition {
   slug: string;
@@ -41,6 +41,14 @@ export const PRODUCTS: ProductDefinition[] = [
     icon: Container,
     image: "/images/services/rock-gardens.jpg",
     relatedSlugs: ["flowers", "soil"],
+    priority: "normal",
+  },
+  {
+    slug: "pest-products",
+    translationKey: "pestProducts",
+    icon: Bug,
+    image: "/images/services/pest-control.jpg",
+    relatedSlugs: ["fertilizers", "soil"],
     priority: "normal",
   },
 ] as const satisfies ProductDefinition[];

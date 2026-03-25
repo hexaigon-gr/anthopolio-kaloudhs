@@ -136,7 +136,7 @@ export async function SiteFooter() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors"
           >
-            <Hexagon className="size-3.5" />
+            <Hexagon className="size-3.5 text-primary" />
             Made by hexaigon.gr
           </a>
         </div>

@@ -1,10 +1,13 @@
 import {
   ArrowRight,
   Bug,
+  Building2,
   Church,
   Droplet,
+  Frame,
   Gem,
   Heart,
+  PartyPopper,
   PenTool,
   Phone,
   Scissors,
@@ -30,8 +33,8 @@ export const generateMetadata = async ({
     title: locale === "el" ? "Υπηρεσίες" : "Services",
     description:
       locale === "el"
-        ? "Κηποτεχνικές υπηρεσίες στην Ηλιούπολη: στολισμοί γάμων, συντηρήσεις κήπων, αυτόματα ποτίσματα, κλαδέματα, βραχόκηποι, σχεδιασμός κήπου."
-        : "Landscaping services in Ilioupoli: wedding decorations, garden maintenance, automatic irrigation, pruning, rock gardens, garden design.",
+        ? "Κηποτεχνικές υπηρεσίες στην Αττική: στολισμοί γάμων, συντηρήσεις κήπων, αυτόματα ποτίσματα, κλαδέματα, βραχόκηποι, σχεδιασμός κήπου."
+        : "Landscaping services in Attica: wedding decorations, garden maintenance, automatic irrigation, pruning, rock gardens, garden design.",
     alternates: {
       canonical: "/services",
       languages: {
@@ -48,6 +51,9 @@ const SERVICE_CATEGORIES = [
     services: [
       { icon: Heart, key: "weddings" as const, slug: "weddings" },
       { icon: Church, key: "baptisms" as const, slug: "baptisms" },
+      { icon: Frame, key: "churchIcons" as const, slug: "church-icons" },
+      { icon: PartyPopper, key: "receptions" as const, slug: "receptions" },
+      { icon: Building2, key: "commercialSpaces" as const, slug: "commercial-spaces" },
     ],
   },
   {

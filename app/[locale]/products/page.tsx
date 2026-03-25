@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  Bug,
   Container,
   Droplets,
   ExternalLink,
@@ -28,8 +29,8 @@ export const generateMetadata = async ({
     title: locale === "el" ? "Προϊόντα" : "Products",
     description:
       locale === "el"
-        ? "Άνθη, φυτά, χώματα, λιπάσματα και γλάστρες στην Ηλιούπολη. Ανθοπωλείο KALOUDIS — μεγάλη ποικιλία για κάθε ανάγκη."
-        : "Flowers, plants, soil, fertilizers, and pots in Ilioupoli. KALOUDIS flower shop — wide variety for every need.",
+        ? "Άνθη, φυτά, χώματα, λιπάσματα, γλάστρες και προϊόντα απεντόμωσης. Ανθοπωλείο KALOUDIS — μεγάλη ποικιλία για κάθε ανάγκη."
+        : "Flowers, plants, soil, fertilizers, pots and pest control products. KALOUDIS flower shop — wide variety for every need.",
     alternates: {
       canonical: "/products",
       languages: {
@@ -45,6 +46,7 @@ const PRODUCT_ITEMS = [
   { icon: Mountain, key: "soil" as const, slug: "soil" },
   { icon: Droplets, key: "fertilizers" as const, slug: "fertilizers" },
   { icon: Container, key: "pots" as const, slug: "pots" },
+  { icon: Bug, key: "pestProducts" as const, slug: "pest-products" },
 ];
 
 const CATEGORY_KEY_MAP: Record<string, string> = {

@@ -2,7 +2,7 @@
   "HomePage": {
     "title": "ANTHI-FYTA KALOUDIS",
     "subtitle": "Landscaping Services",
-    "heroHeadline": "Flowers, Plants & Landscaping Services in Ilioupoli",
+    "heroHeadline": "Flowers, Plants & Landscaping Services",
     "heroSubheadline": "From wedding decoration to garden design — trust the experts",
     "ctaProducts": "Our Products",
     "ctaServices": "Our Services",
@@ -19,7 +19,7 @@
   },
   "About": {
     "title": "About Us",
-    "description1": "Kaloudis is a well-known florist in the Ilioupoli area, offering a wide variety of flowers and plants suitable for every occasion. We emphasize high aesthetic quality and excellent customer service.",
+    "description1": "Kaloudis is a well-known florist offering a wide variety of flowers and plants suitable for every occasion. We emphasize high aesthetic quality and excellent customer service.",
     "description2": "We provide floral decoration services for weddings, baptisms and receptions, creating original compositions. We also offer a rich collection of indoor and outdoor plants, as well as complete landscaping services.",
     "quality": "Quality & Service",
     "qualityDesc": "Service with a smile, honesty and dedication to every customer",
@@ -49,6 +49,8 @@
     "fertilizersDesc": "Quality fertilizers for healthy growth and rich blooming",
     "pots": "Pots",
     "potsDesc": "Pots in every size and style, from classic to modern",
+    "pestProducts": "Pest Control Products",
+    "pestProductsDesc": "Mouse poison, insecticides and solutions for cockroaches, ants and snake repellent",
     "viewAll": "View all products"
   },
   "Services": {
@@ -58,6 +60,12 @@
     "weddingsDesc": "Church and reception floral decoration with fresh flowers for your dream wedding",
     "baptisms": "Baptism Decorations",
     "baptismsDesc": "Church and reception decoration with fresh flowers for a magical baptism",
+    "churchIcons": "Church & Icon Decorations",
+    "churchIconsDesc": "Floral decoration of religious icons, churches and sacred spaces for celebrations and feasts",
+    "receptions": "Reception & Event Decorations",
+    "receptionsDesc": "Flower arrangements and venue styling for receptions, parties and social events",
+    "commercialSpaces": "Commercial Space Decorations",
+    "commercialSpacesDesc": "Weekly flower arrangements and decoration for offices, hotels and retail spaces",
     "maintenance": "Maintenance",
     "maintenanceDesc": "Regular care of gardens, balconies and outdoor areas",
     "irrigation": "Automatic Irrigation",
@@ -114,7 +122,7 @@
     "hours": "Working Hours",
     "hoursMon": "Mon, Tue, Wed, Fri, Sat: 09:00 - 21:00",
     "hoursThu": "Thursday: 09:00 - 19:00",
-    "hoursSun": "Sunday: 09:00 - 16:00"
+    "hoursSun": "Sunday: Closed (except holidays)"
   },
   "Newsletter": {
     "badge": "Stay Updated",
@@ -156,7 +164,7 @@
     "breadcrumbHome": "Home",
     "breadcrumbServices": "Services",
     "areasTitle": "Areas We Serve",
-    "areasSubtitle": "We cover Ilioupoli and all of south Athens — Argyroupoli, Dafni, Vyronas, Alimos, Nea Smyrni, Glyfada and many more areas",
+    "areasSubtitle": "We serve clients throughout Attica",
     "faqTitle": "Frequently Asked Questions",
     "relatedTitle": "Related Services",
     "ctaTitle": "Interested in this service?",
@@ -170,10 +178,10 @@
     "weddings": {
       "title": "Wedding Decorations",
       "heroDescription": "We create unique wedding floral arrangements that transform any venue into a fairytale setting. From the church to the reception, every detail is designed with love.",
-      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we specialize in wedding decoration with fresh flowers and original compositions that reflect each couple's personal style. We handle complete church floral decoration — from the wedding candles and crowns to the entrance and altar arrangements. We serve weddings at churches and reception venues in Ilioupoli, Argyroupoli, Vyronas, Dafni, and throughout Attica.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we specialize in wedding decoration with fresh flowers and original compositions that reflect each couple's personal style. We handle complete church floral decoration — from the wedding candles and crowns to the entrance and altar arrangements. We serve weddings at churches and reception venues throughout Attica.",
       "content2": "The bridal bouquet is one of the most important elements of your special day. We create bouquets in every style — romantic, modern, boho, or classic — using the finest seasonal flowers. Each composition is handcrafted with attention to detail and color harmony.",
-      "content3": "Reception decoration includes table centerpieces, wish table arrangements, candy bar decoration, and decorative accents throughout the venue. We design every detail to create a cohesive aesthetic that will impress your guests. We collaborate with the finest reception venues in Glyfada, Alimos, Nea Smyrni, and across south Athens.",
-      "content4": "Our extensive experience in wedding floral decoration allows us to adapt to any budget without compromising on quality. We offer free consultations at our shop in Ilioupoli, where you can view samples, choose your color palette, and design your dream wedding decoration together.",
+      "content3": "Reception decoration includes table centerpieces, wish table arrangements, candy bar decoration, and decorative accents throughout the venue. We design every detail to create a cohesive aesthetic that will impress your guests. We collaborate with the finest reception venues across Attica.",
+      "content4": "Our extensive experience in wedding floral decoration allows us to adapt to any budget without compromising on quality. We offer free consultations at our shop, where you can view samples, choose your color palette, and design your dream wedding decoration together.",
       "feature1Title": "Church Decoration",
       "feature1Desc": "Complete church floral arrangement with candles, crowns, altar compositions, and entrance decoration",
       "feature2Title": "Bridal Bouquet",
@@ -184,8 +192,8 @@
       "feature4Desc": "Free consultation and personalized proposals tailored to every taste and budget",
       "faq1Question": "How far in advance should I book my wedding decoration?",
       "faq1Answer": "We recommend booking at least 3-4 months before your wedding, especially during the summer season. This gives us enough time to design the perfect arrangement and secure the flowers you desire.",
-      "faq2Question": "Do you decorate churches and venues outside Ilioupoli?",
-      "faq2Answer": "Absolutely! We serve weddings throughout Attica — Argyroupoli, Vyronas, Dafni, Glyfada, Alimos, Nea Smyrni, and many more areas. Delivery and setup are handled by our team.",
+      "faq2Question": "Do you decorate churches and venues in other areas?",
+      "faq2Answer": "Absolutely! We serve weddings throughout Attica. Delivery and setup are handled by our team.",
       "faq3Question": "What does a complete wedding decoration package include?",
       "faq3Answer": "A complete package includes church decoration (candles, crowns, altar, entrance), the bridal bouquet, reception venue decoration (centerpieces, wish table), and delivery with setup. Prices are tailored to your specific needs."
     },
@@ -193,10 +201,10 @@
     "baptisms": {
       "title": "Baptism Decorations",
       "heroDescription": "We create joyful and elegant baptism decorations that make this special day even more magical. Every arrangement is crafted with care and love.",
-      "content1": "A baptism is one of the most important moments in a family's life, and at Kaloudis in Ilioupoli we ensure that the decoration is perfect in every detail. We handle complete baptism decoration — church floral arrangements, baptismal font decoration, candle decoration, and stunning compositions for the church entrance.",
-      "content2": "Baptism reception decoration includes table centerpieces, sweet table and candy buffet decoration, as well as special constructions with balloons and flowers. We serve baptisms at churches and reception venues in Ilioupoli, Dafni, Vyronas, Argyroupoli, Nea Smyrni, and throughout south Athens.",
-      "content3": "We customize every decoration to match your chosen baptism theme — prince, princess, animals, flowers, nautical, or whatever you dream of. Our team at ANTHI-FYTA KALOUDIS combines fresh flowers with decorative elements for a harmonious and unique result.",
-      "content4": "We offer free consultations at our shop in Ilioupoli, where you can view photos of previous work, choose colors and themes, and receive a detailed quote. Every baptism is unique and treated with the same dedication.",
+      "content1": "A baptism is one of the most important moments in a family's life, and at Kaloudis we ensure that the decoration is perfect in every detail. We handle complete baptism decoration — church floral arrangements, baptismal font decoration, candle decoration, and stunning compositions for the church entrance.",
+      "content2": "Baptism reception decoration includes table centerpieces, sweet table and candy buffet decoration, as well as special constructions with balloons and flowers. We serve baptisms at churches and reception venues throughout Attica.",
+      "content3": "We customize every decoration to match your chosen baptism theme — prince, princess, animals, flowers, nautical, or whatever you dream of. Our team combines fresh flowers with decorative elements for a harmonious and unique result.",
+      "content4": "We offer free consultations at our shop, where you can view photos of previous work, choose colors and themes, and receive a detailed quote. Every baptism is unique and treated with the same dedication.",
       "feature1Title": "Church Decoration",
       "feature1Desc": "Baptismal font decoration, church entrance and interior arrangements with fresh flowers and accents",
       "feature2Title": "Candle Decoration",
@@ -208,28 +216,97 @@
       "faq1Question": "Can you create a baptism decoration with a specific theme?",
       "faq1Answer": "Yes, we customize every decoration to match your chosen theme. Whether it's animals, flowers, nautical, or something completely original, we create arrangements that perfectly match your aesthetic vision.",
       "faq2Question": "How much does a baptism decoration cost?",
-      "faq2Answer": "The cost depends on the type of decoration, the flowers you choose, and the venue. We offer free cost estimates after a consultation at our shop in Ilioupoli, where we discuss your needs in detail.",
+      "faq2Answer": "The cost depends on the type of decoration, the flowers you choose, and the venue. We offer free cost estimates after a consultation at our shop, where we discuss your needs in detail.",
       "faq3Question": "Do you handle delivery and setup?",
-      "faq3Answer": "Of course! Our team handles complete delivery, setup, and takedown of the decoration. We serve churches and reception venues in Ilioupoli, Argyroupoli, Dafni, Vyronas, Glyfada, and throughout Attica."
+      "faq3Answer": "Of course! Our team handles complete delivery, setup, and takedown of the decoration. We serve churches and reception venues throughout Attica."
+    },
+
+    "churchIcons": {
+      "title": "Church & Icon Decorations",
+      "heroDescription": "We create stunning floral decorations for religious icons, churches and sacred spaces. From patron saint celebrations to seasonal religious holidays.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we undertake floral decoration of icons, churches and sacred temples throughout Attica. We decorate saint icons, iconostases, solea areas, church entrances and exterior spaces with fresh flowers and original compositions.",
+      "content2": "We serve patron saint celebrations, feast days, religious ceremonies and seasonal holidays (Easter, Christmas, Dormition of the Virgin). Every composition is designed with respect for the sacred space and religious tradition.",
+      "content3": "We collaborate with parishes throughout Attica. We handle delivery, setup and takedown of all decorations.",
+      "content4": "We use high-quality seasonal flowers — roses, lilies, baby's breath, orchids — and create compositions that highlight the splendor of each celebration. Visit our shop to plan the decoration together.",
+      "feature1Title": "Icon Decoration",
+      "feature1Desc": "Floral decoration of saint icons with wreaths, garlands and original flower compositions",
+      "feature2Title": "Church Decoration",
+      "feature2Desc": "Complete church decoration — iconostasis, solea, entrance, columns and exterior space",
+      "feature3Title": "Feast Days & Celebrations",
+      "feature3Desc": "Specialized decoration for patron saint celebrations, feast days and religious ceremonies",
+      "feature4Title": "Seasonal Holidays",
+      "feature4Desc": "Church decoration for Easter, Christmas, Dormition and major religious holidays",
+      "faq1Question": "Do you decorate icons at any church?",
+      "faq1Answer": "Yes, we serve churches throughout Attica. Our team handles delivery, setup and takedown. We coordinate with the priest or parish for all details.",
+      "faq2Question": "How early should I book for a feast day?",
+      "faq2Answer": "We recommend contacting us at least 2 weeks in advance, especially during peak periods (Easter, Dormition). For large celebrations, one month ahead is ideal.",
+      "faq3Question": "What types of flowers do you use?",
+      "faq3Answer": "We use high-quality fresh seasonal flowers — roses, lilies, baby's breath, orchids, chrysanthemums. Selection depends on the season, celebration and your preferences."
+    },
+
+    "receptions": {
+      "title": "Reception & Event Decorations",
+      "heroDescription": "We transform any reception or event space with unique floral arrangements. Parties, birthdays, engagements, name days and social events.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we undertake floral decoration for every type of reception and event throughout Attica. From engagements and birthdays to graduations, name days and corporate parties — we create the right atmosphere with flowers.",
+      "content2": "We design centerpieces, entrance installations, candy bars, photo corners and all types of floral installations. Every event is unique and treated with distinctive creativity.",
+      "content3": "We collaborate with reception halls, estates, restaurants and private venues throughout Attica.",
+      "content4": "We offer free consultations at our shop to discuss your ideas, review venue photos and provide a detailed quote. Every composition is made with fresh flowers on the day of the event.",
+      "feature1Title": "Table Centerpieces",
+      "feature1Desc": "Central flower arrangements, small compositions and runners for every table type",
+      "feature2Title": "Entrance Installations",
+      "feature2Desc": "Impressive arches, entrance constructions and welcome displays with flowers",
+      "feature3Title": "Candy Bar & Photo Corner",
+      "feature3Desc": "Floral decoration for candy bars, dessert tables and photo corners",
+      "feature4Title": "Themed Decoration",
+      "feature4Desc": "Full customization to match your event's theme and color palette",
+      "faq1Question": "What types of events do you cover?",
+      "faq1Answer": "We cover every type of event — engagements, birthdays, name days, graduations, baby showers, corporate events, parties and social gatherings.",
+      "faq2Question": "Can you decorate outdoor spaces?",
+      "faq2Answer": "Of course! We handle both indoor and outdoor spaces — estates, gardens, rooftops, terraces. Our team takes care of delivery and setup.",
+      "faq3Question": "How early should I book?",
+      "faq3Answer": "For large events we recommend at least 2-3 weeks in advance. For smaller celebrations we can accommodate shorter timelines, depending on availability."
+    },
+
+    "commercialSpaces": {
+      "title": "Commercial Space Decorations",
+      "heroDescription": "We elevate your business image with fresh flower arrangements. Offices, hotels, shops, restaurants and reception areas.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we offer floral decoration services for commercial spaces throughout Attica. We create weekly or monthly flower arrangements for offices, reception areas, hotels, restaurants, shops and showrooms.",
+      "content2": "Flowers in commercial spaces enhance aesthetics, create positive impressions on clients and improve the work environment. We customize every arrangement to match your business identity and aesthetic.",
+      "content3": "We serve commercial spaces throughout Attica. Delivery is made on a regular schedule to your premises.",
+      "content4": "We offer flexible subscription packages — weekly flower arrangement changes, bi-weekly refreshes or monthly decoration. We also handle decoration for corporate events, grand openings and special occasions.",
+      "feature1Title": "Weekly Arrangements",
+      "feature1Desc": "Regular renewal of flower arrangements at your premises with fresh seasonal flowers",
+      "feature2Title": "Offices & Reception",
+      "feature2Desc": "Elegant compositions for reception areas, meeting rooms and offices",
+      "feature3Title": "Hotels & Restaurants",
+      "feature3Desc": "Daily or weekly decoration for lobbies, dining areas and common spaces",
+      "feature4Title": "Corporate Events",
+      "feature4Desc": "Decoration for grand openings, corporate events, presentations and conferences",
+      "faq1Question": "How much does a weekly office arrangement cost?",
+      "faq1Answer": "The cost depends on the number of arrangements and the flowers you prefer. We offer special packages for long-term partnerships. Contact us for a free estimate.",
+      "faq2Question": "Can you match the flowers to our brand colors?",
+      "faq2Answer": "Absolutely! We customize every arrangement to match your brand colors, aesthetic and identity. From minimal white compositions to bold color combinations.",
+      "faq3Question": "Do you deliver to our premises?",
+      "faq3Answer": "Yes, our service includes delivery, setup and removal of previous arrangements. We serve locations throughout Attica on a regular schedule."
     },
 
     "gardenDesign": {
       "title": "Garden Study & Design",
-      "heroDescription": "We design the garden of your dreams with professional study, 3D visualization, and complete construction. From concept to completion.",
-      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we offer comprehensive garden study and design services for residential and commercial properties. The process begins with an on-site inspection, assessment of your needs, and analysis of soil and climate conditions. We serve clients in Ilioupoli, Argyroupoli, Vyronas, Dafni, Alimos, Glyfada, and throughout Attica.",
-      "content2": "Our garden study includes an architectural planting plan, selection of suitable plants for your space's climate and orientation, pathway design, relaxation areas, and lighting layout. We use modern 3D visualization tools so you can see your garden before construction begins.",
-      "content3": "We also handle complete garden construction — excavation, soil preparation, planting, automatic irrigation installation, lawn laying, and rock garden construction. Our experience guarantees results you'll enjoy for years to come.",
-      "content4": "Every garden we design considers sustainability, water conservation, and low maintenance. We select plants adapted to the Mediterranean climate and design efficient irrigation systems. Visit our shop in Ilioupoli to discuss the garden you've been dreaming of.",
+      "heroDescription": "We design the garden of your dreams with professional study and complete construction. From concept to completion.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we offer comprehensive garden study and design services for residential and commercial properties. The process begins with an on-site inspection, assessment of your needs, and analysis of soil and climate conditions. We serve clients throughout Attica.",
+      "content2": "Our garden study includes an architectural planting plan, selection of suitable plants for your space's climate and orientation, pathway design, relaxation areas, and lighting layout.",
+      "content3": "We also handle complete garden construction — excavation, soil preparation, planting, automatic irrigation installation, lawn laying, and rock garden design and construction with hardy Mediterranean plants. Our experience guarantees results you'll enjoy for years to come.",
+      "content4": "Every garden we design considers sustainability, water conservation, and low maintenance. We select plants adapted to the Mediterranean climate and design efficient irrigation systems. Visit our shop to discuss the garden you've been dreaming of.",
       "feature1Title": "Architectural Study",
       "feature1Desc": "Complete garden plan with space mapping, plant selection, and landscape design",
-      "feature2Title": "3D Visualization",
-      "feature2Desc": "Three-dimensional visualization of your garden before construction for an ideal result",
+      "feature2Title": "Rock Gardens",
+      "feature2Desc": "Design and construction of rock gardens with hardy, low-maintenance Mediterranean plants",
       "feature3Title": "Garden Construction",
       "feature3Desc": "Full implementation — planting, lawn, pathways, lighting, and irrigation",
       "feature4Title": "Sustainable Design",
       "feature4Desc": "Mediterranean plant selection, water conservation, and low-maintenance design approach",
       "faq1Question": "What does a garden study include?",
-      "faq1Answer": "The study includes an on-site inspection, architectural planting plan, plant selection, pathway and lighting design, 3D visualization, and a detailed budget. We deliver a complete file with all plans and specifications.",
+      "faq1Answer": "The study includes an on-site inspection, architectural planting plan, plant selection, pathway and lighting design, and a detailed budget. We deliver a complete file with all plans and specifications.",
       "faq2Question": "How much does garden design cost?",
       "faq2Answer": "The cost depends on the size of the space and your requirements. The initial inspection and consultation are free. After that, we provide a detailed quote for both the study and construction phases.",
       "faq3Question": "Do you offer maintenance after construction?",
@@ -238,9 +315,9 @@
 
     "maintenance": {
       "title": "Garden Maintenance",
-      "heroDescription": "We keep your garden in perfect condition year-round with regular care and professional maintenance services.",
-      "content1": "The Kaloudis team in Ilioupoli handles regular garden maintenance for gardens, balconies, and outdoor spaces in Ilioupoli, Argyroupoli, Dafni, Vyronas, Alimos, and throughout south Athens. Our services include lawn mowing, plant pruning, fertilizing, plant protection spraying, and irrigation system checks.",
-      "content2": "We offer flexible maintenance programs — weekly, bi-weekly, or monthly care — tailored to your garden's needs and your budget. Every visit includes a plant health check and seasonal tasks to keep everything thriving.",
+      "heroDescription": "Flexible and customized garden maintenance services. We keep your garden in perfect condition year-round with regular, tailored care.",
+      "content1": "The Kaloudis team handles regular garden maintenance for gardens, balconies, and outdoor spaces throughout Attica. We offer flexible and customized care programs covering lawn mowing, plant pruning, fertilizing, plant protection spraying, and irrigation system checks.",
+      "content2": "Every maintenance program is flexibly designed around your garden's specific needs — weekly, bi-weekly, or monthly care — customized to your budget. Every visit includes a plant health check and seasonal tasks to keep everything thriving.",
       "feature1Title": "Regular Care",
       "feature1Desc": "Weekly or monthly maintenance including lawn mowing, pruning, and cleanup",
       "feature2Title": "Fertilizing & Protection",
@@ -250,13 +327,13 @@
       "faq1Question": "How often does my garden need maintenance?",
       "faq1Answer": "It depends on the type of garden and the season. Generally, we recommend at least two visits per month during summer and one during winter to keep everything in top shape.",
       "faq2Question": "Do you maintain apartment building gardens?",
-      "faq2Answer": "Yes, we serve both private gardens and shared apartment building spaces in Ilioupoli and surrounding areas. We offer special rates for long-term maintenance contracts."
+      "faq2Answer": "Yes, we serve both private gardens and shared apartment building spaces throughout Attica. We offer special rates for long-term maintenance contracts."
     },
 
     "irrigation": {
       "title": "Automatic Irrigation Systems",
       "heroDescription": "We design and install modern automatic irrigation systems that save water and time while keeping your garden perfectly watered.",
-      "content1": "At ANTHI-FYTA KALOUDIS, we design and install automatic irrigation systems for gardens, balcony planters, lawns, and indoor plants. We serve residential and commercial properties in Ilioupoli, Argyroupoli, Vyronas, Dafni, Nea Smyrni, Glyfada, and throughout south Athens.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we design and install automatic irrigation systems for gardens, balcony planters, lawns, and indoor plants. We serve residential and commercial properties throughout Attica.",
       "content2": "We use quality materials from leading brands (Hunter, Rain Bird) and next-generation controllers with smartphone control capabilities. Every system is designed for maximum water savings and uniform distribution across your garden.",
       "feature1Title": "System Installation",
       "feature1Desc": "Design and installation of automatic irrigation with drip lines, sprinklers, or spray nozzles",
@@ -272,8 +349,8 @@
 
     "pruning": {
       "title": "Pruning Services",
-      "heroDescription": "Professional tree and shrub pruning for health, safety, and aesthetics in your garden throughout south Athens.",
-      "content1": "The Kaloudis team handles professional pruning of trees, shrubs, and plants in Ilioupoli, Argyroupoli, Dafni, Vyronas, and surrounding areas. Proper pruning is essential for plant health, creating the right canopy shape, and improving flowering and fruit production.",
+      "heroDescription": "Professional tree and shrub pruning for health, safety, and aesthetics in your garden throughout Attica.",
+      "content1": "The Kaloudis team handles professional pruning of trees, shrubs, and plants throughout Attica. Proper pruning is essential for plant health, creating the right canopy shape, and improving flowering and fruit production.",
       "content2": "We perform shaping, thinning, rejuvenation, and sanitary pruning. Every job is carried out by experienced staff with professional tools, following the correct pruning guidelines for each plant species.",
       "feature1Title": "Tree Pruning",
       "feature1Desc": "Shaping, canopy thinning, and removal of dead or hazardous branches",
@@ -289,8 +366,8 @@
 
     "tallTrees": {
       "title": "Tall Tree Cutting",
-      "heroDescription": "Safe cutting and removal of tall or hazardous trees with specialized equipment and experienced crew in south Athens.",
-      "content1": "Tall tree cutting requires specialized equipment, experience, and proper planning. At ANTHI-FYTA KALOUDIS in Ilioupoli, we have the right equipment and trained personnel for tall tree cutting in Ilioupoli, Argyroupoli, Vyronas, Dafni, Alimos, and throughout south Athens.",
+      "heroDescription": "Safe cutting and removal of tall or hazardous trees with specialized equipment and experienced crew throughout Attica.",
+      "content1": "Tall tree cutting requires specialized equipment, experience, and proper planning. At ANTHI-FYTA KALOUDIS, we have the right equipment and trained personnel for tall tree cutting throughout Attica.",
       "content2": "We handle tree cutting in difficult locations — near buildings, electrical cables, or tight spaces — using controlled felling techniques. Safety is always our top priority on every job.",
       "feature1Title": "Safe Cutting",
       "feature1Desc": "Controlled cutting of tall trees with specialized equipment and safety techniques",
@@ -307,7 +384,7 @@
     "rockGardens": {
       "title": "Rock Gardens",
       "heroDescription": "We design and build stunning rock gardens that add character and natural beauty to your outdoor space.",
-      "content1": "A rock garden is an excellent solution for sloped areas, poor soil, or for those who want a low-maintenance garden with Mediterranean character. At Kaloudis in Ilioupoli, we design and build rock gardens in Ilioupoli, Argyroupoli, Vyronas, Dafni, and throughout south Athens.",
+      "content1": "A rock garden is an excellent solution for sloped areas, poor soil, or for those who want a low-maintenance garden with Mediterranean character. At Kaloudis, we design and build rock gardens throughout Attica.",
       "content2": "We use natural rocks, gravel, and drought-resistant plants — lavender, thyme, rosemary, sedum, agave, and many more. Each rock garden is unique, designed to blend harmoniously with your landscape.",
       "feature1Title": "Rock Garden Design",
       "feature1Desc": "Complete study with rock selection, plant choices, and terrain shaping",
@@ -323,8 +400,8 @@
 
     "landClearing": {
       "title": "Land Clearing",
-      "heroDescription": "We handle complete clearing and preparation of vacant lots, undeveloped land, and abandoned gardens in south Athens.",
-      "content1": "Land clearing is essential for both fire protection and aesthetics. At ANTHI-FYTA KALOUDIS in Ilioupoli, we handle land clearing for vacant lots and undeveloped spaces in Ilioupoli, Argyroupoli, Vyronas, Dafni, and south Athens. The work includes vegetation removal, grass cutting, and removal of debris and branches.",
+      "heroDescription": "We handle complete clearing and preparation of vacant lots, undeveloped land, and abandoned gardens throughout Attica.",
+      "content1": "Land clearing is essential for both fire protection and aesthetics. At ANTHI-FYTA KALOUDIS, we handle land clearing for vacant lots and undeveloped spaces throughout Attica. The work includes vegetation removal, grass cutting, and removal of debris and branches.",
       "content2": "We also offer post-clearing preparation services — ground leveling, planting, and irrigation installation. We transform abandoned plots into clean, safe, and green spaces ready for use.",
       "feature1Title": "Vegetation Clearing",
       "feature1Desc": "Grass cutting, weed removal, and cleanup of debris and rubble from your property",
@@ -335,14 +412,14 @@
       "faq1Question": "Is land clearing mandatory?",
       "faq1Answer": "Yes, according to current Greek legislation, property owners are required to clear their lots by the end of May each year for fire protection purposes. Failure to comply can result in fines.",
       "faq2Question": "Do you handle large plots?",
-      "faq2Answer": "Yes, we handle plots of all sizes. We have the right equipment for small urban lots as well as larger properties across south Athens and Attica."
+      "faq2Answer": "Yes, we handle plots of all sizes. We have the right equipment for small urban lots as well as larger properties across Attica."
     },
 
     "pestControl": {
       "title": "Pest Control & Spraying",
       "heroDescription": "We protect your plants from diseases and pests with professional spraying services in collaboration with a specialized agronomist.",
-      "content1": "At Kaloudis in Ilioupoli, we provide plant protection services — spraying, treatments, and pest control — in collaboration with a specialized agronomist. We treat fungal diseases, aphids, scale insects, mites, psyllids, and all types of pests. We serve gardens, courtyards, and parks in Ilioupoli, Argyroupoli, Dafni, Vyronas, and throughout south Athens.",
-      "content2": "We use approved plant protection products that are safe for humans, pets, and the environment. Our agronomist evaluates the problem and applies targeted treatment for maximum effectiveness and minimal environmental impact.",
+      "content1": "At Kaloudis, we provide plant protection services — spraying, treatments, and pest control — in collaboration with a specialized agronomist. We treat fungal diseases, aphids, scale insects, mites, psyllids, and all types of pests. We serve gardens, courtyards, and parks throughout Attica.",
+      "content2": "We use approved plant protection products that are safe for humans, pets, and the environment. Our agronomist evaluates the problem and applies targeted treatment for maximum effectiveness and minimal environmental impact. At our shop you'll also find pest control products for insects, cockroaches, ants, and mice.",
       "feature1Title": "Disease Diagnosis",
       "feature1Desc": "Assessment by a specialized agronomist and identification of the problem",
       "feature2Title": "Protection Spraying",
@@ -369,7 +446,7 @@
     "subtitle": "Wide variety of flowers, plants and garden supplies for every need",
     "viewAll": "View all products",
     "catalogTitle": "Order Online via efood",
-    "catalogSubtitle": "Products available for delivery in Ilioupoli",
+    "catalogSubtitle": "Products available for delivery throughout Attica",
     "catalogOrderButton": "Order on efood",
     "catalogPriceNote": "Prices include VAT",
     "catalogPlants": "Plants & Flowers",
@@ -379,11 +456,11 @@
 
     "flowers": {
       "title": "Flowers & Plants",
-      "heroDescription": "Fresh flowers, indoor and outdoor plants, rare species and carnivorous plants. Discover our unique collection in Ilioupoli.",
-      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we offer one of the richest collections of flowers and plants in south Athens. Our range includes fresh cut flowers — roses, gardenias, orchids, tulips, sunflowers, lilies, and seasonal blooms — perfect for bouquets, gifts, and space decoration. We serve customers from Ilioupoli, Argyroupoli, Dafni, Vyronas, Alimos, Nea Smyrni, Glyfada, and all of south Athens.",
+      "heroDescription": "Fresh flowers, indoor and outdoor plants, rare species and carnivorous plants. Discover our unique collection.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we offer one of the richest collections of flowers and plants in Attica. Our range includes fresh cut flowers — roses, gardenias, orchids, tulips, sunflowers, lilies, and seasonal blooms — perfect for bouquets, gifts, and space decoration. We serve customers throughout Attica.",
       "content2": "Our indoor plants include monstera, ficus, sansevieria, ferns, pothos, and many more, in all sizes — from small office desk plants to large decorative living room specimens. For your garden or balcony, we carry outdoor plants, trees, shrubs, climbers, aromatic herbs, and perennial flowers.",
       "content3": "For rare plant enthusiasts, our collection includes carnivorous plants (Dionaea, Drosera, Nepenthes), rare succulent varieties, cacti, tillandsias (air plants), and exotic tropical species. Our team guides you on caring for each plant to ensure healthy, vibrant growth.",
-      "content4": "We create bouquets and arrangements for every occasion — birthdays, name days, anniversaries, memorials, and corporate gifts. Each arrangement is handcrafted with fresh materials and delivered same-day in Ilioupoli and surrounding areas.",
+      "content4": "We create bouquets and arrangements for every occasion — birthdays, name days, anniversaries, memorials, and corporate gifts. Each arrangement is handcrafted with fresh materials and delivered same-day throughout Attica.",
       "feature1Title": "Fresh Flowers",
       "feature1Desc": "Roses, orchids, lilies, tulips, and seasonal blooms — perfect for bouquets and gifts",
       "feature2Title": "Indoor Plants",
@@ -392,8 +469,8 @@
       "feature3Desc": "Trees, shrubs, climbers, aromatic herbs, and perennials for garden and balcony",
       "feature4Title": "Rare & Exotic Species",
       "feature4Desc": "Carnivorous plants, succulents, cacti, air plants, and tropical species for collectors",
-      "faq1Question": "Do you deliver bouquets in Ilioupoli?",
-      "faq1Answer": "Yes, we deliver bouquets and arrangements same-day in Ilioupoli and nearby areas. You can order by phone or visit our shop to choose in person.",
+      "faq1Question": "Do you deliver bouquets?",
+      "faq1Answer": "Yes, we deliver bouquets and arrangements same-day throughout Attica. You can order by phone or visit our shop to choose in person.",
       "faq2Question": "Do you have carnivorous plants available?",
       "faq2Answer": "Yes! We carry carnivorous plants like Dionaea (Venus flytrap), Drosera (sundew), and Nepenthes (pitcher plant). Availability varies, so contact us or visit the shop to check.",
       "faq3Question": "Can you advise me on plant care?",
@@ -402,8 +479,8 @@
 
     "soil": {
       "title": "Soil & Substrates",
-      "heroDescription": "Specialized soils and substrates for every type of plant. Find the right growing medium at our shop in Ilioupoli.",
-      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we carry quality soils and substrates for every planting need. Choosing the right soil is critical for healthy plant growth — that's why we offer specialized mixes for pots, gardens, lawns, vegetables, and cacti.",
+      "heroDescription": "Specialized soils and substrates for every type of plant. Find the right growing medium at our shop.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we carry quality soils and substrates for every planting need. Choosing the right soil is critical for healthy plant growth — that's why we offer specialized mixes for pots, gardens, lawns, vegetables, and cacti.",
       "content2": "Our range includes general-purpose potting mix, container soil, peat, perlite, vermiculite, compost, herb mix, orchid bark, cactus mix, and specialized substrates tailored to each plant's pH and drainage requirements.",
       "feature1Title": "Potting Soil",
       "feature1Desc": "Light, airy substrate ideal for indoor plants and balcony containers",
@@ -419,8 +496,8 @@
 
     "fertilizers": {
       "title": "Fertilizers",
-      "heroDescription": "Quality fertilizers for healthy growth and rich blooming. Organic and chemical fertilizers at our shop in Ilioupoli.",
-      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, you'll find quality fertilizers for every plant type and need. From organic fertilizers (compost, guano, bone meal) to slow-release chemical fertilizers, water-soluble fertilizers, and specialized formulas for flowering, fruiting, or foliage growth.",
+      "heroDescription": "Quality fertilizers for healthy growth and rich blooming. Organic and chemical fertilizers at our shop.",
+      "content1": "At ANTHI-FYTA KALOUDIS, you'll find quality fertilizers for every plant type and need. From organic fertilizers (compost, guano, bone meal) to slow-release chemical fertilizers, water-soluble fertilizers, and specialized formulas for flowering, fruiting, or foliage growth.",
       "content2": "Our team guides you in choosing the right fertilizer, dosage, and application timing. We carry fertilizers from leading brands in every package size to suit your needs.",
       "feature1Title": "Organic Fertilizers",
       "feature1Desc": "Compost, guano, and biological products for natural plant nutrition",
@@ -436,8 +513,8 @@
 
     "pots": {
       "title": "Pots & Planters",
-      "heroDescription": "Pots in every size and style, from classic ceramic to modern decorative planters. Find the perfect pot at our shop in Ilioupoli.",
-      "content1": "At ANTHI-FYTA KALOUDIS in Ilioupoli, we carry a wide variety of pots for every need and aesthetic. Our collection includes ceramic pots, lightweight plastic planters, terracotta cachepots, metal planters, wooden containers, and decorative cachepots.",
+      "heroDescription": "Pots in every size and style, from classic ceramic to modern decorative planters. Find the perfect pot at our shop.",
+      "content1": "At ANTHI-FYTA KALOUDIS, we carry a wide variety of pots for every need and aesthetic. Our collection includes ceramic pots, lightweight plastic planters, terracotta cachepots, metal planters, wooden containers, and decorative cachepots.",
       "content2": "From small window and desk pots to large floor planters for indoor and outdoor spaces. In colors, shapes, and sizes for every taste — classic, modern, rustic, or minimalist.",
       "feature1Title": "Ceramic Pots",
       "feature1Desc": "Handcrafted and industrial ceramic pots in classic and contemporary designs",
@@ -448,7 +525,24 @@
       "faq1Question": "What pot does my plant need?",
       "faq1Answer": "The right pot depends on the plant's size, drainage needs, and placement location. At our shop, we help you choose the ideal size and material for healthy growth.",
       "faq2Question": "Do you deliver large pots?",
-      "faq2Answer": "Yes, we handle delivery of large pots to your location in Ilioupoli and surrounding areas. Contact us for more details and delivery options."
+      "faq2Answer": "Yes, we handle delivery of large pots to your location throughout Attica. Contact us for more details and delivery options."
+    },
+
+    "pestProducts": {
+      "title": "Pest Control Products",
+      "heroDescription": "Solutions for mice, cockroaches, ants, snakes and all types of insects. Find the right product at our shop.",
+      "content1": "At ANTHI-FYTA KALOUDIS, you'll find a complete range of pest control and rodent elimination products. We carry mouse poison, mouse traps, products for cockroaches, ants, wasps, fleas and all types of insects.",
+      "content2": "You'll also find snake and centipede repellent solutions, as well as protective products for gardens and outdoor spaces. Our team advises you on the correct use and application of each product.",
+      "feature1Title": "Rodent Control",
+      "feature1Desc": "Baits, traps and products for complete elimination of mice and rodents",
+      "feature2Title": "Insecticides",
+      "feature2Desc": "Products for cockroaches, ants, wasps, fleas and all types of insects",
+      "feature3Title": "Snake Repellent",
+      "feature3Desc": "Specialized repellent products for snakes, centipedes and reptiles",
+      "faq1Question": "Are the products safe for pets?",
+      "faq1Answer": "We carry both standard products and pet-safe options for homes with pets and children. Our team guides you in choosing the right product.",
+      "faq2Question": "Can you recommend a solution for my problem?",
+      "faq2Answer": "Of course! Visit our shop and describe your problem. We'll recommend the right products and proper application method."
     }
   }
 }
