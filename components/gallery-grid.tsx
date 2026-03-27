@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
@@ -10,18 +10,21 @@ const LIGHTBOX_BUTTON_CLASS =
   "absolute z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20";
 
 const GALLERY_IMAGES = [
-  { src: "/images/shop-4.jpg", alt: "Ταμπέλα καταστήματος ΑΝΘΗ-ΦΥΤΑ KALOUDIS" },
-  { src: "/images/shop-1.jpg", alt: "Αλεξανδρινά φυτά - Χριστουγεννιάτικη συλλογή" },
-  { src: "/images/shop-3.jpg", alt: "Πολύχρωμα εποχιακά λουλούδια και φυτά" },
-  { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών σε ροζ και κόκκινα" },
-  { src: "/images/shop-5.jpg", alt: "Νυχτερινή βιτρίνα καταστήματος" },
-  { src: "/images/3.jpg", alt: "Μπλε λουλούδια σε δώρο συσκευασία" },
-  { src: "/images/shop-6.jpg", alt: "Ανθοσυνθέσεις και δώρα Αγίου Βαλεντίνου" },
-  { src: "/images/shop-7.jpg", alt: "Εσωτερικό κατάστημα με φυτά και διακοσμητικά" },
-  { src: "/images/1.jpg", alt: "Εξωτερικός χώρος με πολύχρωμα λουλούδια" },
-  { src: "/images/shop-2.jpg", alt: "Εξωτερικός χώρος με φυτά και αλεξανδρινά" },
-  { src: "/images/shop-8.jpg", alt: "Χριστουγεννιάτικη διακόσμηση με Αλεξανδρινά" },
-];
+  { src: "/images/shop-4.jpg", alt: "Ταμπέλα καταστήματος ΑΝΘΗ-ΦΥΤΑ KALOUDIS", aspect: "landscape" },
+  { src: "/images/shop-3.jpg", alt: "Πολύχρωμα εποχιακά λουλούδια και φυτά", aspect: "portrait" },
+  { src: "/images/services/baptism-candle.jpg", alt: "Ανθοστολισμός λαμπάδας βάπτισης", aspect: "portrait" },
+  { src: "/images/shop-5.jpg", alt: "Νυχτερινή βιτρίνα καταστήματος", aspect: "landscape" },
+  { src: "/images/shop-1.jpg", alt: "Αλεξανδρινά φυτά - Χριστουγεννιάτικη συλλογή", aspect: "portrait" },
+  { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών σε ροζ και κόκκινα", aspect: "portrait" },
+  { src: "/images/services/wedding-cover.jpg", alt: "Στολισμός γάμου στην εκκλησία", aspect: "portrait" },
+  { src: "/images/shop-6.jpg", alt: "Ανθοσυνθέσεις και δώρα Αγίου Βαλεντίνου", aspect: "portrait" },
+  { src: "/images/3.jpg", alt: "Μπλε λουλούδια σε δώρο συσκευασία", aspect: "portrait" },
+  { src: "/images/shop-7.jpg", alt: "Εσωτερικό κατάστημα με φυτά και διακοσμητικά", aspect: "portrait" },
+  { src: "/images/1.jpg", alt: "Εξωτερικός χώρος με πολύχρωμα λουλούδια", aspect: "portrait" },
+  { src: "/images/services/baptism-font.jpg", alt: "Στολισμός κολυμπήθρας βάπτισης", aspect: "portrait" },
+  { src: "/images/shop-2.jpg", alt: "Εξωτερικός χώρος με φυτά και αλεξανδρινά", aspect: "portrait" },
+  { src: "/images/shop-8.jpg", alt: "Χριστουγεννιάτικη διακόσμηση με Αλεξανδρινά", aspect: "portrait" },
+] as const;
 
 export function GalleryGrid() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -64,30 +67,33 @@ export function GalleryGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 max-w-6xl mx-auto">
+      {/* Pinterest-style masonry grid */}
+      <div className="columns-2 md:columns-3 lg:columns-4 gap-3 max-w-6xl mx-auto [column-fill:balance]">
         {GALLERY_IMAGES.map((image, i) => (
           <button
             key={image.src}
             onClick={() => setOpenIndex(i)}
-            className={cn(
-              "relative overflow-hidden rounded-xl group cursor-pointer border border-border/30 hover:border-primary/20 shadow-sm hover:shadow-md transition-all duration-300",
-              i === 0 && "row-span-2"
-            )}
+            className="relative w-full mb-3 break-inside-avoid overflow-hidden rounded-2xl group cursor-pointer block"
           >
-            <div
-              className={cn(
-                "relative",
-                i === 0 ? "h-full min-h-[400px]" : "aspect-[4/3]"
-              )}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300" />
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.aspect === "landscape" ? 800 : 600}
+              height={image.aspect === "landscape" ? 450 : 800}
+              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            />
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 rounded-2xl flex items-center justify-center">
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex size-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                <ZoomIn className="size-5 text-white" />
+              </div>
+            </div>
+            {/* Caption on hover */}
+            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl">
+              <p className="text-white text-xs font-medium leading-tight">
+                {image.alt}
+              </p>
             </div>
           </button>
         ))}
