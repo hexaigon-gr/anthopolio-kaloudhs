@@ -1,0 +1,175 @@
+"use client";
+
+import { Phone, Star, Truck } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { BUSINESS } from "@/lib/general/constants";
+import type { CatalogCategory, CatalogItem } from "@/lib/general/catalog";
+
+const CATEGORY_KEY_MAP: Record<string, string> = {
+  plants: "catalogPlants",
+  foreverRoses: "catalogForeverRoses",
+  roseBears: "catalogRoseBears",
+  plush: "catalogPlush",
+};
+
+interface CatalogGridProps {
+  catalog: CatalogCategory[];
+  locale: string;
+}
+
+export function CatalogGrid({ catalog, locale }: CatalogGridProps) {
+  const t = useTranslations("ProductPages");
+  const [selectedItem, setSelectedItem] = useState<CatalogItem | null>(null);
+
+  return (
+    <>
+      <div className="space-y-10">
+        {catalog.map((category) => (
+          <div key={category.key}>
+            <h3 className="text-xl font-bold text-foreground mb-4 border-b border-primary/20 pb-2">
+              {t(CATEGORY_KEY_MAP[category.key])}
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {category.items.map((item, i) => (
+                <button
+                  key={`${category.key}-${i}`}
+                  className="text-left w-full rounded-xl border border-primary/10 hover:border-primary/30 hover:shadow-md bg-card transition-all duration-300 cursor-pointer group p-5"
+                  onClick={() => setSelectedItem(item)}
+                >
+                  <p className="font-medium text-foreground text-sm leading-snug group-hover:text-primary transition-colors">
+                    {locale === "el" ? item.nameEl : item.nameEn}
+                  </p>
+                  {item.size && (
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {item.size}
+                    </p>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Product Dialog */}
+      <Dialog
+        open={selectedItem !== null}
+        onOpenChange={(open) => !open && setSelectedItem(null)}
+      >
+        <DialogContent className="sm:max-w-md p-0 overflow-hidden">
+          {selectedItem && (
+            <>
+              <div className="p-6 pb-2">
+                <DialogHeader>
+                  <DialogTitle className="text-xl">
+                    {locale === "el"
+                      ? selectedItem.nameEl
+                      : selectedItem.nameEn}
+                  </DialogTitle>
+                  <DialogDescription>
+                    {selectedItem.size && (
+                      <span className="text-muted-foreground">
+                        {selectedItem.size}
+                      </span>
+                    )}
+                  </DialogDescription>
+                </DialogHeader>
+              </div>
+
+              <div className="px-6 space-y-4 pb-6">
+                {/* Store option — recommended */}
+                <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-4 relative">
+                  <div className="absolute -top-3 left-4 px-2 bg-primary text-primary-foreground text-xs font-bold rounded-full py-0.5 flex items-center gap-1">
+                    <Star className="size-3" />
+                    {locale === "el" ? "Προτεινόμενο" : "Recommended"}
+                  </div>
+                  <div className="mt-1">
+                    <p className="font-semibold text-foreground text-sm">
+                      {locale === "el"
+                        ? "Αγοράστε από το κατάστημά μας"
+                        : "Buy from our store"}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {locale === "el"
+                        ? "Καλύτερες τιμές & προσωπική εξυπηρέτηση"
+                        : "Better prices & personal service"}
+                    </p>
+                  </div>
+                  <Button asChild size="lg" className="w-full mt-3 gap-2">
+                    <a href={BUSINESS.phoneHref}>
+                      <Phone className="size-4" />
+                      {BUSINESS.phone}
+                    </a>
+                  </Button>
+                </div>
+
+                {/* Delivery options */}
+                <div className="rounded-xl border border-border p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Truck className="size-4 text-muted-foreground" />
+                    <p className="font-semibold text-foreground text-sm">
+                      {locale === "el"
+                        ? "Παραγγελία Online"
+                        : "Order Online"}
+                    </p>
+                  </div>
+                  <div className="space-y-2.5">
+                    {/* efood button */}
+                    <a
+                      href={BUSINESS.efood}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 w-full h-12 px-4 rounded-lg bg-[#E02020] hover:bg-[#c01818] text-white font-bold text-sm transition-colors duration-300"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="size-6 shrink-0"
+                      >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
+                      </svg>
+                      <span className="flex-1">efood</span>
+                      <span className="text-white/70 text-xs font-normal">
+                        Delivery
+                      </span>
+                    </a>
+
+                    {/* Wolt button */}
+                    <a
+                      href={BUSINESS.wolt}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 w-full h-12 px-4 rounded-lg bg-[#009DE0] hover:bg-[#0088c2] text-white font-bold text-sm transition-colors duration-300"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="size-6 shrink-0"
+                      >
+                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5h-9v-2h9v2zm0-4h-9v-2h9v2zm0-4h-9v-2h9v2z" />
+                      </svg>
+                      <span className="flex-1">Wolt</span>
+                      <span className="text-white/70 text-xs font-normal">
+                        Delivery
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}

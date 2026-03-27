@@ -9,4 +9,5 @@ export const BUSINESS = {
   facebook: "https://www.facebook.com/kipotexnikesergasies13/",
   tiktok: "https://www.tiktok.com/@kipotexnikesergasies13gm",
   efood: "https://www.e-food.gr/delivery/ilioypoli/kaloydis-anthopoleio",
+  wolt: "https://wolt.com/el/grc/athens/venue/kaloudis-anthopoleio",
 } as const;

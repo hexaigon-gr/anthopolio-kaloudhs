@@ -3,21 +3,19 @@ import {
   Bug,
   Container,
   Droplets,
-  ExternalLink,
   Flower2,
   Mountain,
   Phone,
 } from "lucide-react";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { CatalogGrid } from "@/components/catalog-grid";
 import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/lib/i18n/navigation";
-import { BUSINESS } from "@/lib/general/constants";
 import { CATALOG } from "@/lib/general/catalog";
 import { BasePageProps } from "@/types/page-props";
 
@@ -48,13 +46,6 @@ const PRODUCT_ITEMS = [
   { icon: Container, key: "pots" as const, slug: "pots" },
   { icon: Bug, key: "pestProducts" as const, slug: "pest-products" },
 ];
-
-const CATEGORY_KEY_MAP: Record<string, string> = {
-  plants: "catalogPlants",
-  foreverRoses: "catalogForeverRoses",
-  roseBears: "catalogRoseBears",
-  plush: "catalogPlush",
-};
 
 const ProductsPage = async ({ params }: BasePageProps) => {
   const { locale } = await params;
@@ -109,19 +100,10 @@ const ProductsPage = async ({ params }: BasePageProps) => {
           </div>
         </section>
 
-        {/* efood Catalog */}
+        {/* Product Catalog */}
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-3 mb-4">
-                <Image
-                  src="/images/efood-logo.png"
-                  alt="efood"
-                  width={100}
-                  height={32}
-                  className="h-8 w-auto"
-                />
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                 {tPages("catalogTitle")}
               </h2>
@@ -129,55 +111,7 @@ const ProductsPage = async ({ params }: BasePageProps) => {
                 {tPages("catalogSubtitle")}
               </p>
             </div>
-
-            <div className="space-y-10">
-              {CATALOG.map((category) => (
-                <div key={category.key}>
-                  <h3 className="text-xl font-bold text-foreground mb-4 border-b border-primary/20 pb-2">
-                    {tPages(CATEGORY_KEY_MAP[category.key])}
-                  </h3>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {category.items.map((item, i) => (
-                      <Card
-                        key={`${category.key}-${i}`}
-                        className="border-primary/10 hover:border-primary/30 transition-colors duration-300"
-                      >
-                        <CardContent className="p-5 flex items-center justify-between gap-3">
-                          <div className="min-w-0">
-                            <p className="font-medium text-foreground text-sm leading-snug">
-                              {locale === "el" ? item.nameEl : item.nameEn}
-                            </p>
-                            {item.size && (
-                              <p className="text-xs text-muted-foreground mt-0.5">
-                                {item.size}
-                              </p>
-                            )}
-                          </div>
-                          <span className="text-primary font-bold text-lg whitespace-nowrap">
-                            {item.price.toFixed(2).replace(".", ",")}€
-                          </span>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-10 space-y-3">
-              <a
-                href={BUSINESS.efood}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 h-12 px-8 rounded-md bg-[#E02020] hover:bg-[#c01818] text-white font-bold text-base transition-colors duration-300"
-              >
-                <ExternalLink className="size-5" />
-                {tPages("catalogOrderButton")}
-              </a>
-              <p className="text-xs text-muted-foreground">
-                {tPages("catalogPriceNote")}
-              </p>
-            </div>
+            <CatalogGrid catalog={CATALOG} locale={locale} />
           </div>
         </section>
 
