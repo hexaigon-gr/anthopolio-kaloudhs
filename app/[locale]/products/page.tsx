@@ -59,7 +59,7 @@ const ProductsPage = async ({ params }: BasePageProps) => {
       <Navbar />
       <main className="flex-1">
         {/* Header */}
-        <section className="bg-gradient-to-br from-cream via-background to-secondary/30 py-16 md:py-24">
+        <section className="bg-gradient-to-br from-secondary/40 via-background to-accent/20 py-16 md:py-24">
           <div className="container mx-auto px-4 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               {t("title")}

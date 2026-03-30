@@ -374,7 +374,7 @@ export default async function ServicePage({ params }: PageProps) {
                   asChild
                   size="lg"
                   variant="secondary"
-                  className="bg-white text-forest hover:bg-white/90"
+                  className="bg-card text-foreground hover:bg-card/90"
                 >
                   <a href={BUSINESS.phoneHref}>
                     <Phone className="mr-2 size-5" />

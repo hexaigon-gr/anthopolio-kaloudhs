@@ -199,7 +199,7 @@ export default async function ProductPage({ params }: PageProps) {
         </nav>
 
         {/* Hero Section */}
-        <section className="bg-linear-to-br from-cream via-background to-secondary/30 py-16 md:py-24">
+        <section className="bg-gradient-to-br from-secondary/40 via-background to-accent/20 py-16 md:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 flex justify-center">
@@ -362,7 +362,7 @@ export default async function ProductPage({ params }: PageProps) {
                   asChild
                   size="lg"
                   variant="secondary"
-                  className="bg-white text-forest hover:bg-white/90"
+                  className="bg-card text-foreground hover:bg-card/90"
                 >
                   <a href={BUSINESS.phoneHref}>
                     <Phone className="mr-2 size-5" />

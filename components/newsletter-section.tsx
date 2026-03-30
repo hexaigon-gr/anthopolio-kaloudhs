@@ -76,7 +76,7 @@ export function NewsletterSection() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="h-12 gap-2 bg-white text-forest hover:bg-white/90 font-semibold px-6 md:px-8 shrink-0"
+                  className="h-12 gap-2 bg-card text-foreground hover:bg-card/90 font-semibold px-6 md:px-8 shrink-0"
                 >
                   <Send className="size-4" />
                   <span className="hidden sm:inline">{t("subscribe")}</span>
