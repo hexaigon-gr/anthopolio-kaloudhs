@@ -93,7 +93,7 @@ export const SERVICES: ServiceDefinition[] = [
     translationKey: "irrigation",
     icon: Droplet,
     category: "garden",
-    image: "/images/services/irrigation-new.jpg",
+    image: "/images/services/irrigation-garden.jpg",
     relatedSlugs: ["maintenance", "garden-design"],
     priority: "normal",
   },

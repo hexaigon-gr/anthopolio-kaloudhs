@@ -7,7 +7,7 @@ const SERVICES = [
   { key: "weddings", slug: "weddings", image: "/images/services/wedding-cover.jpg", category: "events" },
   { key: "baptisms", slug: "baptisms", image: "/images/services/baptism-candle.jpg", category: "events" },
   { key: "maintenance", slug: "maintenance", image: "/images/services/maintenance-garden.jpg", category: "garden" },
-  { key: "irrigation", slug: "irrigation", image: "/images/services/irrigation-new.jpg", category: "garden" },
+  { key: "irrigation", slug: "irrigation", image: "/images/services/irrigation-garden.jpg", category: "garden" },
   { key: "pruning", slug: "pruning", image: "/images/services/pruning.jpg", category: "garden" },
   { key: "tallTrees", slug: "tall-trees", image: "/images/services/tall-trees.jpg", category: "garden" },
   { key: "gardenDesign", slug: "garden-design", image: "/images/services/garden-design-new.jpg", category: "garden" },
