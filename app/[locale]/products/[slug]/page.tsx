@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -199,22 +200,30 @@ export default async function ProductPage({ params }: PageProps) {
         </nav>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-secondary/40 via-background to-accent/20 py-16 md:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <Image
+            src={product.image}
+            alt={productTitle}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="container mx-auto px-4 lg:px-8 relative z-10">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 flex justify-center">
-                <div className="flex size-20 items-center justify-center rounded-full bg-primary/10">
-                  <ProductIcon className="size-10 text-primary" />
+                <div className="flex size-20 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm">
+                  <ProductIcon className="size-10 text-white" />
                 </div>
               </div>
-              <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
+              <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
                 {productTitle}
               </h1>
-              <p className="mb-10 text-lg text-muted-foreground leading-relaxed">
+              <p className="mb-10 text-lg text-white/80 leading-relaxed">
                 {t(`${key}.heroDescription`)}
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <Button asChild size="lg">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+                <Button asChild size="lg" className="w-full sm:w-auto">
                   <a href={BUSINESS.phoneHref}>
                     <Phone className="mr-2 size-5" />
                     {t("ctaCall")}
@@ -224,7 +233,7 @@ export default async function ProductPage({ params }: PageProps) {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-green-600 bg-green-600 text-white hover:bg-green-700 hover:text-white"
+                  className="w-full sm:w-auto border-green-600 bg-green-600 text-white hover:bg-green-700 hover:text-white"
                 >
                   <a
                     href={BUSINESS.whatsappHref}
@@ -235,7 +244,7 @@ export default async function ProductPage({ params }: PageProps) {
                     {t("ctaWhatsapp")}
                   </a>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-white/50 bg-white/10 text-white hover:bg-white/20 hover:text-white">
                   <Link href="/#contact">{t("ctaContact")}</Link>
                 </Button>
               </div>
