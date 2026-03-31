@@ -1,7 +1,8 @@
 "use client";
 
-import { Menu, Phone, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { Globe, Menu, Moon, Phone, Sun, X } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/examples/language-switcher";
@@ -10,7 +11,7 @@ import { KaloudisLogo } from "@/components/KaloudisLogo";
 import { Button } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/general/constants";
 import { cn } from "@/lib/general/utils";
-import { Link, usePathname } from "@/lib/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/lib/i18n/navigation";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
@@ -24,15 +25,22 @@ export function Navbar() {
   const t = useTranslations("Nav");
   const tHome = useTranslations("HomePage");
   const pathname = usePathname();
+  const locale = useLocale();
+  const router = useRouter();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
 
   const scrollToTop = (e: React.MouseEvent, href: string) => {
-    if (pathname === "/" && (href === "/" || href === "/#")) {
+    if (isHome && (href === "/" || href === "/#")) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
+
+  // On non-home pages, always show solid navbar
+  const showSolid = scrolled || !isHome;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -53,7 +61,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 z-50 w-full border-b transition-all duration-300",
-          scrolled
+          showSolid
             ? "bg-background/95 backdrop-blur border-border shadow-sm"
             : "bg-transparent border-transparent"
         )}
@@ -66,7 +74,7 @@ export function Navbar() {
               <span
                 className={cn(
                   "font-bold text-sm tracking-wide transition-colors",
-                  scrolled ? "text-foreground group-hover:text-primary" : "text-white"
+                  showSolid ? "text-foreground group-hover:text-primary" : "text-white"
                 )}
               >
                 ΑΝΘΗ-ΦΥΤΑ
@@ -74,7 +82,7 @@ export function Navbar() {
               <span
                 className={cn(
                   "text-xs tracking-widest uppercase transition-colors",
-                  scrolled ? "text-muted-foreground" : "text-white/70"
+                  showSolid ? "text-muted-foreground" : "text-white/70"
                 )}
               >
                 Kaloudis
@@ -90,7 +98,7 @@ export function Navbar() {
                 href={href}
                 className={cn(
                   "text-sm font-medium transition-colors",
-                  scrolled
+                  showSolid
                     ? "text-foreground/80 hover:text-primary"
                     : "text-white/80 hover:text-white"
                 )}
@@ -107,7 +115,7 @@ export function Navbar() {
               href={BUSINESS.phoneHref}
               className={cn(
                 "flex items-center gap-2 text-sm font-medium transition-colors",
-                scrolled
+                showSolid
                   ? "text-foreground hover:text-primary"
                   : "text-white hover:text-white/80"
               )}
@@ -116,10 +124,10 @@ export function Navbar() {
               {BUSINESS.phone}
             </a>
             <LanguageSwitcher
-              className={scrolled ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
+              className={showSolid ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
             />
             <ThemeSwitcher
-              className={scrolled ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
+              className={showSolid ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
             />
             <Button asChild size="sm">
               <Link href="/#contact">{tHome("ctaContact")}</Link>
@@ -130,7 +138,7 @@ export function Navbar() {
           <button
             className={cn(
               "md:hidden p-2 z-60 relative",
-              !scrolled && !mobileOpen && "text-white"
+              !showSolid && !mobileOpen && "text-white"
             )}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
@@ -203,8 +211,31 @@ export function Navbar() {
             {/* Controls row */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <LanguageSwitcher />
-                <ThemeSwitcher />
+                {/* Language toggle — direct button */}
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="size-9"
+                  onClick={() => {
+                    const next = locale === "el" ? "en" : "el";
+                    router.replace(pathname, { locale: next });
+                    setMobileOpen(false);
+                  }}
+                >
+                  <Globe className="size-4" />
+                  <span className="sr-only">{locale === "el" ? "English" : "Ελληνικά"}</span>
+                </Button>
+                {/* Theme toggle — direct button */}
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="size-9"
+                  onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                >
+                  <Sun className="size-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute size-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
               </div>
               <Button asChild size="sm">
                 <Link href="/#contact" onClick={() => setMobileOpen(false)}>
