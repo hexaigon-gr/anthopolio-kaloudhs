@@ -13,7 +13,7 @@ export async function WeddingBanner() {
     <section className="relative overflow-hidden py-24 md:py-32">
       {/* Background image */}
       <Image
-        src="/images/services/wedding-cover.jpg"
+        src="/images/services/wedding-banner.jpg"
         alt="Wedding floral decoration"
         fill
         className="object-cover"

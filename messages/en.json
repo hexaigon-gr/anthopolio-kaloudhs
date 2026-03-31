@@ -120,6 +120,7 @@
     "message": "Message",
     "messagePlaceholder": "Tell us how we can help you...",
     "send": "Send Message",
+    "sending": "Sending...",
     "successTitle": "Thank you!",
     "successMessage": "Your message was sent. We'll get back to you soon.",
     "hours": "Working Hours",

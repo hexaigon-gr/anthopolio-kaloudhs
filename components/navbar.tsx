@@ -16,7 +16,7 @@ const NAV_LINKS = [
   { key: "reviews", href: "/#reviews" },
   { key: "services", href: "/#services" },
   { key: "products", href: "/#products" },
-  { key: "contact", href: "/#contact" },
+  { key: "contact", href: "/contact" },
 ] as const;
 
 export function Navbar() {
@@ -33,6 +33,11 @@ export function Navbar() {
     if (isHome && (href === "/" || href === "/#")) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (isHome && href.includes("#")) {
+      e.preventDefault();
+      const id = href.split("#")[1];
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -124,7 +129,7 @@ export function Navbar() {
               className={showSolid ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
             />
             <Button asChild size="sm">
-              <Link href="/#contact">{tHome("ctaContact")}</Link>
+              <Link href="/contact">{tHome("ctaContact")}</Link>
             </Button>
           </div>
 
@@ -220,7 +225,7 @@ export function Navbar() {
                 <span className="sr-only">{locale === "el" ? "English" : "Ελληνικά"}</span>
               </Button>
               <Button asChild size="sm">
-                <Link href="/#contact" onClick={() => setMobileOpen(false)}>
+                <Link href="/contact" onClick={() => setMobileOpen(false)}>
                   {tHome("ctaContact")}
                 </Link>
               </Button>

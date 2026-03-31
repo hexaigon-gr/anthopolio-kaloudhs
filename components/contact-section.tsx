@@ -27,25 +27,36 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { sendContactEmail } from "@/server_actions/send-contact-email";
 
 export function ContactSection() {
   const t = useTranslations("ContactForm");
   const tContact = useTranslations("Contact");
   const tServices = useTranslations("Services");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSending(true);
+    setError(null);
+
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const message = formData.get("message") as string;
+    const result = await sendContactEmail({
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || undefined,
+      service: (formData.get("service") as string) || undefined,
+      message: formData.get("message") as string,
+    });
 
-    window.location.href = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(
-      `Μήνυμα από ${name}`
-    )}&body=${encodeURIComponent(`Από: ${name}\nEmail: ${email}\n\n${message}`)}`;
-
-    setSubmitted(true);
+    setSending(false);
+    if (result.success) {
+      setSubmitted(true);
+    } else {
+      setError(result.error ?? "Something went wrong");
+    }
   };
 
   const contactItems = [
@@ -240,9 +251,13 @@ export function ContactSection() {
                     </div>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full gap-2 text-base">
+                  {error && (
+                    <p className="text-sm text-destructive text-center">{error}</p>
+                  )}
+
+                  <Button type="submit" size="lg" className="w-full gap-2 text-base" disabled={sending}>
                     <Send className="size-4" />
-                    {t("send")}
+                    {sending ? t("sending") : t("send")}
                   </Button>
                 </form>
               )}

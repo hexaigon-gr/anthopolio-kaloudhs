@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
 
@@ -31,33 +30,40 @@ export async function ServicesSection() {
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-4" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {SERVICES.map(({ key, slug, image }) => (
-            <Link href={`/services/${slug}`} key={key}>
-              <div className="group relative overflow-hidden rounded-2xl bg-card border border-primary/10 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-                <div className="relative h-52 overflow-hidden">
+            <Link href={`/services/${slug}`} key={key} className="group">
+              <article className="relative overflow-hidden rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1">
+                {/* Image area */}
+                <div className="relative h-72 overflow-hidden">
                   <Image
                     src={image}
                     alt={t(key)}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-900 ease-out group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
-                  <h3 className="absolute bottom-4 left-5 right-5 font-semibold text-lg text-white drop-shadow-md">
+                  {/* Soft vignette */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-black/5" />
+                  <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.15)]" />
+
+                  <h3 className="absolute bottom-5 left-6 right-6 font-bold text-xl text-white tracking-tight" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>
                     {t(key)}
                   </h3>
                 </div>
-                <div className="p-5">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+
+                {/* Decorative leaf-colored divider */}
+                <div className="relative h-0.5 bg-muted">
+                  <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-12 group-hover:w-full bg-leaf transition-all duration-500 ease-out" />
+                </div>
+
+                {/* Text area */}
+                <div className="bg-cream p-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                     {t(`${key}Desc`)}
                   </p>
-                  <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-primary">
-                    {t("readMore")}
-                    <ArrowRight className="size-4" />
-                  </span>
                 </div>
-              </div>
+              </article>
             </Link>
           ))}
         </div>
