@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/general/utils";
 
 const COLOR_CLASSES: Record<string, string> = {

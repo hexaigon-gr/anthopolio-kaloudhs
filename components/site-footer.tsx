@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { KaloudisLogo } from "@/components/KaloudisLogo";
 import { SocialIcon } from "@/components/social-icon";
 import { BUSINESS } from "@/lib/general/constants";
+import { Link } from "@/lib/i18n/navigation";
 
 export async function SiteFooter() {
   const t = await getTranslations("Contact");
@@ -38,17 +39,22 @@ export async function SiteFooter() {
               {tFooter("quickLinks")}
             </h3>
             <nav className="flex flex-col gap-2">
-              {(["home", "products", "services", "reviews"] as const).map(
-                (key) => (
-                  <a
-                    key={key}
-                    href={key === "home" ? "#" : `#${key}`}
-                    className="text-sm opacity-70 hover:opacity-100 transition-opacity"
-                  >
-                    {tNav(key)}
-                  </a>
-                )
-              )}
+              {(
+                [
+                  { key: "home", href: "/" },
+                  { key: "products", href: "/#products" },
+                  { key: "services", href: "/#services" },
+                  { key: "reviews", href: "/#reviews" },
+                ] as const
+              ).map(({ key, href }) => (
+                <Link
+                  key={key}
+                  href={href}
+                  className="text-sm opacity-70 hover:opacity-100 transition-opacity"
+                >
+                  {tNav(key)}
+                </Link>
+              ))}
             </nav>
           </div>
 

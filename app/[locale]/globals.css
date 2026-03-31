@@ -145,16 +145,18 @@
 }
 
 /* ── Prevent layout shift when Radix dialogs open ──
-   Radix injects scroll-locking styles that hide the scrollbar and add
-   compensating margin/padding, causing the page to jump. Override all
-   of that so the scrollbar stays visible and the layout never moves. */
+   Must be OUTSIDE @layer so it beats react-remove-scroll-bar's
+   unlayered runtime-injected styles. */
 html,
 html.with-scroll-bars-hidden {
   overflow-y: scroll !important;
+  scrollbar-gutter: stable !important;
   padding-right: 0 !important;
 }
 
+html body,
 html body[data-scroll-locked] {
+  overflow: visible !important;
   margin-right: 0 !important;
   padding-right: 0 !important;
   margin-left: 0 !important;
