@@ -5,7 +5,7 @@ export async function AboutSection() {
   const t = await getTranslations("About");
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">

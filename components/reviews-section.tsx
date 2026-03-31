@@ -60,7 +60,7 @@ export async function ReviewsSection() {
   const t = await getTranslations("Reviews");
 
   return (
-    <section id="reviews" className="py-20 bg-background">
+    <section id="reviews" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

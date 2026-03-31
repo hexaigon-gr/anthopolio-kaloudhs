@@ -1,9 +1,9 @@
-import { Award, ShoppingBag, Wrench } from "lucide-react";
+import { Award, Leaf, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
+import { OrderNowButton } from "@/components/order-now-button";
 import { Button } from "@/components/ui/button";
-import { BUSINESS } from "@/lib/general/constants";
 
 export async function HeroSection() {
   const t = await getTranslations("HomePage");
@@ -38,8 +38,8 @@ export async function HeroSection() {
             {t("heroSubheadline")}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
-            <Button asChild size="lg" className="gap-2 text-base px-8">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 pt-4">
+            <Button asChild size="lg" className="gap-2 text-base px-8 w-full sm:w-auto">
               <a href="#products">
                 <ShoppingBag className="size-5" />
                 {t("ctaProducts")}
@@ -49,27 +49,17 @@ export async function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="gap-2 text-base px-8 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white dark:border-white/30 dark:bg-transparent dark:text-white dark:hover:bg-white/10"
+              className="gap-2 text-base px-8 w-full sm:w-auto border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
             >
               <a href="#services">
-                <Wrench className="size-5" />
+                <Leaf className="size-5" />
                 {t("ctaServices")}
               </a>
             </Button>
-            <a
-              href={BUSINESS.efood}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center h-11 px-5 rounded-md bg-transparent border-2 border-[#E02020] hover:bg-[#E02020]/10 transition-colors duration-300"
-            >
-              <Image
-                src="/images/efood-logo.png"
-                alt="efood - Παραγγείλτε Online"
-                width={540}
-                height={171}
-                className="h-6 w-auto"
-              />
-            </a>
+            <OrderNowButton
+              label={t("ctaOrder")}
+              className="w-full sm:w-auto"
+            />
           </div>
         </div>
       </div>
