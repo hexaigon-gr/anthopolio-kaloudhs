@@ -1,7 +1,3 @@
-import Image from "next/image";
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 import {
   CheckCircle,
   MessageCircle,
@@ -10,7 +6,18 @@ import {
   Sparkles,
   Star,
 } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import {
+  BreadcrumbJsonLd,
+  FAQJsonLd,
+  ProductJsonLd,
+} from "@/components/json-ld";
+import { Navbar } from "@/components/navbar";
+import { SiteFooter } from "@/components/site-footer";
 import {
   Accordion,
   AccordionContent,
@@ -19,19 +26,12 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  BreadcrumbJsonLd,
-  FAQJsonLd,
-  ProductJsonLd,
-} from "@/components/json-ld";
-import { Navbar } from "@/components/navbar";
-import { SiteFooter } from "@/components/site-footer";
-import { Link } from "@/lib/i18n/navigation";
-import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
 import { BUSINESS } from "@/lib/general/constants";
 import { getProductBySlug, PRODUCT_SLUGS } from "@/lib/general/products";
 import { PRODUCT_SEO, SEO, SITE_URL } from "@/lib/general/seo";
 import { cn } from "@/lib/general/utils";
+import { Link } from "@/lib/i18n/navigation";
+import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;

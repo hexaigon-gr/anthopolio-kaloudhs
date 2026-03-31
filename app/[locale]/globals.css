@@ -51,6 +51,7 @@
   --color-cream: var(--cream);
   --color-warm: var(--warm);
   --color-blush: var(--blush);
+  --color-wolt-blue: #009de0;
 }
 
 :root {

@@ -86,7 +86,7 @@ export async function SiteFooter() {
             </div>
           </div>
 
-          {/* Social & Map */}
+          {/* Social */}
           <div className="space-y-4">
             <h3 className="font-semibold text-base">{t("followUs")}</h3>
             <div className="flex gap-3">
@@ -94,7 +94,6 @@ export async function SiteFooter() {
                 url={BUSINESS.facebook}
                 icon={<Facebook className="size-5" />}
                 color="facebook"
-                className="bg-white/10 hover:bg-white/20 text-white"
               />
               <SocialIcon
                 url={BUSINESS.tiktok}
@@ -104,20 +103,6 @@ export async function SiteFooter() {
                   </svg>
                 }
                 color="tiktok"
-                className="bg-white/10 hover:bg-white/20 text-white"
-              />
-            </div>
-            <h3 className="font-semibold text-base pt-2">{t("findUs")}</h3>
-            <div className="rounded-lg overflow-hidden h-36 bg-white/10">
-              <iframe
-                src={BUSINESS.mapsEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Χάρτης - ΑΝΘΗ-ΦΥΤΑ KALOUDIS"
               />
             </div>
           </div>

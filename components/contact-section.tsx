@@ -1,17 +1,37 @@
 "use client";
 
-import { Clock, Mail, MapPin, Phone, Send, Smartphone } from "lucide-react";
+import {
+  Clock,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Phone,
+  Send,
+  Smartphone,
+  Tag,
+  User,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { BUSINESS } from "@/lib/general/constants";
+import { SERVICES } from "@/lib/general/services";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ExpandMap } from "@/components/expand-map";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 export function ContactSection() {
   const t = useTranslations("ContactForm");
   const tContact = useTranslations("Contact");
+  const tServices = useTranslations("Services");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -105,19 +125,12 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Embedded map */}
-            <div className="rounded-xl overflow-hidden h-48 border shadow-sm">
-              <iframe
-                src={BUSINESS.mapsEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Χάρτης - ΑΝΘΗ-ΦΥΤΑ KALOUDIS"
-              />
-            </div>
+            {/* Expandable map */}
+            <ExpandMap
+              mapsUrl={BUSINESS.mapsQuery}
+              address={tContact("address")}
+              coordinates="37.9310° N, 23.7500° E"
+            />
           </div>
 
           {/* Contact form — 3 columns */}
@@ -138,26 +151,32 @@ export function ContactSection() {
                       <label htmlFor="name" className="text-sm font-medium">
                         {t("name")}
                       </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder={t("namePlaceholder")}
-                        required
-                        className="h-11"
-                      />
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                        <Input
+                          id="name"
+                          name="name"
+                          placeholder={t("namePlaceholder")}
+                          required
+                          className="h-11 pl-10"
+                        />
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">
                         {t("email")}
                       </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder={t("emailPlaceholder")}
-                        required
-                        className="h-11"
-                      />
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder={t("emailPlaceholder")}
+                          required
+                          className="h-11 pl-10"
+                        />
+                      </div>
                     </div>
                   </div>
 
@@ -165,39 +184,60 @@ export function ContactSection() {
                     <label htmlFor="phone" className="text-sm font-medium">
                       {t("phone")}
                     </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder={t("phonePlaceholder")}
-                      className="h-11"
-                    />
+                    <div className="relative">
+                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder={t("phonePlaceholder")}
+                        className="h-11 pl-10"
+                      />
+                    </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      {t("subject")}
+                    <label htmlFor="service" className="text-sm font-medium">
+                      {t("service")}
                     </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder={t("subjectPlaceholder")}
-                      className="h-11"
-                    />
+                    <Select name="service">
+                      <SelectTrigger className="h-11">
+                        <div className="flex items-center gap-2">
+                          <Tag className="size-4 text-muted-foreground shrink-0" />
+                          <SelectValue placeholder={t("servicePlaceholder")} />
+                        </div>
+                      </SelectTrigger>
+                      <SelectContent>
+                        {SERVICES.map((service) => {
+                          const Icon = service.icon;
+                          return (
+                            <SelectItem key={service.slug} value={service.slug}>
+                              <div className="flex items-center gap-2">
+                                <Icon className="size-4 text-muted-foreground shrink-0" />
+                                <span>{tServices(service.translationKey)}</span>
+                              </div>
+                            </SelectItem>
+                          );
+                        })}
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">
                       {t("message")}
                     </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder={t("messagePlaceholder")}
-                      required
-                      rows={5}
-                      className="resize-none"
-                    />
+                    <div className="relative">
+                      <MessageSquare className="absolute left-3 top-3 size-4 text-muted-foreground" />
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder={t("messagePlaceholder")}
+                        required
+                        rows={5}
+                        className="resize-none pl-10"
+                      />
+                    </div>
                   </div>
 
                   <Button type="submit" size="lg" className="w-full gap-2 text-base">

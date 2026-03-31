@@ -9,30 +9,39 @@ export interface WoltProduct {
   imageUrl: string | null;
 }
 
-// ─── Raw Wolt API response types (v4 menu endpoint) ───
-export interface WoltRawMenuItem {
+// ─── Result wrapper that tracks data source ───
+export interface WoltProductsResult {
+  products: WoltProduct[];
+  isFallback: boolean;
+}
+
+// ─── Raw Wolt SSR types (TanStack Query dehydrated state) ───
+export interface WoltSSRItem {
   id: string;
-  name: WoltLocalized[];
-  description?: WoltLocalized[];
-  image?: {
-    url: string;
-  };
-  baseprice: number;
-  times?: unknown[];
+  name: string;
+  description?: string;
+  price: number; // cents
+  images?: { url: string; blurhash?: string | null }[];
 }
 
-export interface WoltLocalized {
-  lang: string;
-  value: string;
-}
-
-export interface WoltRawCategory {
+export interface WoltSSRCategory {
   id: string;
-  name: WoltLocalized[];
-  items: string[]; // item IDs
+  name: string;
+  slug: string;
+  item_ids: string[];
+  images?: { url: string; blurhash?: string | null }[];
 }
 
-export interface WoltRawMenuResponse {
-  categories?: WoltRawCategory[];
-  items?: WoltRawMenuItem[];
+export interface WoltSSRCategoryListing {
+  categories?: WoltSSRCategory[];
+  items?: WoltSSRItem[];
+}
+
+export interface WoltSSRQuery {
+  queryKey: string[];
+  state: { data: unknown };
+}
+
+export interface WoltSSRDehydratedState {
+  queries: WoltSSRQuery[];
 }

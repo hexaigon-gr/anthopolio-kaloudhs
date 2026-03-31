@@ -1,12 +1,10 @@
 "use client";
 
-import { Globe, Menu, Moon, Phone, Sun, X } from "lucide-react";
+import { Globe, Menu, Phone, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/examples/language-switcher";
-import { ThemeSwitcher } from "@/components/examples/ThemeSwitcher";
 import { KaloudisLogo } from "@/components/KaloudisLogo";
 import { Button } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/general/constants";
@@ -15,9 +13,9 @@ import { Link, usePathname, useRouter } from "@/lib/i18n/navigation";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
-  { key: "products", href: "/#products" },
-  { key: "services", href: "/#services" },
   { key: "reviews", href: "/#reviews" },
+  { key: "services", href: "/#services" },
+  { key: "products", href: "/#products" },
   { key: "contact", href: "/#contact" },
 ] as const;
 
@@ -27,7 +25,6 @@ export function Navbar() {
   const pathname = usePathname();
   const locale = useLocale();
   const router = useRouter();
-  const { setTheme, resolvedTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
@@ -126,25 +123,24 @@ export function Navbar() {
             <LanguageSwitcher
               className={showSolid ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
             />
-            <ThemeSwitcher
-              className={showSolid ? "" : "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"}
-            />
             <Button asChild size="sm">
               <Link href="/#contact">{tHome("ctaContact")}</Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             className={cn(
-              "md:hidden p-2 z-60 relative",
-              !showSolid && !mobileOpen && "text-white"
+              "md:hidden z-60 relative",
+              !showSolid && !mobileOpen && "text-white hover:bg-white/10"
             )}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-          </button>
+          </Button>
         </div>
       </header>
 
@@ -210,33 +206,19 @@ export function Navbar() {
 
             {/* Controls row */}
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                {/* Language toggle — direct button */}
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="size-9"
-                  onClick={() => {
-                    const next = locale === "el" ? "en" : "el";
-                    router.replace(pathname, { locale: next });
-                    setMobileOpen(false);
-                  }}
-                >
-                  <Globe className="size-4" />
-                  <span className="sr-only">{locale === "el" ? "English" : "Ελληνικά"}</span>
-                </Button>
-                {/* Theme toggle — direct button */}
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="size-9"
-                  onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                >
-                  <Sun className="size-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                  <Moon className="absolute size-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                  <span className="sr-only">Toggle theme</span>
-                </Button>
-              </div>
+              <Button
+                variant="outline"
+                size="icon"
+                className="size-9"
+                onClick={() => {
+                  const next = locale === "el" ? "en" : "el";
+                  router.replace(pathname, { locale: next });
+                  setMobileOpen(false);
+                }}
+              >
+                <Globe className="size-4" />
+                <span className="sr-only">{locale === "el" ? "English" : "Ελληνικά"}</span>
+              </Button>
               <Button asChild size="sm">
                 <Link href="/#contact" onClick={() => setMobileOpen(false)}>
                   {tHome("ctaContact")}

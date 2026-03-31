@@ -2,6 +2,12 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { hostname: "wolt-menu-images-cdn.wolt.com" },
+      { hostname: "imageproxy.wolt.com" },
+    ],
+  },
   headers: async () => [
     {
       source: "/(.*)",

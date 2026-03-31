@@ -10,18 +10,18 @@ const LIGHTBOX_BUTTON_CLASS =
   "absolute z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20";
 
 const GALLERY_IMAGES = [
-  { src: "/images/shop-4.jpg", alt: "Ταμπέλα καταστήματος ΑΝΘΗ-ΦΥΤΑ KALOUDIS", aspect: "landscape" },
-  { src: "/images/shop-3.jpg", alt: "Πολύχρωμα εποχιακά λουλούδια και φυτά", aspect: "portrait" },
-  { src: "/images/services/baptism-candle.jpg", alt: "Ανθοστολισμός λαμπάδας βάπτισης", aspect: "portrait" },
-  { src: "/images/shop-5.jpg", alt: "Νυχτερινή βιτρίνα καταστήματος", aspect: "landscape" },
-  { src: "/images/shop-1.jpg", alt: "Αλεξανδρινά φυτά - Χριστουγεννιάτικη συλλογή", aspect: "portrait" },
-  { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών σε ροζ και κόκκινα", aspect: "portrait" },
   { src: "/images/services/wedding-cover.jpg", alt: "Στολισμός γάμου στην εκκλησία", aspect: "portrait" },
-  { src: "/images/shop-6.jpg", alt: "Ανθοσυνθέσεις και δώρα Αγίου Βαλεντίνου", aspect: "portrait" },
-  { src: "/images/3.jpg", alt: "Μπλε λουλούδια σε δώρο συσκευασία", aspect: "portrait" },
-  { src: "/images/shop-7.jpg", alt: "Εσωτερικό κατάστημα με φυτά και διακοσμητικά", aspect: "portrait" },
-  { src: "/images/1.jpg", alt: "Εξωτερικός χώρος με πολύχρωμα λουλούδια", aspect: "portrait" },
+  { src: "/images/services/baptism-candle.jpg", alt: "Ανθοστολισμός λαμπάδας βάπτισης", aspect: "portrait" },
+  { src: "/images/6.jpg", alt: "Ποικιλία ανθοδεσμών σε ροζ και κόκκινα", aspect: "portrait" },
   { src: "/images/services/baptism-font.jpg", alt: "Στολισμός κολυμπήθρας βάπτισης", aspect: "portrait" },
+  { src: "/images/3.jpg", alt: "Μπλε λουλούδια σε δώρο συσκευασία", aspect: "portrait" },
+  { src: "/images/shop-6.jpg", alt: "Ανθοσυνθέσεις και δώρα Αγίου Βαλεντίνου", aspect: "portrait" },
+  { src: "/images/1.jpg", alt: "Εξωτερικός χώρος με πολύχρωμα λουλούδια", aspect: "portrait" },
+  { src: "/images/shop-3.jpg", alt: "Πολύχρωμα εποχιακά λουλούδια και φυτά", aspect: "portrait" },
+  { src: "/images/shop-4.jpg", alt: "Ταμπέλα καταστήματος ΑΝΘΗ-ΦΥΤΑ KALOUDIS", aspect: "landscape" },
+  { src: "/images/shop-5.jpg", alt: "Νυχτερινή βιτρίνα καταστήματος", aspect: "landscape" },
+  { src: "/images/shop-7.jpg", alt: "Εσωτερικό κατάστημα με φυτά και διακοσμητικά", aspect: "portrait" },
+  { src: "/images/shop-1.jpg", alt: "Αλεξανδρινά φυτά - Χριστουγεννιάτικη συλλογή", aspect: "portrait" },
   { src: "/images/shop-2.jpg", alt: "Εξωτερικός χώρος με φυτά και αλεξανδρινά", aspect: "portrait" },
   { src: "/images/shop-8.jpg", alt: "Χριστουγεννιάτικη διακόσμηση με Αλεξανδρινά", aspect: "portrait" },
 ] as const;

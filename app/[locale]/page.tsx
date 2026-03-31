@@ -5,11 +5,11 @@ import { ContactSection } from "@/components/contact-section";
 import { GallerySection } from "@/components/gallery-section";
 import { HeroSection } from "@/components/hero-section";
 import { Navbar } from "@/components/navbar";
-import { NewsletterSection } from "@/components/newsletter-section";
+import { ProductsSection } from "@/components/products-section";
 import { ReviewsSection } from "@/components/reviews-section";
 import { ServicesSection } from "@/components/services-section";
-import { ShowcaseSection } from "@/components/showcase-section";
 import { SiteFooter } from "@/components/site-footer";
+import { WeddingBanner } from "@/components/wedding-banner";
 import { BasePageProps } from "@/types/page-props";
 
 const Home = async ({ params }: BasePageProps) => {
@@ -22,12 +22,12 @@ const Home = async ({ params }: BasePageProps) => {
       <main>
         <HeroSection />
         <AboutSection />
-        <GallerySection />
-        <ShowcaseSection />
-        <ServicesSection />
         <ReviewsSection />
+        <WeddingBanner />
+        <ServicesSection />
+        <GallerySection />
+        <ProductsSection />
         <ContactSection />
-        <NewsletterSection />
       </main>
       <SiteFooter />
     </div>

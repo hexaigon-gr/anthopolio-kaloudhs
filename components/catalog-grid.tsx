@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Phone, Star, Truck } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
@@ -123,45 +124,53 @@ export function CatalogGrid({ catalog, locale }: CatalogGridProps) {
                         : "Order Online"}
                     </p>
                   </div>
-                  <div className="space-y-2.5">
-                    {/* efood button */}
+                  <div className="flex gap-2.5">
+                    {/* efood */}
                     <a
-                      href={BUSINESS.efood}
+                      href={BUSINESS.efood.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 w-full h-12 px-4 rounded-lg bg-[#E02020] hover:bg-[#c01818] text-white font-bold text-sm transition-colors duration-300"
+                      className="flex items-center justify-center size-12 rounded-lg border-2 border-[#ED2E2E] bg-transparent hover:bg-[#ED2E2E]/10 transition-colors duration-300"
                     >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="size-6 shrink-0"
-                      >
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
-                      </svg>
-                      <span className="flex-1">efood</span>
-                      <span className="text-white/70 text-xs font-normal">
-                        Delivery
-                      </span>
+                      <Image
+                        src={BUSINESS.efood.icon}
+                        alt="efood"
+                        width={28}
+                        height={28}
+                        className="size-7 rounded"
+                      />
                     </a>
 
-                    {/* Wolt button */}
+                    {/* Wolt */}
                     <a
-                      href={BUSINESS.wolt}
+                      href={BUSINESS.wolt.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 w-full h-12 px-4 rounded-lg bg-[#009DE0] hover:bg-[#0088c2] text-white font-bold text-sm transition-colors duration-300"
+                      className="flex items-center justify-center size-12 rounded-lg border-2 border-[#009DE0] bg-transparent hover:bg-[#009DE0]/10 transition-colors duration-300"
                     >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="size-6 shrink-0"
-                      >
-                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5h-9v-2h9v2zm0-4h-9v-2h9v2zm0-4h-9v-2h9v2z" />
-                      </svg>
-                      <span className="flex-1">Wolt</span>
-                      <span className="text-white/70 text-xs font-normal">
-                        Delivery
-                      </span>
+                      <Image
+                        src={BUSINESS.wolt.icon}
+                        alt="Wolt"
+                        width={28}
+                        height={28}
+                        className="size-7 rounded"
+                      />
+                    </a>
+
+                    {/* Box */}
+                    <a
+                      href={BUSINESS.box.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center size-12 rounded-lg border-2 border-[#FF8600] bg-transparent hover:bg-[#FF8600]/10 transition-colors duration-300"
+                    >
+                      <Image
+                        src={BUSINESS.box.icon}
+                        alt="Box"
+                        width={28}
+                        height={28}
+                        className="size-7 rounded"
+                      />
                     </a>
                   </div>
                 </div>

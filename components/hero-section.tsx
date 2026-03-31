@@ -9,10 +9,10 @@ export async function HeroSection() {
   const t = await getTranslations("HomePage");
 
   return (
-    <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+    <section className="relative overflow-hidden min-h-svh flex items-center">
       {/* Background image */}
       <Image
-        src="/images/hero-flowers.jpg"
+        src="/images/hero-image.avif"
         alt="Άνθη και φυτά"
         fill
         className="object-cover"
@@ -20,7 +20,7 @@ export async function HeroSection() {
         quality={85}
       />
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/30" />
 
       <div className="relative container mx-auto px-4 lg:px-8 py-20 md:py-28 lg:py-36">
         <div className="max-w-3xl space-y-8">

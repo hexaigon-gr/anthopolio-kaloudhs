@@ -32,12 +32,15 @@
     "title": "Our Shop",
     "subtitle": "Photos from our flower shop and our work"
   },
-  "Showcase": {
-    "title": "What We Offer",
-    "productsTitle": "Products",
-    "productsDescription": "Wide variety of flowers, plants and garden supplies",
-    "servicesTitle": "Services",
-    "servicesDescription": "Complete landscaping services for every need"
+  "WeddingBanner": {
+    "title": "Your Dream Wedding Starts Here",
+    "description": "We create stunning floral arrangements for your church ceremony and reception. From the bridal bouquet to the last centerpiece — every detail designed with love.",
+    "ctaPlan": "Plan Your Wedding",
+    "ctaCall": "Call Us"
+  },
+  "ProductsSection": {
+    "title": "Our Products",
+    "subtitle": "Wide variety of flowers, plants and gifts — available for delivery throughout Attica"
   },
   "Products": {
     "title": "Our Products",
@@ -112,8 +115,8 @@
     "emailPlaceholder": "you@example.com",
     "phone": "Phone (optional)",
     "phonePlaceholder": "69x xxx xxxx",
-    "subject": "Subject",
-    "subjectPlaceholder": "e.g. Wedding decoration, Garden maintenance",
+    "service": "Service",
+    "servicePlaceholder": "Select a service",
     "message": "Message",
     "messagePlaceholder": "Tell us how we can help you...",
     "send": "Send Message",
