@@ -1,12 +1,4 @@
-import {
-  ArrowRight,
-  Bug,
-  Container,
-  Droplets,
-  Flower2,
-  Mountain,
-  Phone,
-} from "lucide-react";
+import { Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -14,8 +6,6 @@ import { CatalogGrid } from "@/components/catalog-grid";
 import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "@/lib/i18n/navigation";
 import { CATALOG } from "@/lib/general/catalog";
 import { BasePageProps } from "@/types/page-props";
 
@@ -38,14 +28,6 @@ export const generateMetadata = async ({
     },
   };
 };
-
-const PRODUCT_ITEMS = [
-  { icon: Flower2, key: "flowers" as const, slug: "flowers" },
-  { icon: Mountain, key: "soil" as const, slug: "soil" },
-  { icon: Droplets, key: "fertilizers" as const, slug: "fertilizers" },
-  { icon: Container, key: "pots" as const, slug: "pots" },
-  { icon: Bug, key: "pestProducts" as const, slug: "pest-products" },
-];
 
 const ProductsPage = async ({ params }: BasePageProps) => {
   const { locale } = await params;
@@ -71,37 +53,8 @@ const ProductsPage = async ({ params }: BasePageProps) => {
           </div>
         </section>
 
-        {/* Product Categories Grid */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
-              {PRODUCT_ITEMS.map(({ icon: Icon, key, slug }) => (
-                <Link href={`/products/${slug}`} key={key}>
-                  <Card className="group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-primary/10 hover:border-primary/30">
-                    <CardContent className="p-8">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                        <Icon className="size-8" />
-                      </div>
-                      <h3 className="font-semibold text-xl mb-3">
-                        {t(key)}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {t(`${key}Desc`)}
-                      </p>
-                      <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-primary">
-                        {tPages("learnMore")}
-                        <ArrowRight className="size-4" />
-                      </span>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Product Catalog */}
-        <section className="py-16 bg-secondary/30">
+        <section className="py-16">
           <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
