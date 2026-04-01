@@ -369,12 +369,11 @@ export default async function ServicePage({ params }: PageProps) {
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="mb-4 text-3xl font-bold">{t("ctaTitle")}</h2>
               <p className="mb-10 text-white/80">{t("ctaSubtitle")}</p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
                 <Button
                   asChild
                   size="lg"
-                  variant="secondary"
-                  className="bg-card text-foreground hover:bg-card/90"
+                  className="w-full sm:w-auto bg-white text-forest hover:bg-white/90"
                 >
                   <a href={BUSINESS.phoneHref}>
                     <Phone className="mr-2 size-5" />
@@ -384,7 +383,7 @@ export default async function ServicePage({ params }: PageProps) {
                 <Button
                   asChild
                   size="lg"
-                  className="border-green-400 bg-green-600 text-white hover:bg-green-700"
+                  className="w-full sm:w-auto bg-green-500 text-white hover:bg-green-400"
                 >
                   <a
                     href={BUSINESS.whatsappHref}
@@ -398,8 +397,7 @@ export default async function ServicePage({ params }: PageProps) {
                 <Button
                   asChild
                   size="lg"
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+                  className="w-full sm:w-auto bg-white text-forest hover:bg-white/90"
                 >
                   <Link href="/#contact">{t("ctaContact")}</Link>
                 </Button>
