@@ -208,7 +208,7 @@ export default async function ProductPage({ params }: PageProps) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/60" />
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 flex justify-center">
