@@ -1,7 +1,3 @@
-import Image from "next/image";
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 import {
   CheckCircle,
   MessageCircle,
@@ -10,7 +6,18 @@ import {
   Sparkles,
   Star,
 } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import {
+  BreadcrumbJsonLd,
+  FAQJsonLd,
+  ServiceJsonLd,
+} from "@/components/json-ld";
+import { Navbar } from "@/components/navbar";
+import { SiteFooter } from "@/components/site-footer";
 import {
   Accordion,
   AccordionContent,
@@ -19,23 +26,16 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  BreadcrumbJsonLd,
-  FAQJsonLd,
-  ServiceJsonLd,
-} from "@/components/json-ld";
-import { Navbar } from "@/components/navbar";
-import { SiteFooter } from "@/components/site-footer";
-import { Link } from "@/lib/i18n/navigation";
-import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
 import { BUSINESS } from "@/lib/general/constants";
+import { SEO, SERVICE_SEO, SITE_URL } from "@/lib/general/seo";
 import {
   getServiceBySlug,
   SERVICE_SLUGS,
   TARGET_AREAS,
 } from "@/lib/general/services";
-import { SERVICE_SEO, SEO, SITE_URL } from "@/lib/general/seo";
 import { cn } from "@/lib/general/utils";
+import { Link } from "@/lib/i18n/navigation";
+import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -61,18 +61,17 @@ export async function generateMetadata({
   const title = locale === "el" ? seo.titleEl : seo.titleEn;
   const description =
     locale === "el" ? seo.descriptionEl : seo.descriptionEn;
-  const keywords = locale === "el" ? seo.keywordsEl : seo.keywordsEn;
   const url = `${SITE_URL}/${locale}/services/${slug}`;
 
   return {
     title,
     description,
-    keywords,
     alternates: {
-      canonical: `/services/${slug}`,
+      canonical: `/${locale}/services/${slug}`,
       languages: {
         el: `/el/services/${slug}`,
         en: `/en/services/${slug}`,
+        "x-default": `/el/services/${slug}`,
       },
     },
     openGraph: {
@@ -267,6 +266,26 @@ export default async function ServicePage({ params }: PageProps) {
                   {t(`${key}.${contentKey}`)}
                 </p>
               ))}
+              <p className="text-muted-foreground leading-relaxed">
+                {t.rich("contentCTA", {
+                  services: (chunks) => (
+                    <Link
+                      href="/services"
+                      className="text-primary font-medium underline underline-offset-4 hover:text-primary/80 transition-colors"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                  flowers: (chunks) => (
+                    <Link
+                      href="/products/flowers"
+                      className="text-primary font-medium underline underline-offset-4 hover:text-primary/80 transition-colors"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                })}
+              </p>
             </div>
           </div>
         </section>

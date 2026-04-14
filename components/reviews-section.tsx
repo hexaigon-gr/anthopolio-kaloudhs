@@ -1,6 +1,15 @@
+import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 
-import { ReviewsCarousel } from "@/components/reviews-carousel";
+const ReviewsCarousel = dynamic(
+  () =>
+    import("@/components/reviews-carousel").then((m) => m.ReviewsCarousel),
+  {
+    loading: () => (
+      <div className="h-56 bg-secondary/30 rounded-xl animate-pulse" />
+    ),
+  },
+);
 
 export async function ReviewsSection() {
   const t = await getTranslations("Reviews");

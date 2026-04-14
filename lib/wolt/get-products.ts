@@ -1,12 +1,12 @@
 import { unstable_cache } from "next/cache";
 
+import { FALLBACK_PRODUCTS } from "./fallback-products";
 import type {
   WoltProduct,
   WoltProductsResult,
   WoltSSRCategoryListing,
   WoltSSRDehydratedState,
 } from "./types";
-import { FALLBACK_PRODUCTS } from "./fallback-products";
 
 const WOLT_VENUE_URL = "https://wolt.com/en/grc/athens/venue";
 

@@ -1,10 +1,9 @@
 import { Info } from "lucide-react";
 
+import { ProductGrid } from "@/components/product-grid";
 import { Card, CardContent } from "@/components/ui/card";
 import { getWoltProducts } from "@/lib/wolt/get-products";
 import type { WoltProduct } from "@/lib/wolt/types";
-
-import { ProductGrid } from "@/components/product-grid";
 
 // ─── Skeleton fallback for Suspense ───
 export function StoreProductsSkeleton() {

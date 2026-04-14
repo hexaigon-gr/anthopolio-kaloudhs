@@ -57,18 +57,17 @@ export async function generateMetadata({
   const title = locale === "el" ? seo.titleEl : seo.titleEn;
   const description =
     locale === "el" ? seo.descriptionEl : seo.descriptionEn;
-  const keywords = locale === "el" ? seo.keywordsEl : seo.keywordsEn;
   const url = `${SITE_URL}/${locale}/products/${slug}`;
 
   return {
     title,
     description,
-    keywords,
     alternates: {
-      canonical: `/products/${slug}`,
+      canonical: `/${locale}/products/${slug}`,
       languages: {
         el: `/el/products/${slug}`,
         en: `/en/products/${slug}`,
+        "x-default": `/el/products/${slug}`,
       },
     },
     openGraph: {
@@ -264,6 +263,26 @@ export default async function ProductPage({ params }: PageProps) {
                   {t(`${key}.${contentKey}`)}
                 </p>
               ))}
+              <p className="text-muted-foreground leading-relaxed">
+                {t.rich("contentCTA", {
+                  services: (chunks) => (
+                    <Link
+                      href="/services"
+                      className="text-primary font-medium underline underline-offset-4 hover:text-primary/80 transition-colors"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                  weddings: (chunks) => (
+                    <Link
+                      href="/services/weddings"
+                      className="text-primary font-medium underline underline-offset-4 hover:text-primary/80 transition-colors"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                })}
+              </p>
             </div>
           </div>
         </section>

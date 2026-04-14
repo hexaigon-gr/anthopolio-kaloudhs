@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Phone, ShoppingCart, Star, Truck } from "lucide-react";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 

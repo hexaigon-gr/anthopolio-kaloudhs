@@ -4,13 +4,13 @@ import { Plus } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { OrderDialogContent } from "@/components/order-now-button";
 import {
   Dialog,
   DialogContent,
 } from "@/components/ui/dialog";
-import { OrderDialogContent } from "@/components/order-now-button";
-import type { WoltProduct } from "@/lib/wolt/types";
 import { cn } from "@/lib/general/utils";
+import type { WoltProduct } from "@/lib/wolt/types";
 
 // ─── Product Card ───
 function ProductCard({

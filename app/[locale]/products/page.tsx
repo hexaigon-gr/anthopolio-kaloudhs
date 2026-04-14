@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { CatalogGrid } from "@/components/catalog-grid";
+import { BreadcrumbJsonLd } from "@/components/json-ld";
 import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { CATALOG } from "@/lib/general/catalog";
+import { SITE_URL } from "@/lib/general/seo";
 import { BasePageProps } from "@/types/page-props";
 
 export const generateMetadata = async ({
@@ -20,10 +22,11 @@ export const generateMetadata = async ({
         ? "Άνθη, φυτά, χώματα, λιπάσματα, γλάστρες και προϊόντα απεντόμωσης. Ανθοπωλείο KALOUDIS — μεγάλη ποικιλία για κάθε ανάγκη."
         : "Flowers, plants, soil, fertilizers, pots and pest control products. KALOUDIS flower shop — wide variety for every need.",
     alternates: {
-      canonical: "/products",
+      canonical: `/${locale}/products`,
       languages: {
         el: "/el/products",
         en: "/en/products",
+        "x-default": "/el/products",
       },
     },
   };
@@ -38,6 +41,15 @@ const ProductsPage = async ({ params }: BasePageProps) => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <BreadcrumbJsonLd
+        items={[
+          { name: tPages("breadcrumbHome"), url: `${SITE_URL}/${locale}` },
+          {
+            name: tPages("breadcrumbProducts"),
+            url: `${SITE_URL}/${locale}/products`,
+          },
+        ]}
+      />
       <Navbar />
       <main className="flex-1">
         {/* Header */}

@@ -1,17 +1,17 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Church,
-  PenTool,
-  Wrench,
-  Droplet,
-  Scissors,
-  TreePine,
-  Trash2,
   Bug,
-  Frame,
-  PartyPopper,
   Building2,
+  Church,
+  Droplet,
+  Frame,
+  Heart,
+  PartyPopper,
+  PenTool,
+  Scissors,
+  Trash2,
+  TreePine,
+  Wrench,
 } from "lucide-react";
 
 export interface ServiceDefinition {

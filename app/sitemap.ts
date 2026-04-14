@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
-import { SITE_URL } from "@/lib/general/seo";
 import { PRODUCTS } from "@/lib/general/products";
+import { SITE_URL } from "@/lib/general/seo";
 import { SERVICES } from "@/lib/general/services";
+import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
 
 const sitemap = (): MetadataRoute.Sitemap => {
   const staticPages = [

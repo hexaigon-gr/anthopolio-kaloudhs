@@ -14,11 +14,9 @@ import {
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-import { BUSINESS } from "@/lib/general/constants";
-import { SERVICES } from "@/lib/general/services";
+import { ExpandMap } from "@/components/expand-map";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ExpandMap } from "@/components/expand-map";
 import {
   Select,
   SelectContent,
@@ -27,6 +25,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { BUSINESS } from "@/lib/general/constants";
+import { SERVICES } from "@/lib/general/services";
 import { sendContactEmail } from "@/server_actions/send-contact-email";
 
 export function ContactSection() {

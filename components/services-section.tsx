@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+
 import { Link } from "@/lib/i18n/navigation";
 
 const SERVICES = [
@@ -38,7 +39,7 @@ export async function ServicesSection() {
                 <div className="relative h-72 overflow-hidden">
                   <Image
                     src={image}
-                    alt={t(key)}
+                    alt={t(`${key}Alt`)}
                     fill
                     className="object-cover transition-transform duration-900 ease-out group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

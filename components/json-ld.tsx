@@ -25,12 +25,6 @@ const localBusinessSchema = {
   },
   sameAs: [BUSINESS.facebook, BUSINESS.tiktok],
   priceRange: "€€",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "120",
-    bestRating: "5",
-  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -139,10 +133,10 @@ export const ServiceJsonLd = ({
       telephone: "+302109954775",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Κυπρίων Ηρώων 4",
+        streetAddress: "Λεωφόρος Κυπρίων Ηρώων 4",
         addressLocality: "Ηλιούπολη",
         addressRegion: "Αττική",
-        postalCode: "16346",
+        postalCode: "16341",
         addressCountry: "GR",
       },
     },
@@ -255,6 +249,36 @@ export const BreadcrumbJsonLd = ({ items }: BreadcrumbJsonLdProps) => {
       name: item.name,
       item: item.url,
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
+interface WebSiteJsonLdProps {
+  locale: string;
+}
+
+export const WebSiteJsonLd = ({ locale }: WebSiteJsonLdProps) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SEO.siteName,
+    url: `${SITE_URL}/${locale}`,
+    inLanguage: locale === "el" ? "el-GR" : "en-US",
+    publisher: {
+      "@type": "Organization",
+      name: SEO.siteName,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo.png`,
+      },
+    },
   };
 
   return (

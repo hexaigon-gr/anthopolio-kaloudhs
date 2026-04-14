@@ -17,7 +17,9 @@ export async function HeroSection() {
         fill
         className="object-cover"
         priority
+        fetchPriority="high"
         quality={85}
+        sizes="100vw"
       />
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/30" />

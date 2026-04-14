@@ -89,7 +89,16 @@
     "readMore": "Read more",
     "eventsCategory": "Events",
     "gardenCategory": "Garden & Outdoor Spaces",
-    "specialCategory": "Specialized Work"
+    "specialCategory": "Specialized Work",
+    "weddingsAlt": "Wedding church ceremony floral decoration with white roses",
+    "baptismsAlt": "Baptism candle decoration with pink and white flower arrangements",
+    "maintenanceAlt": "Garden maintenance with fresh lawn and healthy plant care",
+    "irrigationAlt": "Automatic drip irrigation system installed in a garden",
+    "pruningAlt": "Professional tree pruning with specialized equipment",
+    "tallTreesAlt": "Controlled tall tree cutting performed by a certified arborist",
+    "gardenDesignAlt": "Landscaped garden design with pathways and ornamental plants",
+    "landClearingAlt": "Land clearing and brush removal from an overgrown plot",
+    "pestControlAlt": "Plant protection spraying for disease and pest treatment"
   },
   "Reviews": {
     "title": "What Our Customers Say",
@@ -178,6 +187,7 @@
     "ctaContact": "Contact Form",
     "learnMore": "Learn more",
     "viewAllServices": "All services",
+    "contentCTA": "Explore all of our <services>landscaping and floral services</services> or browse the <flowers>fresh flowers and plants</flowers> available at our shop in Ilioupoli, Athens.",
 
     "weddings": {
       "title": "Wedding Decorations",
@@ -447,6 +457,7 @@
     "ctaWhatsapp": "WhatsApp",
     "ctaContact": "Contact Form",
     "learnMore": "Learn more",
+    "contentCTA": "Beyond our products, we also offer <services>complete landscaping services</services> including maintenance, irrigation and <weddings>wedding and baptism decoration</weddings> throughout Attica.",
     "subtitle": "Wide variety of flowers, plants and garden supplies for every need",
     "viewAll": "View all products",
     "catalogTitle": "Order Online via efood",

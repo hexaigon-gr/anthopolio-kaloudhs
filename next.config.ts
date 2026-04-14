@@ -8,24 +8,31 @@ const nextConfig: NextConfig = {
       { hostname: "imageproxy.wolt.com" },
     ],
   },
-  headers: async () => [
-    {
-      source: "/(.*)",
-      headers: [
-        { key: "X-Frame-Options", value: "DENY" },
-        { key: "X-Content-Type-Options", value: "nosniff" },
-        {
-          key: "Referrer-Policy",
-          value: "strict-origin-when-cross-origin",
-        },
-        {
-          key: "Permissions-Policy",
-          value: "camera=(), microphone=(), geolocation=()",
-        },
-        { key: "X-DNS-Prefetch-Control", value: "on" },
-      ],
-    },
-  ],
+  headers: async () => {
+    const isProduction = process.env.VERCEL_ENV === "production";
+    const baseHeaders = [
+      { key: "X-Frame-Options", value: "DENY" },
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      {
+        key: "Referrer-Policy",
+        value: "strict-origin-when-cross-origin",
+      },
+      {
+        key: "Permissions-Policy",
+        value: "camera=(), microphone=(), geolocation=()",
+      },
+      { key: "X-DNS-Prefetch-Control", value: "on" },
+    ];
+    if (!isProduction) {
+      baseHeaders.push({ key: "X-Robots-Tag", value: "noindex, nofollow" });
+    }
+    return [
+      {
+        source: "/(.*)",
+        headers: baseHeaders,
+      },
+    ];
+  },
 };
 
 const withNextIntl = createNextIntlPlugin("./lib/i18n/request.ts");

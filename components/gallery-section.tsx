@@ -1,6 +1,21 @@
+import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 
-import { GalleryGrid } from "@/components/gallery-grid";
+const GalleryGrid = dynamic(
+  () => import("@/components/gallery-grid").then((m) => m.GalleryGrid),
+  {
+    loading: () => (
+      <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div
+            key={i}
+            className="aspect-3/4 bg-secondary/30 rounded-xl animate-pulse"
+          />
+        ))}
+      </div>
+    ),
+  },
+);
 
 export async function GallerySection() {
   const t = await getTranslations("Gallery");

@@ -4,13 +4,13 @@ import { Globe } from "lucide-react";
 import { useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/general/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/general/utils";
 import { usePathname, useRouter } from "@/lib/i18n/navigation";
 
 const languages = [

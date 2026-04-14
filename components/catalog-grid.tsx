@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Phone, Star, Truck } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -13,8 +13,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { BUSINESS } from "@/lib/general/constants";
 import type { CatalogCategory, CatalogItem } from "@/lib/general/catalog";
+import { BUSINESS } from "@/lib/general/constants";
 
 const CATEGORY_KEY_MAP: Record<string, string> = {
   plants: "catalogPlants",

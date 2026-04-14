@@ -5,7 +5,6 @@ import {
   Church,
   Droplet,
   Frame,
-
   Heart,
   PartyPopper,
   PenTool,
@@ -18,10 +17,12 @@ import {
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { BreadcrumbJsonLd } from "@/components/json-ld";
 import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SITE_URL } from "@/lib/general/seo";
 import { Link } from "@/lib/i18n/navigation";
 import { BasePageProps } from "@/types/page-props";
 
@@ -36,10 +37,11 @@ export const generateMetadata = async ({
         ? "Κηποτεχνικές υπηρεσίες στην Αττική: στολισμοί γάμων, συντηρήσεις κήπων, αυτόματα ποτίσματα, κλαδέματα, βραχόκηποι, σχεδιασμός κήπου."
         : "Landscaping services in Attica: wedding decorations, garden maintenance, automatic irrigation, pruning, rock gardens, garden design.",
     alternates: {
-      canonical: "/services",
+      canonical: `/${locale}/services`,
       languages: {
         el: "/el/services",
         en: "/en/services",
+        "x-default": "/el/services",
       },
     },
   };
@@ -84,6 +86,15 @@ const ServicesPage = async ({ params }: BasePageProps) => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <BreadcrumbJsonLd
+        items={[
+          { name: tPages("breadcrumbHome"), url: `${SITE_URL}/${locale}` },
+          {
+            name: tPages("breadcrumbServices"),
+            url: `${SITE_URL}/${locale}/services`,
+          },
+        ]}
+      />
       <Navbar />
       <main className="flex-1">
         {/* Header */}
