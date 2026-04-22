@@ -1,4 +1,4 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://anthopolio-kaloudhs.gr";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.anthopoleio-kaloudis.gr";
 
 export const SEO = {
   siteName: "ΑΝΘΗ-ΦΥΤΑ KALOUDIS",

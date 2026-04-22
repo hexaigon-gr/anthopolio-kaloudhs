@@ -4,26 +4,26 @@
 
 ## Services
 
-- [Wedding floral decoration](https://anthopolio-kaloudhs.gr/el/services/weddings): Church arrangements, bridal bouquets and reception styling.
-- [Baptism decoration](https://anthopolio-kaloudhs.gr/el/services/baptisms): Christening floral design and church styling.
-- [Church & icon decoration](https://anthopolio-kaloudhs.gr/el/services/church-icons): Patron saint feasts and religious ceremonies.
-- [Reception & event decoration](https://anthopolio-kaloudhs.gr/el/services/receptions): Parties, private events and venue styling.
-- [Commercial space decoration](https://anthopolio-kaloudhs.gr/el/services/commercial-spaces): Offices, hotels and shops with weekly arrangements.
-- [Garden design](https://anthopolio-kaloudhs.gr/el/services/garden-design): Landscape planning and garden architecture.
-- [Garden maintenance](https://anthopolio-kaloudhs.gr/el/services/maintenance): Regular upkeep of green spaces and plant care.
-- [Automatic irrigation](https://anthopolio-kaloudhs.gr/el/services/irrigation): Drip and sprinkler irrigation system installation.
-- [Tree pruning](https://anthopolio-kaloudhs.gr/el/services/pruning): Pruning of trees, shrubs and olive trees.
-- [Tall tree removal](https://anthopolio-kaloudhs.gr/el/services/tall-trees): Safe felling of large or dangerous trees.
-- [Land clearing](https://anthopolio-kaloudhs.gr/el/services/land-clearing): Lot cleanup, brush removal, fire-prevention clearing.
-- [Plant pest control](https://anthopolio-kaloudhs.gr/el/services/pest-control): Plant disease treatment and protective spraying.
+- [Wedding floral decoration](https://www.anthopoleio-kaloudis.gr/el/services/weddings): Church arrangements, bridal bouquets and reception styling.
+- [Baptism decoration](https://www.anthopoleio-kaloudis.gr/el/services/baptisms): Christening floral design and church styling.
+- [Church & icon decoration](https://www.anthopoleio-kaloudis.gr/el/services/church-icons): Patron saint feasts and religious ceremonies.
+- [Reception & event decoration](https://www.anthopoleio-kaloudis.gr/el/services/receptions): Parties, private events and venue styling.
+- [Commercial space decoration](https://www.anthopoleio-kaloudis.gr/el/services/commercial-spaces): Offices, hotels and shops with weekly arrangements.
+- [Garden design](https://www.anthopoleio-kaloudis.gr/el/services/garden-design): Landscape planning and garden architecture.
+- [Garden maintenance](https://www.anthopoleio-kaloudis.gr/el/services/maintenance): Regular upkeep of green spaces and plant care.
+- [Automatic irrigation](https://www.anthopoleio-kaloudis.gr/el/services/irrigation): Drip and sprinkler irrigation system installation.
+- [Tree pruning](https://www.anthopoleio-kaloudis.gr/el/services/pruning): Pruning of trees, shrubs and olive trees.
+- [Tall tree removal](https://www.anthopoleio-kaloudis.gr/el/services/tall-trees): Safe felling of large or dangerous trees.
+- [Land clearing](https://www.anthopoleio-kaloudis.gr/el/services/land-clearing): Lot cleanup, brush removal, fire-prevention clearing.
+- [Plant pest control](https://www.anthopoleio-kaloudis.gr/el/services/pest-control): Plant disease treatment and protective spraying.
 
 ## Products
 
-- [Flowers & plants](https://anthopolio-kaloudhs.gr/el/products/flowers): Fresh cut flowers, indoor and outdoor plants, rare and carnivorous species.
-- [Soil & substrates](https://anthopolio-kaloudhs.gr/el/products/soil): Garden, pot and nursery soil plus specialized substrates.
-- [Fertilizers](https://anthopolio-kaloudhs.gr/el/products/fertilizers): Organic and chemical fertilizers for healthy plant growth.
-- [Pots & planters](https://anthopolio-kaloudhs.gr/el/products/pots): Ceramic, plastic and decorative pots in every size.
-- [Pest-control products](https://anthopolio-kaloudhs.gr/el/products/pest-products): Insecticides, rodenticides, snake repellent, cockroach and ant solutions.
+- [Flowers & plants](https://www.anthopoleio-kaloudis.gr/el/products/flowers): Fresh cut flowers, indoor and outdoor plants, rare and carnivorous species.
+- [Soil & substrates](https://www.anthopoleio-kaloudis.gr/el/products/soil): Garden, pot and nursery soil plus specialized substrates.
+- [Fertilizers](https://www.anthopoleio-kaloudis.gr/el/products/fertilizers): Organic and chemical fertilizers for healthy plant growth.
+- [Pots & planters](https://www.anthopoleio-kaloudis.gr/el/products/pots): Ceramic, plastic and decorative pots in every size.
+- [Pest-control products](https://www.anthopoleio-kaloudis.gr/el/products/pest-products): Insecticides, rodenticides, snake repellent, cockroach and ant solutions.
 
 ## Contact
 
@@ -40,5 +40,5 @@
 
 ## Languages
 
-- Greek (primary): https://anthopolio-kaloudhs.gr/el
-- English: https://anthopolio-kaloudhs.gr/en
+- Greek (primary): https://www.anthopoleio-kaloudis.gr/el
+- English: https://www.anthopoleio-kaloudis.gr/en
