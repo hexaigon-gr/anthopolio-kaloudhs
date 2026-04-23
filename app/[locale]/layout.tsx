@@ -57,9 +57,11 @@ export const generateMetadata = async ({
       alternateLocale,
       images: [
         {
-          url: "/images/og-image.png",
-          width: 1920,
-          height: 1080,
+          url: `${SITE_URL}/images/og-image.png`,
+          secureUrl: `${SITE_URL}/images/og-image.png`,
+          width: 1200,
+          height: 630,
+          type: "image/png",
           alt: SEO.siteName,
         },
       ],
@@ -68,7 +70,14 @@ export const generateMetadata = async ({
       card: "summary_large_image",
       title: SEO.defaultTitle,
       description: SEO.defaultDescription,
-      images: ["/images/og-image.png"],
+      images: [
+        {
+          url: `${SITE_URL}/images/og-image.png`,
+          alt: SEO.siteName,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
     robots: IS_PRODUCTION_HOST
       ? { index: true, follow: true }
