@@ -8,6 +8,7 @@ import { SUPPORTED_LOCALES } from "@/lib/i18n/routing";
 const sitemap = (): MetadataRoute.Sitemap => {
   const staticPages = [
     { path: "", priority: 1 },
+    { path: "/contact", priority: 0.9 },
     { path: "/services", priority: 0.8 },
     { path: "/products", priority: 0.8 },
   ];
@@ -27,13 +28,14 @@ const sitemap = (): MetadataRoute.Sitemap => {
   return allPages.flatMap(({ path, priority }) =>
     SUPPORTED_LOCALES.map((locale) => ({
       url: `${SITE_URL}/${locale}${path}`,
-      lastModified: new Date(),
+      lastModified: "2026-04-30",
       changeFrequency: "weekly" as const,
       priority,
       alternates: {
-        languages: Object.fromEntries(
-          SUPPORTED_LOCALES.map((l) => [l, `${SITE_URL}/${l}${path}`])
-        ),
+        languages: {
+          ...Object.fromEntries(SUPPORTED_LOCALES.map((l) => [l, `${SITE_URL}/${l}${path}`])),
+          "x-default": `${SITE_URL}/el${path}`,
+        },
       },
     }))
   );

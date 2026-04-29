@@ -3,6 +3,7 @@ import { SEO, SITE_URL } from "@/lib/general/seo";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
+  "@id": SITE_URL,
   "@type": ["Florist", "LandscapingBusiness"],
   name: SEO.siteName,
   description: SEO.defaultDescription,
@@ -23,8 +24,16 @@ const localBusinessSchema = {
     latitude: 37.9297,
     longitude: 23.7514,
   },
-  sameAs: [BUSINESS.facebook, BUSINESS.tiktok],
+  sameAs: [BUSINESS.facebook, BUSINESS.tiktok, BUSINESS.efood.url, BUSINESS.wolt.url, BUSINESS.box.url],
   priceRange: "€€",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "6",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  award: ["Eagles Award 2023", "Eagles Award 2024", "Eagles Award 2025"],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -37,12 +46,6 @@ const localBusinessSchema = {
       dayOfWeek: "Thursday",
       opens: "09:00",
       closes: "19:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Sunday",
-      opens: "09:00",
-      closes: "16:00",
     },
   ],
   areaServed: [
@@ -128,6 +131,7 @@ export const ServiceJsonLd = ({
     image,
     provider: {
       "@type": "Florist",
+      "@id": SITE_URL,
       name: SEO.siteName,
       url: SITE_URL,
       telephone: "+302109954775",
@@ -212,6 +216,7 @@ export const ProductJsonLd = ({
       availability: "https://schema.org/InStock",
       seller: {
         "@type": "Florist",
+        "@id": SITE_URL,
         name: SEO.siteName,
         url: SITE_URL,
         telephone: "+302109954775",
@@ -220,7 +225,7 @@ export const ProductJsonLd = ({
           streetAddress: "Κυπρίων Ηρώων 4",
           addressLocality: "Ηλιούπολη",
           addressRegion: "Αττική",
-          postalCode: "16346",
+          postalCode: "16341",
           addressCountry: "GR",
         },
       },

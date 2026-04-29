@@ -3,9 +3,9 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.anthopo
 export const SEO = {
   siteName: "ΑΝΘΗ-ΦΥΤΑ KALOUDIS",
   titleSuffix: " | ΑΝΘΗ-ΦΥΤΑ KALOUDIS",
-  defaultTitle: "ΑΝΘΗ-ΦΥΤΑ KALOUDIS | Κηποτεχνικές Εργασίες Αττική",
+  defaultTitle: "Ανθοπωλείο Ηλιούπολη | ΑΝΘΗ-ΦΥΤΑ KALOUDIS — Λουλούδια & Στολισμοί",
   defaultDescription:
-    "Ανθοπωλείο & κηποτεχνικές υπηρεσίες στην Αττική: άνθη, φυτά, στολισμοί γάμων/βαφτίσεων, συντήρηση κήπου, πότισμα, κλαδέματα.",
+    "Ανθοπωλείο στην Ηλιούπολη Αττικής. Φρέσκα λουλούδια, στολισμοί γάμων, βαπτίσεων & χώρων. Κηποτεχνικές εργασίες από το KALOUDIS — Τηλ. 2109954775.",
   keywords: [
     "ανθοπωλείο",
     "κηποτεχνικές εργασίες",
@@ -21,6 +21,11 @@ export const SEO = {
     "garden services Athens",
     "wedding flowers Athens",
     "KALOUDIS",
+    "ανθοπωλείο Ηλιούπολη",
+    "λουλούδια Ηλιούπολη",
+    "στολισμοί γάμων Ηλιούπολη",
+    "στολισμός χώρων",
+    "ανθοπωλείο κοντά μου",
   ],
 } as const;
 
@@ -36,10 +41,10 @@ export const SERVICE_SEO: Record<
   }
 > = {
   weddings: {
-    titleEl: "Στολισμός Γάμου",
+    titleEl: "Στολισμοί Γάμων Ηλιούπολη | Ανθοστολισμός Αττική",
     titleEn: "Wedding Decoration Athens",
     descriptionEl:
-      "Ανθοστολισμός εκκλησίας, νυφική ανθοδέσμη και στολισμός δεξίωσης γάμου στην Αττική. Μοναδικές συνθέσεις από το KALOUDIS.",
+      "Στολισμός γάμου στην Ηλιούπολη & Αττική. Ανθοστολισμός εκκλησίας, νυφική ανθοδέσμη, στολισμός δεξίωσης. Καλέστε 2109954775.",
     descriptionEn:
       "Church floral arrangements, bridal bouquets, and wedding reception decoration in Attica. Unique compositions by KALOUDIS.",
     keywordsEl: [
@@ -48,6 +53,8 @@ export const SERVICE_SEO: Record<
       "νυφική ανθοδέσμη",
       "στολισμός δεξίωσης γάμου",
       "νυφικά λουλούδια",
+      "στολισμοί γάμων Ηλιούπολη",
+      "ανθοστολισμός γάμου Αττική",
     ],
     keywordsEn: [
       "wedding decoration Athens",
@@ -302,10 +309,10 @@ export const PRODUCT_SEO: Record<
   }
 > = {
   flowers: {
-    titleEl: "Άνθη & Φυτά",
+    titleEl: "Λουλούδια Ηλιούπολη | Άνθη & Φυτά",
     titleEn: "Flowers & Plants Athens",
     descriptionEl:
-      "Φρέσκα λουλούδια, φυτά εσωτερικού και εξωτερικού χώρου, σπάνια είδη και σαρκοφάγα φυτά στην Αττική. Ανθοπωλείο KALOUDIS.",
+      "Φρέσκα λουλούδια στην Ηλιούπολη Αττικής. Φυτά εσωτερικού/εξωτερικού χώρου, σπάνια είδη, σαρκοφάγα φυτά. Ανθοπωλείο KALOUDIS.",
     descriptionEn:
       "Fresh flowers, indoor and outdoor plants, rare species and carnivorous plants in Attica. KALOUDIS flower shop.",
     keywordsEl: [
@@ -316,6 +323,8 @@ export const PRODUCT_SEO: Record<
       "σπάνια φυτά",
       "σαρκοφάγα φυτά",
       "λουλούδια",
+      "λουλούδια Ηλιούπολη",
+      "ανθοπωλείο Ηλιούπολη",
     ],
     keywordsEn: [
       "flowers Athens",

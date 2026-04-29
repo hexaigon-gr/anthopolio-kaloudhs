@@ -1,271 +1,330 @@
 # SEO Action Plan — ΑΝΘΗ-ΦΥΤΑ KALOUDIS
+**Audit date:** 2026-04-29  
+**Current score:** 57 / 100  
+**Expected score after all fixes:** 82+ / 100
 
-**Audit date:** 2026-04-14
-**Current score:** 58 / 100
-**Expected score after Critical + High tasks:** 85+ / 100
-
-See `FULL-AUDIT-REPORT.md` for the full findings. This file is the prioritized fix list.
-
----
-
-## 🔴 CRITICAL — Do today
-
-### C1. Fix the dead production domain
-
-**Problem:** `anthopolio-kaloudhs.gr` does not resolve in DNS, yet every canonical, sitemap entry, OG tag, and schema `url` points to it. Google cannot verify or index anything.
-
-**Two possible fixes** — pick one:
-
-**Option A — Make `.gr` real (preferred if you own the domain)**
-1. Buy/verify ownership of `anthopolio-kaloudhs.gr`.
-2. In the Vercel dashboard → Project → Settings → Domains → add `anthopolio-kaloudhs.gr` and `www.anthopolio-kaloudhs.gr`.
-3. Set the DNS records Vercel shows you at your registrar (typically an `A` record + a `CNAME` for `www`).
-4. Set `anthopolio-kaloudhs.gr` as the **primary** domain in Vercel so the `.vercel.app` URL 308s to it.
-5. Confirm: `curl -I https://anthopolio-kaloudhs.gr` returns 200.
-
-**Option B — Use the `.vercel.app` hostname as the canonical**
-1. Find the constant that defines `SITE_URL` (likely [lib/general/seo.ts](lib/general/seo.ts) or [lib/general/constants.ts](lib/general/constants.ts)).
-2. Change from `https://anthopolio-kaloudhs.gr` to `https://anthopolio-kaloudhs.vercel.app`.
-3. Grep for any other hard-coded references: `grep -rn "anthopolio-kaloudhs.gr" app/ lib/ components/ public/`.
-4. Redeploy.
-
-**Acceptance:** Every `<link rel="canonical">`, every `<loc>` in `sitemap.xml`, the `Sitemap:` line in `robots.txt`, every `og:url`, and the JSON-LD `url` field all point to the same reachable host.
+Target keywords: ανθοπωλειο ηλιουπολη · ανθοπωλειο κοντα μου · στολισμοι γαμων · στολισμοι γαμων ηλιουπολη · λουλουδια ηλιουπολη · στολισμος χωρων
 
 ---
 
-### C2. Include the locale prefix in canonical URLs
+## CRITICAL — Fix Immediately (blocking rankings or showing wrong data)
 
-**Problem:** Both `/el/services/weddings` and `/en/services/weddings` declare the same canonical (`/services/weddings`), which collapses two language versions into one.
+### C1 — Fix Sunday hours in schema
+**File:** `components/json-ld.tsx`  
+**Problem:** Schema says Sunday open 09:00–16:00. Business is CLOSED. Google Maps shows wrong hours.  
+**Fix:** Delete the Sunday `OpeningHoursSpecification` block from `localBusinessSchema`.  
+**Time:** 5 min  
+**Impact:** Fixes live Google Maps data + removes factual error that harms trust
 
+---
+
+### C2 — Fix homepage title to include "Ηλιούπολη" and "ανθοπωλείο"
+**File:** `lib/general/seo.ts` (look for `defaultTitle` or equivalent)  
+**Problem:** Current title `ΑΝΘΗ-ΦΥΤΑ KALOUDIS | Κηποτεχνικές Εργασίες Αττική` contains zero target keywords.  
 **Fix:**
-- [app/[locale]/services/[slug]/page.tsx:72](app/[locale]/services/[slug]/page.tsx#L72):
-  ```ts
-  alternates: {
-    canonical: `/${locale}/services/${slug}`,  // was: `/services/${slug}`
-    languages: {
-      el: `/el/services/${slug}`,
-      en: `/en/services/${slug}`,
-    },
-  },
-  ```
-- Apply the same change in `app/[locale]/products/[slug]/page.tsx`.
-- Check `app/[locale]/layout.tsx` and any `generateMetadata` in `app/[locale]/services/page.tsx`, `app/[locale]/products/page.tsx`, and `app/[locale]/page.tsx` — they likely have the same bug pattern.
-
-**Acceptance:** `curl -s https://<host>/el/services/weddings | grep canonical` shows `/el/services/weddings`, not `/services/weddings`. Same for `/en/`.
+```
+Before: ΑΝΘΗ-ΦΥΤΑ KALOUDIS | Κηποτεχνικές Εργασίες Αττική
+After:  Ανθοπωλείο Ηλιούπολη | ΑΝΘΗ-ΦΥΤΑ KALOUDIS — Λουλούδια & Στολισμοί
+```
+**Time:** 10 min  
+**Impact:** Directly targets "ανθοπωλειο ηλιουπολη" and "λουλουδια ηλιουπολη"
 
 ---
 
-### C3. Block indexing on non-production hosts
+### C3 — Add meta descriptions to all key pages
+**File:** `lib/general/seo.ts` + per-page `generateMetadata`  
+**Problem:** No page has a meta description. Google writes its own, often missing keywords.
 
-**Problem:** The `.vercel.app` preview serves `index, follow`. Once `.gr` goes live, the preview becomes duplicate content.
+Copy-paste these descriptions:
 
-**Fix — `next.config.ts`** (simplest):
+**Greek homepage** (`SEO.defaultDescription`):
+```
+Ανθοπωλείο στην Ηλιούπολη Αττικής. Φρέσκα λουλούδια, στολισμοί γάμων, βαπτίσεων & χώρων. Κηποτεχνικές εργασίες από το KALOUDIS — Τηλ. 2109954775.
+```
+
+**Wedding page** (`SERVICE_SEO.weddings.descriptionEl` or equivalent):
+```
+Στολισμός γάμου στην Ηλιούπολη & Αττική. Ανθοστολισμός εκκλησίας, νυφική ανθοδέσμη, στολισμός δεξίωσης. Καλέστε 2109954775.
+```
+
+**Contact page** (new `generateMetadata` — see C4):
+```
+Επικοινωνήστε με το ανθοπωλείο KALOUDIS στην Ηλιούπολη Αττικής. Λ. Κυπρίων Ηρώων 4, Τηλ. 210 9954775. Δε–Σα 9:00–21:00.
+```
+
+**Time:** 45 min  
+**Impact:** Improves CTR in all Greek search results
+
+---
+
+### C4 — Fix contact page canonical + add to sitemap
+**Problem:** `/el/contact` has no `generateMetadata` → inherits homepage canonical → Google ignores contact page as a separate entity.
+
+**Step 1:** Add `generateMetadata` to `app/[locale]/contact/page.tsx`:
 ```ts
-async headers() {
-  const isProd = process.env.VERCEL_ENV === 'production';
-  if (isProd) return [];
-  return [{
-    source: '/:path*',
-    headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
-  }];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return {
+    title: locale === "el" ? "Επικοινωνία | ΑΝΘΗ-ΦΥΤΑ KALOUDIS" : "Contact | ANTHI-FYTA KALOUDIS",
+    description: locale === "el"
+      ? "Επικοινωνήστε με το ανθοπωλείο KALOUDIS στην Ηλιούπολη. Τηλ. 210 9954775. Λεωφόρος Κυπρίων Ηρώων 4."
+      : "Contact KALOUDIS flower shop in Ilioupoli, Athens. Tel. 210 9954775.",
+    alternates: {
+      canonical: `/${locale}/contact`,
+      languages: { el: "/el/contact", en: "/en/contact", "x-default": "/el/contact" }
+    }
+  };
 }
 ```
 
-**Or in the root layout**, read headers and emit the meta conditionally:
+**Step 2:** Add contact to sitemap in `app/sitemap.ts`:
 ```ts
-// app/[locale]/layout.tsx
-import { headers } from 'next/headers';
-const host = (await headers()).get('host') ?? '';
-const isPrimary = host === 'anthopolio-kaloudhs.gr' || host === 'www.anthopolio-kaloudhs.gr';
-// pass !isPrimary down as a `noindex` prop on <Metadata>
+// In staticPages array, add:
+{ path: "/contact", priority: 0.9 }
 ```
 
-**Acceptance:** `curl -I https://anthopolio-kaloudhs.vercel.app | grep -i x-robots` returns `noindex` on preview; nothing on production.
+**Time:** 30 min  
+**Impact:** Contact page indexed separately; key page for "ανθοπωλειο ηλιουπολη" (has address)
 
 ---
 
-## 🟠 HIGH — Within 1 week
+## HIGH — Fix Within 1 Week (significant ranking impact)
 
-### H1. Fix the `Sitemap:` line in `robots.txt`
-
-Once C1 lands, the `robots.txt` sitemap line will already resolve. Verify `robots.txt` still reads:
+### H1 — Add "Ηλιούπολη" to wedding page title and body
+**File:** `lib/general/seo.ts` (wedding service SEO key) + wedding page body content/translations  
+**Fix — Title:**
 ```
-Sitemap: https://<your-primary-host>/sitemap.xml
+Before: Στολισμός Γάμου | ΑΝΘΗ-ΦΥΤΑ KALOUDIS
+After:  Στολισμοί Γάμων Ηλιούπολη | Ανθοστολισμός Αττική — KALOUDIS
 ```
-and `curl -I https://<your-primary-host>/sitemap.xml` returns 200.
-
-### H2. Publish `/public/llms.txt`
-
-Create `public/llms.txt`:
+**Fix — Body:** Add "Ηλιούπολη" in the first paragraph of the wedding page Greek content. Example:
 ```
-# ΑΝΘΗ-ΦΥΤΑ KALOUDIS
-> Florist and landscaping services in south Athens, Greece (Ηλιούπολη and nearby suburbs).
-
-## Services
-- Wedding floral decoration: https://anthopolio-kaloudhs.gr/el/services/weddings
-- Baptism decoration: https://anthopolio-kaloudhs.gr/el/services/baptisms
-- Church icons: https://anthopolio-kaloudhs.gr/el/services/church-icons
-- Reception decoration: https://anthopolio-kaloudhs.gr/el/services/receptions
-- Commercial spaces: https://anthopolio-kaloudhs.gr/el/services/commercial-spaces
-- Garden design: https://anthopolio-kaloudhs.gr/el/services/garden-design
-- Garden maintenance: https://anthopolio-kaloudhs.gr/el/services/maintenance
-- Automatic irrigation: https://anthopolio-kaloudhs.gr/el/services/irrigation
-- Pruning: https://anthopolio-kaloudhs.gr/el/services/pruning
-- Tall-tree cutting: https://anthopolio-kaloudhs.gr/el/services/tall-trees
-- Land clearing: https://anthopolio-kaloudhs.gr/el/services/land-clearing
-- Pest control: https://anthopolio-kaloudhs.gr/el/services/pest-control
-
-## Products
-- Flowers & plants: https://anthopolio-kaloudhs.gr/el/products/flowers
-- Soil & substrates: https://anthopolio-kaloudhs.gr/el/products/soil
-- Fertilizers: https://anthopolio-kaloudhs.gr/el/products/fertilizers
-- Pots: https://anthopolio-kaloudhs.gr/el/products/pots
-- Pest-control products: https://anthopolio-kaloudhs.gr/el/products/pest-products
-
-## Contact
-- Address: Λεωφόρος Κυπρίων Ηρώων 4, Ηλιούπολη 16341, Αθήνα
-- Phone: +30 210 9954775
-- Email: kipotexnikesergasies13@gmail.com
-- Hours: Mon–Sat 09:00–21:00 (Thu 09:00–19:00), Sun 09:00–16:00
-- Facebook: https://www.facebook.com/kipotexnikesergasies13/
-- TikTok: https://www.tiktok.com/@kipotexnikesergasies13gm
-
-## Areas served
-Ηλιούπολη, Αργυρούπολη, Δάφνη, Βύρωνας, Άλιμος, Υμηττός, Άγιος Δημήτριος,
-Καισαριανή, Ελληνικό, Γλυφάδα, Νέα Σμύρνη, Παλαιό Φάληρο, Καλλιθέα,
-Ζωγράφου, Παγκράτι, Βούλα, Βουλιαγμένη, Βάρη, Παπάγου, Χολαργός
+Εξειδικευόμαστε σε στολισμούς γάμων στην Ηλιούπολη και σε όλη την Αττική.
 ```
-
-Replace the hostname with whichever primary host C1 ends up using.
-
-### H3. Add `BreadcrumbList` JSON-LD on index pages
-
-Service and product **detail** pages already have breadcrumbs. Add the same `BreadcrumbJsonLd` component to:
-- `app/[locale]/services/page.tsx` (breadcrumb: Home → Services)
-- `app/[locale]/products/page.tsx` (breadcrumb: Home → Products)
-
-### H4. Change product pages from `Service` schema to `Product` / `ItemList`
-
-Current product pages emit `Service` schema for items like "Flowers", "Soil", "Fertilizers", "Pots". These are physical goods — eligible for Product rich results if marked up correctly.
-
-- `app/[locale]/products/[slug]/page.tsx` — replace the `ServiceJsonLd` with either:
-  - `Product` schema if each page shows one hero product
-  - `ItemList` of `Product` items if each page shows a category grid
-- At minimum include: `name`, `image`, `description`, `brand`, `offers.priceCurrency: "EUR"`, `offers.availability: "https://schema.org/InStock"`.
-
-### H5. Fix `aggregateRating` visibility
-
-Google's Review rich-result guidance says `aggregateRating` needs either (a) an accompanying `review` list or (b) user-visible reviews on the same page.
-
-Options:
-- Add 3–5 `Review` items to the homepage JSON-LD (sourced from real Google reviews — do **not** invent).
-- Or move `aggregateRating` to a dedicated `/reviews` page where real review quotes are displayed.
-
-### H6. Remove `<meta name="keywords">`
-
-Google ignores it; it's dead weight on every page. Remove from `generateMetadata` calls.
+**Time:** 20 min  
+**Impact:** Directly targets "στολισμοι γαμων ηλιουπολη" — currently zero coverage
 
 ---
 
-## 🟡 MEDIUM — Within 1 month
-
-### M1. Add contextual in-content internal links
-
-In service-detail copy (e.g. weddings), add inline links to related services and products inside the paragraphs themselves, not just the footer/related-cards block:
-
-> "We pair our **[wedding floral designs](/el/services/weddings)** with **[fresh flowers sourced daily](/el/products/flowers)** and matching **[reception decor](/el/services/receptions)**."
-
-Target: 2–3 contextual in-content links per 300-word section.
-
-### M2. Add `WebSite` + `SearchAction` schema
-
-Even without internal site search, a basic `WebSite` entity helps Google understand the site boundary:
+### H2 — Add `aggregateRating` and `award` to LocalBusiness schema
+**File:** `components/json-ld.tsx` — `localBusinessSchema`  
+**Add these properties:**
 ```json
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "ΑΝΘΗ-ΦΥΤΑ KALOUDIS",
-  "url": "https://<primary-host>",
-  "inLanguage": ["el-GR", "en-US"]
+"aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "5",
+  "reviewCount": "6",
+  "bestRating": "5",
+  "worstRating": "1"
+},
+"award": ["Eagles Award 2023", "Eagles Award 2024", "Eagles Award 2025"]
+```
+**Time:** 15 min  
+**Impact:** Star ratings visible in Google search results + Knowledge Panel credibility
+
+---
+
+### H3 — Add delivery platforms to `sameAs` in LocalBusiness schema
+**File:** `components/json-ld.tsx` — `localBusinessSchema.sameAs` array  
+These URLs are already in `constants.ts` — just add them to the schema:
+```json
+"sameAs": [
+  "https://www.facebook.com/kipotexnikesergasies13/",
+  "https://www.tiktok.com/@kipotexnikesergasies13gm",
+  "https://wolt.com/en/grc/athens/venue/kaloudis-garden",
+  "https://www.e-food.gr/delivery/ilioypoli/kaloydis-anthopoleio",
+  "https://box.gr/delivery/ilioupoli/kaloudhs-anthopwleio"
+]
+```
+**Time:** 10 min  
+**Impact:** Google entity verification via authoritative Greek platforms — strengthens Local Pack eligibility
+
+---
+
+### H4 — Fix postal code inconsistency in ProductJsonLd
+**File:** `components/json-ld.tsx` — `ProductJsonLd`  
+**Fix:** Change postalCode `"16346"` → `"16341"` to match all other schema and GMB  
+**Time:** 5 min  
+**Impact:** NAP consistency across all structured data
+
+---
+
+### H5 — Add `@id` to LocalBusiness schema
+**File:** `components/json-ld.tsx` — `localBusinessSchema`  
+**Add:** `"@id": "https://www.anthopoleio-kaloudis.gr"`  
+**Time:** 5 min  
+**Impact:** Google can reliably connect entity references across all pages
+
+---
+
+### H6 — Update Greek homepage H1 to include target keywords
+**File:** `messages/el.json` — the key used for the homepage H1  
+**Fix:**
+```
+Before: Άνθη, Φυτά & Κηποτεχνικές Υπηρεσίες
+After:  Ανθοπωλείο στην Ηλιούπολη — Φρέσκα Λουλούδια & Στολισμοί
+```
+Also update `messages/en.json` H1 consistently.  
+**Time:** 15 min  
+**Impact:** "ανθοπωλειο ηλιουπολη" and "λουλουδια ηλιουπολη" now have H1 signal
+
+---
+
+### H7 — Google Business Profile optimization (MOST IMPORTANT for "κοντά μου")
+**Not a code task — do this at business.google.com**
+
+Checklist:
+- [ ] Verify GBP is claimed and verified
+- [ ] Set primary category: "Flower Shop" (Ανθοπωλείο)
+- [ ] Add secondary categories: "Florist", "Garden Center" (Κηποτεχνικές)
+- [ ] Business description: include "ανθοπωλείο Ηλιούπολη", "λουλούδια", "στολισμοί γάμων", "βαπτίσεις"
+- [ ] Upload 20+ photos (exterior, products, arrangements, events)
+- [ ] Hours must match website exactly (Sun: closed)
+- [ ] Respond to all existing Google reviews
+- [ ] Ask satisfied customers to leave Google reviews mentioning services
+- [ ] Add all services in GBP Services section
+- [ ] Publish GBP Post weekly
+
+**Time:** 2–3 hours initial setup  
+**Impact:** Single highest-impact action for "ανθοπωλειο κοντα μου" and "ανθοπωλειο ηλιουπολη" — Local Pack ranking
+
+---
+
+### H8 — Add `fetchPriority="high"` to service page hero image
+**File:** `app/[locale]/services/[slug]/page.tsx` — `<Image>` tag around line 211  
+**Fix:** Add `fetchPriority="high"` prop to the hero `<Image>`  
+**Time:** 5 min  
+**Impact:** Improves LCP on all service pages
+
+---
+
+### H9 — Add Twitter Card metadata to service pages
+**File:** `app/[locale]/services/[slug]/page.tsx` — `generateMetadata`  
+**Fix:** Add a `twitter` block mirroring `openGraph`:
+```ts
+twitter: {
+  card: "summary_large_image",
+  title: /* page-specific title */,
+  description: /* page-specific description */,
+  images: [serviceHeroImageUrl],
 }
 ```
-Add alongside the existing LocalBusiness JSON-LD in the root layout.
+**Time:** 20 min  
+**Impact:** Correct social share previews when pages are shared
 
-### M3. Tighten homepage meta description
+---
 
-Current Greek description is 166 characters — will truncate at ~160 in search results. Trim to ≤155 chars while keeping the primary keywords ("ανθοπωλείο", "κηποτεχνικές", "Αττική").
+## MEDIUM — Fix Within 1 Month
 
-### M4. Add `Person` / authored content signals for E-E-A-T
-
-Consider an "About" page or an author byline on service copy naming the owner/operator. Cheap E-E-A-T win.
-
-### M5. Configure `Cache-Control` for static HTML
-
-Current: `public, max-age=0, must-revalidate`. For static pages that rebuild on deploy, a short `s-maxage=60, stale-while-revalidate=86400` would let Vercel's edge cache serve subsequent requests instantly.
-
-### M6. Publish legal pages (GDPR)
-
-Greece is EU — a privacy policy, cookie policy, and consent banner are legally required if you use analytics or any non-essential cookies. Add:
-- `/el/privacy`, `/en/privacy`
-- `/el/cookies`, `/en/cookies`
-- `/el/terms`, `/en/terms`
-
-Link from the footer. Add to sitemap.
-
-### M7. Run Lighthouse + PageSpeed Insights after C1 lands
-
-Collect baseline Core Web Vitals:
-```bash
-npx lighthouse https://<primary-host>/el --view
+### M1 — Fix `lastmod` in sitemap to use static dates
+**File:** `app/sitemap.ts`  
+**Fix:** Replace `lastModified: new Date()` with static date strings  
+```ts
+lastModified: "2026-04-23"  // Update only when page content changes
 ```
-Check LCP, INP, CLS on mobile. Address any red metrics.
+**Time:** 15 min  
+**Impact:** Google treats reliable lastmod seriously for crawl scheduling
 
 ---
 
-## 🟢 LOW — Backlog
-
-- **L1.** More descriptive alt text on service gallery cards (e.g. `Ανθοστολισμός εκκλησιαστικής τελετής με λευκά τριαντάφυλλα` instead of just `Στολισμοί Γάμων`).
-- **L2.** Add `.well-known/security.txt` (non-SEO but good hygiene).
-- **L3.** Clean up stray untracked file `public/images/addresspicker1.jpg` (confirm intent first).
-- **L4.** Set up Google Search Console + Bing Webmaster Tools for the new primary domain, submit the sitemap.
-- **L5.** Set up Google Business Profile (local pack signal) if not already done — link it from the footer.
-- **L6.** Add `Review` schema on individual testimonial quotes if you surface user reviews in the UI.
-- **L7.** Consider migrating product photos to AVIF in addition to the hero (Next.js Image already handles this if the optimizer is configured).
+### M2 — Add `x-default` to sitemap hreflang entries
+**File:** `app/sitemap.ts` — wherever alternates/hreflang are generated  
+**Fix:** Add third alternate entry pointing `hreflang="x-default"` to `/el` for every URL  
+**Time:** 30 min  
+**Impact:** Clear signal for international visitors and Google's language targeting
 
 ---
 
-## Validation checklist (run after each batch of fixes)
+### M3 — Add `ItemList` schema to services and products listing pages
+**File:** Create `ItemListJsonLd` component in `components/json-ld.tsx`, then add to `app/[locale]/services/page.tsx` and `app/[locale]/products/page.tsx`  
+**Impact:** Can produce sitelinks in search results; helps Google understand site architecture
 
-```bash
-# 1. Domain + canonical
-curl -I https://<primary-host>/ | head -5
-curl -s https://<primary-host>/el/services/weddings | grep -E "canonical|hreflang" | head -10
+---
 
-# 2. Robots + sitemap
-curl -s https://<primary-host>/robots.txt
-curl -sI https://<primary-host>/sitemap.xml | head -3
+### M4 — Add `BreadcrumbList` to contact page
+**File:** `app/[locale]/contact/page.tsx`  
+**Fix:** Add `<BreadcrumbJsonLd>` using the existing component pattern  
+**Impact:** Complete schema coverage across all pages
 
-# 3. Preview noindex
-curl -I https://anthopolio-kaloudhs.vercel.app/ | grep -i x-robots
+---
 
-# 4. Schema validation
-# → paste the HTML source into https://validator.schema.org/
-# → paste the URL into https://search.google.com/test/rich-results
+### M5 — Add "Ηλιούπολη" to products/flowers page content
+**File:** `messages/el.json` — products/flowers page content keys  
+**Fix:** Ensure at least H1 or first paragraph mentions "Λουλούδια στην Ηλιούπολη"  
+**Impact:** Targets "λουλουδια ηλιουπολη"
 
-# 5. Lighthouse
-npx lighthouse https://<primary-host>/el --preset=desktop --view
-npx lighthouse https://<primary-host>/el --view  # mobile
+---
+
+### M6 — Add neighborhood names to homepage and contact page
+For "ανθοπωλειο κοντα μου", Google uses proximity. Reinforce the service area by listing nearby neighborhoods in the "areaServed" section visible on-page:
+> Εξυπηρετούμε: Ηλιούπολη, Αργυρούπολη, Δάφνη, Βύρωνας, Άγιος Δημήτριος, Καισαριανή, Ζωγράφου, Νέα Σμύρνη, Γλυφάδα, Άλιμος
+
+**Time:** 20 min  
+**Impact:** Expands "near me" radius and provides keyword-rich geographic text
+
+---
+
+### M7 — Strengthen `serviceType` on Service schema
+**File:** `components/json-ld.tsx` — `ServiceJsonLd`  
+**Fix:** Add `serviceType` prop and pass descriptive values from service data:
+- Weddings: `"Wedding Floral Decoration"` / `"Στολισμός Γάμου"`
+- Baptisms: `"Baptism Decoration"` / `"Στολισμός Βάπτισης"`  
+**Time:** 20 min
+
+---
+
+### M8 — Investigate `rock-gardens` dangling reference
+**File:** `lib/general/services.ts` — `relatedSlugs` for `garden-design`  
+**Fix:** Either create a `rock-gardens` service page or remove the reference  
+**Time:** 10 min investigation, 30 min to resolve
+
+---
+
+## LOW — Backlog (nice to have)
+
+### L1 — Add Content Security Policy header
+**File:** `next.config.ts` — `headers()` function  
+Improve security posture; no ranking impact
+
+### L2 — Create an "About Us" page
+Content: team history, founder story, awards detail, years of experience  
+Impact: E-E-A-T signals, brand queries, trust
+
+### L3 — Start a blog with flower/garden content
+Topic ideas:
+- "Στολισμός γάμου στην Ηλιούπολη: ιδέες και τιμές"
+- "Ποια λουλούδια να διαλέξετε για βάφτιση"
+- "Φροντίδα εσωτερικών φυτών τον χειμώνα"
+
+Impact: Targets informational queries, builds topical authority, E-E-A-T
+
+### L4 — Add `WhatsApp` ContactPoint to LocalBusiness schema
+**File:** `components/json-ld.tsx`  
+Low impact but completes the entity profile
+
+### L5 — Consider switching root redirect from 307 → 301
+If the business is exclusively Greek-market (no English-language users), a 301 to `/el` sends slightly stronger link equity signal. Low priority given Google handles 307 well for i18n.
+
+---
+
+## Implementation Priority Order
+
+```
+Week 1 (Critical): C1 → C2 → C4 → H4 → H5 → H2 → H3 → H6 → C3
+Week 1 (Parallel): H7 (Google Business Profile — start immediately, takes longest)
+Week 2 (High):     H1 → H8 → H9 → H6 (if not done)
+Week 3 (Medium):   M1 → M2 → M5 → M6
+Week 4 (Medium):   M3 → M4 → M7 → M8
+Backlog:           L1 → L2 → L3 → L4 → L5
 ```
 
----
+## Expected Ranking Timeline
 
-## Scoring impact (estimated)
-
-| Fix | Category | Points recovered |
-|---|---|---:|
-| C1 (domain) | Technical + Schema + AI | +18 |
-| C2 (locale canonical) | Technical + Content | +6 |
-| C3 (noindex preview) | Technical | +3 |
-| H1–H6 combined | Technical + Schema + Content | +5 |
-| M1–M7 combined | All | +4 |
-| **Total** | | **≈ +36 → score 85–90** |
+| Action | When | Expected Result |
+|---|---|---|
+| GMB optimization (H7) | Week 1–2 | Local Pack appearance in 2–4 weeks |
+| Title + H1 fixes (C2, H6) | Week 1 | Ranking change in 2–6 weeks (reindex) |
+| Schema fixes (H2, H3, H4, H5) | Week 1 | Knowledge Panel update in 1–3 weeks |
+| Meta descriptions (C3) | Week 1 | CTR improvement immediate after reindex |
+| Wedding page location fix (H1) | Week 2 | "στολισμοι γαμων ηλιουπολη" ranking in 4–8 weeks |
+| Content additions (M5, M6) | Week 3–4 | Gradual ranking improvement over 4–12 weeks |

@@ -76,7 +76,7 @@ export const SERVICES: ServiceDefinition[] = [
     icon: PenTool,
     category: "garden",
     image: "/images/services/garden-design-new.jpg",
-    relatedSlugs: ["rock-gardens", "maintenance"],
+    relatedSlugs: ["irrigation", "maintenance"],
     priority: "high",
   },
   {

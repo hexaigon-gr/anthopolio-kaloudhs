@@ -89,6 +89,12 @@ export async function generateMetadata({
         },
       ],
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${SITE_URL}${service.image}`],
+    },
   };
 }
 
@@ -209,6 +215,7 @@ export default async function ServicePage({ params }: PageProps) {
             fill
             className="object-cover"
             priority
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-black/60" />
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
