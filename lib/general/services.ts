@@ -102,7 +102,7 @@ export const SERVICES: ServiceDefinition[] = [
     translationKey: "pruning",
     icon: Scissors,
     category: "garden",
-    image: "/images/services/pruning.jpg",
+    image: "/images/services/pruning-new.jpg",
     relatedSlugs: ["tall-trees", "maintenance"],
     priority: "normal",
   },
