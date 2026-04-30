@@ -1,5 +1,7 @@
 # Next.js Auth + Internationalization + Prisma Starter
 
+Kaloudis site
+
 A modern full-stack starter template built with Next.js 16, NextAuth.js, Prisma ORM, and next-intl for internationalization.
 
 ## 🚀 Quick Start
